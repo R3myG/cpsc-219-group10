@@ -12,15 +12,12 @@ Other documents and communications are done through Facebook including Facebook'
 
 Meetings to date
 
-{| 
-|-
-||! Date !||! Time !||! Attendance ||
+
+|| Date || Time || Attendance ||
 |-
 || 22nd January || 4:00 || Remy,Gavin,Terry ||
 |-
 || 29th January || 3:30 || Everyone ||
-|-
-|}
 
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
