@@ -14,12 +14,6 @@ public class drawboard extends JFrame {
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		
-		
-		
-		JPanel pan = new JPanel();
-		pan.setBackground (Color.ORANGE);
-		
-		this.setContentPane(pan);
 		this.setContentPane(new drawOnWindow());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
