@@ -4,15 +4,25 @@ import javax.swing.JPanel;
 
 public class drawboard extends JFrame {
 	
-	public void Fenetre(){
+	public drawboard(){
 		
 		this.setTitle("First window test");
-		
-		this.setSize(400, 500);
-		
+		this.setSize(500, 500);
 		this.setLocationRelativeTo(null);
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		JPanel pan = new JPanel();
+		pan.setBackground (Color.ORANGE);
+		
+		this.setContentPane(pan);
+		
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		drawboard draw1 = new drawboard();
+		
 	}
 }
