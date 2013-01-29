@@ -14,11 +14,11 @@ Meetings to date
 
 {| class="wikitable"
 |-
-! Date !! time !! Attendance
+||! Date !||! Time !||! Attendance ||
 |-
-|| 22nd january || 4:00 || Remy,Gavin,Terry ||
+|| 22nd January || 4:00 || Remy,Gavin,Terry ||
 |-
-|| 29th january || 3:30 || Everyone ||
+|| 29th January || 3:30 || Everyone ||
 |-
 |}
 
