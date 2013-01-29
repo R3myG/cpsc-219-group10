@@ -12,7 +12,7 @@ Other documents and communications are done through Facebook including Facebook'
 
 Meetings to date
 
-{| class="wikitable"
+{| 
 |-
 ||! Date !||! Time !||! Attendance ||
 |-
