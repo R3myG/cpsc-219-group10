@@ -1,16 +1,18 @@
 import javax.swing.JFrame;
-public class drawboard {
-public static void main(String[] args){
-	JFrame fenetre = new JFrame();
+import java.awt.Color;
+import javax.swing.JPanel;
 
-		fenetre.setTitle("First window");
-
-
-		fenetre.setSize(400, 500);
-
-		fenetre.setLocationRelativeTo(null);
-
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setVisible(true);
+public class drawboard extends JFrame {
+	
+	public void Fenetre(){
+		
+		this.setTitle("First window test");
+		
+		this.setSize(400, 500);
+		
+		this.setLocationRelativeTo(null);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
 	}
 }
