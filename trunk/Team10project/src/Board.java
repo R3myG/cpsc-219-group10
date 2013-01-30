@@ -11,7 +11,7 @@ public class Board {
 	 * X-boat struck at this point
 	 */
 	
-	private char[][] gameBoard;
+	private char[][] gameBoard= new char[10][10];
 
 	private final char emptySpace = 'O';
 	private final char boatSpace = 'B';
@@ -21,11 +21,17 @@ public class Board {
 	private String owner = "";
 
 	// Define the owner of the board
-	void setOwner(String name){
+	public void setOwner(String name){
 		if(owner == "")
 			owner = name;
 	}
-	
+	public Board(){
+		for(int i=0;i<10;i++){
+			for(int j=0;j<10;j++){
+				gameBoard[i][j]=emptySpace;
+			}
+		}
+	}
 
 	/**
 	 * Convert the y coordinate from a letter coordinate to a number coordinate and vice versa
@@ -85,18 +91,21 @@ public class Board {
 		}
 		
 		// Check if the boat will fit
-		for(int i = 0; i < boat.length(); i++) {
-			if(gameBoard[boat.x + (i * horizontal)][yConv(boat.y) + (i * vertical)] != emptySpace) {
-				legal=false;
+		for(int i = 0; i < boat.length()&&legal; i++) {
+			if(boat.x + (i * horizontal)<10||boat.y + (i * vertical)<10){
+				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
+					legal=false;
+				}
 			}
 		}
-		
+
 		// If it does fit, update the game board with the newly added boat
 		if(legal) {
 			for(int i = 0; i < boat.length(); i++) {
-				gameBoard[boat.x + (i * horizontal)][yConv(boat.y) + (i * vertical)] = boatSpace;
+				gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] = boatSpace;
 			}
 		}
+
 		return legal;
 	}
 	
@@ -120,6 +129,17 @@ public class Board {
 			gameBoard[x][y] = missedSpace;
 		}
 		return hit;
+	}
+	public String toString(){
+		String out="";
+		for(int i=0;i<10;i++){
+			for(int j=0;j<10;j++){
+				out+=gameBoard[i][j];
+			}
+			out+="\n";
+		}
+		return out;
+		
 	}
 	
 }
