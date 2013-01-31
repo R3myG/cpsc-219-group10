@@ -13,7 +13,7 @@ public class BoardTest {
 		b2.setPosition(2,2,true);
 		b3.setPosition(3,3,true);
 		b4.setPosition(4,4,true);
-		b5.setPosition(4,4,true);
+		b5.setPosition(5,5,true);
 		
 		System.out.println(b1);
 		System.out.println(b2);
