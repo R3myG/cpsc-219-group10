@@ -15,7 +15,7 @@ public class drawOnWindow extends JPanel {
 	
 		int X_DOWN = middleX + 250;
 		int Y_DOWN = middleY + 250;
-			System.out.println("That's an awesome test ! ! !");
+			//System.out.println("That's an awesome test ! ! !");
 			for (int i=0; i<11 ; i++) {
 				g.drawLine(X_UP, Y_UP+i*50, X_DOWN, Y_UP+i*50);
 			}
