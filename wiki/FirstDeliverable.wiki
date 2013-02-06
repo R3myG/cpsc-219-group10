@@ -30,11 +30,15 @@ We will be developing the majority of the code as a group, to ensure each part o
 
 === Team Roles ===
 
-1.	Developer – Each team member will be responsible for developing their own section of the code
-2.	Architect – Each team member will be responsible for contributing to the architecture of the code being developed
-3.	Tester – Each team member will be responsible for testing their own code to ensure that it is working, as well as each other’s to ensure full functionality of all the code
-4.	Technical writer – Each team member will help to contribute to the completion of the technical documentation that goes along with the code being developed
-5.	Leader – Day-by-day, an individual from the group will take the role of leader. Some days people have an off day and the group will prosper much better if someone else was able to step up for the day.
+#Developer – Each team member will be responsible for developing their own section of the code
+
+#Architect – Each team member will be responsible for contributing to the architecture of the code being developed
+
+#Tester – Each team member will be responsible for testing their own code to ensure that it is working, as well as each other’s to ensure full functionality of all the code
+
+#Technical writer – Each team member will help to contribute to the completion of the technical documentation that goes along with the code being developed
+
+#Leader – Day-by-day, an individual from the group will take the role of leader. Some days people have an off day and the group will prosper much better if someone else was able to step up for the day.
 
 === Choice of Topic ===
 
