@@ -3,9 +3,8 @@
 = First Deliverable =
 
 
-
 = Group 10 =
-= First Deliverable =
+
 
 Code Repository
 Our team decided to use Google Code as out repository. All team members are familiar with Google systems, so Google Code seemed like a well suited repository for the group. As well, we were able to synchronize the file sharing system directly with the Eclipse Editor.
