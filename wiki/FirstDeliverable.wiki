@@ -1,4 +1,4 @@
-#A simple break down of the early stages of the project
+#summary -A simple break down of the early stages of the project
 
 = First Deliverable =
 
