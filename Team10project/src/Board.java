@@ -25,19 +25,20 @@ public class Board {
 		if(owner == "")
 			owner = name;
 	}
-	public Board(){
+	public Board(String name){
 		for(int i=0;i<10;i++){
 			for(int j=0;j<10;j++){
 				gameBoard[i][j]=emptySpace;
 			}
 		}
+		owner = name;
 	}
 
 	/**
 	 * Convert the y coordinate from a letter coordinate to a number coordinate and vice versa
 	 */
 	private int yConv(char y) {
-		int yint = (int)y - 97;
+		int yint = (int)y - (int)'a';
 		return yint;
 	}
 	private char yConv(int y){

@@ -7,7 +7,7 @@ public class BoardTest {
 		Boat b4= new Boat(3,"Gavin");
 		Boat b5= new Boat(4,"Gavin");
 		
-		Board gb = new Board();
+		Board gb = new Board("Gavin");
 		
 		b1.setPosition(1,1,true);
 		b2.setPosition(2,2,true);
@@ -26,8 +26,16 @@ public class BoardTest {
 		gb.addBoat(b3);
 		gb.addBoat(b4);
 		gb.addBoat(b5);
-
 		System.out.print(gb);
+		for(int i=0;i<10;i+=1){
+			for(char j='a';j<'k';j+=1){
+				System.out.println("attack: "+i+","+j+"\t"+
+						gb.targetSquare(i,j));
+			}
+			System.out.println(gb);
+		}
+
+		
 		
 	}
 }

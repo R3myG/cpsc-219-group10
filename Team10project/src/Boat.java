@@ -9,6 +9,7 @@ public class Boat {
 	public int x;
 	public int y;
 	private int length;
+	private int health;
 	
 	/**
 	 * returns the length of the boat
@@ -27,11 +28,38 @@ public class Boat {
 		type = types[type_num];
 		length = lengths[type_num];
 		owner=pname;
+		health=length;
 	}
 	public void setPosition(int xCoordinate, int yCoordinate, boolean orientation) {
 		x = xCoordinate-1;
 		y = yCoordinate-1;
 		vertical = orientation;
+	}
+	public void isMe(int x,int y){
+		boolean me = false;
+		int vertical = 0, horizontal = 0;
+		
+		// Set the orientation of the boat
+		if(this.vertical) {
+			vertical = 1;
+		} else {
+			horizontal = 1;
+		}
+		
+		// Check if the boat will fit
+		for(int i = 0; i < length; i++) {
+			if(this.x + (i * horizontal)==x||this.y + (i * vertical)==y){
+				health--;
+			}
+		}
+		
+	}
+	public boolean isSunk(){
+		if(health==0)
+			return true;
+		else
+			return false;
+		
 	}
 	public String toString(){
 		return owner+" "+type+" "+length+" "+x+" "+y+" "+vertical;
