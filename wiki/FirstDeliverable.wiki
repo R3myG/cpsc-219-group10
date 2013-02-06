@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#A simple break down of the early stages of the project
 
 = First Deliverable =
 
