@@ -1,5 +1,7 @@
 package com.cpsc219g10.view;
-
+/**
+ * This class is used to set the characters used in the differents pages
+ */
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -7,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 
 public abstract class ZContainer{
+	
 	protected JPanel panel;
 	
 	protected Font comics30 = new Font("Comics Sans MS", Font.BOLD, 30);

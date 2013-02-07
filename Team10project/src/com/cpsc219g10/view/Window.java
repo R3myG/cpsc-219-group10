@@ -39,11 +39,14 @@ public class Window extends JFrame{
 	    
 	    this.size = new Dimension(this.getWidth(), this.getHeight());
 	    
+	    //set the menu bar
 	    menu = new JMenuBar();
-
+	    
+	    //set column file
 	    file = new JMenu("File");
 	    file.setMnemonic('f');
 	    
+	    //set new in column file
 	    newgame = new JMenuItem("New");
 	    newgame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
 	                                                  InputEvent.CTRL_MASK));
@@ -57,7 +60,7 @@ public class Window extends JFrame{
 				//initModel();
 			}	    	
 	    });
-	    
+	    //set score in file
 	    score = new JMenuItem("Score");
 	    score.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
 	                                                KeyEvent.CTRL_MASK));
@@ -67,7 +70,7 @@ public class Window extends JFrame{
 			
 		}
     });
-
+    	//set quit in file
 	    quit = new JMenuItem("Quitter");
 	    quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
 	                                                  KeyEvent.CTRL_MASK));
@@ -76,16 +79,17 @@ public class Window extends JFrame{
 	    		System.exit(0);
 	    	}
 	    });
-
+	    //add all the previous to file
 	    file.add(newgame);
 	    file.add(score);
 	    file.addSeparator();
 	    file.add(quit);
-
+	    
+	    // set colum about
 	    about = new JMenu("À about");
 	    about.setMnemonic('o');
 	    
-
+	    //set rule for about
 	    rules = new JMenuItem("Rules of the game");
 	    rules.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
@@ -96,6 +100,7 @@ public class Window extends JFrame{
 			}	    	
 	    });
 
+	    //set about in column about
 	    about2 = new JMenuItem("   ?   ");
 	    about2.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
@@ -108,15 +113,19 @@ public class Window extends JFrame{
 	    		//model.reset();
 	    	}
 	    });
-
+	    
+	    //add rules and about in the column about
 	    about.add(rules);
 	    about.add(about2);
 
+	    //add column file and about to the menu
 	    menu.add(file);
 	    menu.add(about);
 	    
+	    
 	    this.conteneur.setPreferredSize(this.size);
 	    this.conteneur.setBackground(Color.white);
+	    //start the HomePanel
 	    this.conteneur.add(new HomePanel(this.size).getPanel());
 	    this.setContentPane(this.conteneur);
 	    

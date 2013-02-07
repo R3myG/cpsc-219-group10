@@ -1,5 +1,8 @@
 package com.cpsc219g10.view;
-
+/**
+ * This class set the home page of the program
+ * 
+ */
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,7 +26,7 @@ public class HomePanel extends ZContainer {
 		
 		this.panel.add(new JLabel(new ImageIcon("pictures/home.jpg")), BorderLayout.CENTER);
 		
-		JTextArea texte = new JTextArea(	"Welcome message\n" );
+		JTextArea texte = new JTextArea("Welcome message\n");
 		texte.setFont(arial);
 		texte.setEditable(false);
 		texte.setBackground(Color.pink);
