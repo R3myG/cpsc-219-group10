@@ -42,4 +42,8 @@ We will be developing the majority of the code as a group, to ensure each part o
 
 === Choice of Topic ===
 
-As a group, we have decided to create a Battleship game. It was a natural choice since each member of the group enjoys games of some sort or another.
+As a group, we have decided to create a Battleship game. It was a natural choice since each member of the group enjoys games of some sort or another. 
+
+In the game, we are going to try to make a graphical interface to allow for the players to have a much greater appreciation for the game. This means that we will need to have mouse interaction as a part of our code.
+
+As for actual game-play, we have decided to attempt three different game modes. First we would like to create a multi-player option, to allow two people to battle it out against each other. Once that is complete we were going to attempt to create an AI, so a player can play against a computer of varying difficulty. Finally, we were going to attempt to create some aspect of online or LAN play, to play with someone on another computer. This may be out of our league, but if all else works nicely, we would like to give it a shot! 
