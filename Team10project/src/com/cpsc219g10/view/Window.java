@@ -124,7 +124,7 @@ public class Window extends JFrame{
 	    
 	    
 	    this.conteneur.setPreferredSize(this.size);
-	    this.conteneur.setBackground(Color.white);
+	    this.conteneur.setBackground(Color.blue);
 	    //start the HomePanel
 	    this.conteneur.add(new HomePanel(this.size).getPanel());
 	    this.setContentPane(this.conteneur);
