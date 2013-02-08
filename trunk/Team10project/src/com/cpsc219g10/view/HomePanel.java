@@ -29,7 +29,7 @@ public class HomePanel extends ZContainer {
 		JTextArea texte = new JTextArea("Welcome message\n");
 		texte.setFont(arial);
 		texte.setEditable(false);
-		texte.setBackground(Color.pink);
+		texte.setBackground(Color.blue);
 		
 		this.panel.add(texte, BorderLayout.SOUTH);
 	}

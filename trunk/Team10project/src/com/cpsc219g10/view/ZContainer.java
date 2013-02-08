@@ -21,7 +21,7 @@ public abstract class ZContainer{
 	public ZContainer(Dimension dim){
 		this.panel = new JPanel();
 		this.panel.setPreferredSize(dim);
-		this.panel.setBackground(Color.pink);
+		this.panel.setBackground(Color.blue);
 		
 	}
 	

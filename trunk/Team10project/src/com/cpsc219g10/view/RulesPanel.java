@@ -26,7 +26,7 @@ public class RulesPanel extends ZContainer{
 		this.panel.add(new JLabel(new ImageIcon("home.jpg")), BorderLayout.CENTER);
 		
 		JTextArea accueil = new JTextArea();
-		accueil.setBackground(Color.pink);
+		accueil.setBackground(Color.blue);
 		accueil.setText(" Rules Rules Rules Rules Rules Rules Rules Rules Rules Rules" + 
 						"\nRules Rules Rules Rules Rules Rules Rules Rules Rules Rules");
 		accueil.setFont(arial);
