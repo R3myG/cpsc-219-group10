@@ -41,11 +41,11 @@ public class Board {
 		int yint = (int)y - (int)'a';
 		return yint;
 	}
-	private char yConv(int y){
+	/*private char yConv(int y){
 		char ychar = (char)(y + 97);
 		return ychar;
 	}
-	
+	*/
 	
 	/**
 	 * This method will check a block on either a player's own board or the opponent's board.
@@ -133,6 +133,7 @@ public class Board {
 	}
 	public String toString(){
 		String out="";
+		
 		for(int i=0;i<10;i++){
 			for(int j=0;j<10;j++){
 				out+=gameBoard[i][j]+"\t";
