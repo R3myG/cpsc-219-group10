@@ -14,8 +14,8 @@ public class Player {
 		// Check board if hit
 		// If miss, update board
 		// If hit, update board
-		// Check if sunk
-		// Check for gg
+			// if sunk, display message
+				// if gg, display message, quit
 	}
 	
 	
