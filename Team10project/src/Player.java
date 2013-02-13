@@ -1,11 +1,24 @@
 
 public class Player {
 	
+	/**
+	 * Instance variables
+	 */
 	private String name;
 
+	/**
+	 * Returning the name given to the player
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * Converting name to someName
+	 * so it can be used outside of this class
+	 * @param someName
+	 */
 	public void setName(String someName) {
 		name = someName;
 		
@@ -17,7 +30,4 @@ public class Player {
 			// if sunk, display message
 				// if gg, display message, quit
 	}
-	
-	
-	
 }
