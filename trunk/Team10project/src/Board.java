@@ -10,7 +10,7 @@ public class Board {
 	 * M-space has been hit though did not containing a boat
 	 * X-boat struck at this point
 	 */
-	
+	private int board_size=10;
 	private char[][] gameBoard= new char[10][10];
 
 	private final char emptySpace = 'O';
@@ -94,6 +94,7 @@ public class Board {
 		// Check if the boat will fit
 		for(int i = 0; i < boat.length() && legal; i++) {
 			if(boat.x + (i * horizontal) < 10 || boat.y + (i * vertical) < 10){
+				System.out.println(boat.x + (i * horizontal)+" "+boat.y + (i * vertical));
 				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
 					legal = false;
 				}
