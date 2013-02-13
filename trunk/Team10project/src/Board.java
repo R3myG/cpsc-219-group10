@@ -26,8 +26,8 @@ public class Board {
 			owner = name;
 	}
 	public Board(String name){
-		for(int i=0;i<10;i++){
-			for(int j=0;j<10;j++){
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
 				gameBoard[i][j]=emptySpace;
 			}
 		}
@@ -92,10 +92,10 @@ public class Board {
 		}
 		
 		// Check if the boat will fit
-		for(int i = 0; i < boat.length()&&legal; i++) {
-			if(boat.x + (i * horizontal)<10||boat.y + (i * vertical)<10){
+		for(int i = 0; i < boat.length() && legal; i++) {
+			if(boat.x + (i * horizontal) < 10 || boat.y + (i * vertical) < 10){
 				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
-					legal=false;
+					legal = false;
 				}
 			}
 		}
@@ -132,13 +132,12 @@ public class Board {
 		return hit;
 	}
 	public String toString(){
-		String out="";
-		
-		for(int i=0;i<10;i++){
-			for(int j=0;j<10;j++){
-				out+=gameBoard[i][j]+"\t";
+		String out = "";
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
+				out += gameBoard[i][j]+"\t";
 			}
-			out+="\n";
+			out += "\n";
 		}
 		return out;
 		
