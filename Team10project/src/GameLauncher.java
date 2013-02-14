@@ -54,7 +54,7 @@ public class GameLauncher{
 				int xCoordinate = keyboard.nextInt();
 				System.out.print("Enter the y coordinate: ");
 				int yCoordinate = keyboard.nextInt();
-				System.out.print("Is the boat vertical? ");
+				System.out.print("Is the boat vertical? True of False: ");
 				boolean orientation = keyboard.nextBoolean();
 				
 				Boat[i][j].setPosition(xCoordinate, yCoordinate, orientation);
