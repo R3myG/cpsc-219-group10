@@ -1,0 +1,20 @@
+#summary Second Deliverable
+
+= Test Documentation for the Second Deliverable =
+
+For the second deliverable this is for the interface part: 
+
+Using the Main class runs the interface part. This part was coded with eclipse in the package com.cpsc219g10.view. So the easiest way is to use eclipse. 
+You can test this interface by using quit, rules of the game and the credits with “?”. 
+
+"New" and "Score" have to be implemented
+
+So the class workings are:
+HomePanel => done
+RulesPanel => done
+Window => done 
+ZContainer => done
+
+In progress: 
+GamePanel => need to be done
+PlaceBoatPanel => need to be done
