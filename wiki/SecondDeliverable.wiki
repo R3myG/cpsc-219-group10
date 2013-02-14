@@ -34,7 +34,11 @@ In the future, there may be an AI aspect of the game developed, where a player c
 
 
 || *Player* ||
-
+||____________||
+||-name: String||
+||____________||
+||+setName(someName: String)||
+||+attack(target: Player, x: int, y:int)||
 
 
 
