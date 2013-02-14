@@ -33,9 +33,10 @@ In progress:
 
 
 Working methods are:
- * 
+ * getName() = done
+ * setName() = done
 In progress: 
- * 
+ * attack() = in progress
 
 == Board ==
 
