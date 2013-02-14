@@ -33,19 +33,19 @@ In progress:
 
 
 Working methods are:
- * getName() = done
- * setName() = done
+ * getNam) = done
+ * setName = done
 In progress: 
- * attack() = in progress
+ * attack = in progress
 
 == Board ==
 
 
 Working methods are:
- * setOwner() = done
- * Board() = done
- * getSquare() = done
- * addBoat() = true
- * targetSquare() = true
+ * setOwner = done
+ * Board = done
+ * getSquare = done
+ * addBoat = true
+ * targetSquare = true
 In progress: 
  * Everything should be set for the Board Class
