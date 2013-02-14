@@ -2,6 +2,8 @@
 
 = Test Documentation for the Second Deliverable =
 
+
+== Interface ==
 For the second deliverable this is for the interface part: 
 
 Using the Main class runs the interface part. This part was coded with eclipse in the package com.cpsc219g10.view. So the easiest way is to use eclipse. 
@@ -18,3 +20,9 @@ So the class workings are:
 In progress: 
  * GamePanel = need to be done
  * PlaceBoatPanel = need to be done
+
+== Boats ==
+
+== Player ==
+
+== Board ==
