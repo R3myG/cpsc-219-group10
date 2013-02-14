@@ -57,3 +57,20 @@ In the future, there may be an AI aspect of the game developed, where a player c
 ||+getSquare(player: String, x: int, ychar: char)||
 ||+addBoat(boat: Boat): boolean||
 ||targetSquare(x: int, ychar: char): boolean||
+
+
+
+|| *Window* ||
+||___________||
+||-menu: JMenuBar||
+||-file: JMenu||
+||-newgame: JMenuItem||
+||-score: JMenuItem||
+||-quit: JMenuItem||
+||-about: JMenu||
+||-about2: JMenu||
+||-rules: JMenuItem||
+||-conteneur: JPanel||
+||-size: Dimension||
+||________________||
+||+Window()||
