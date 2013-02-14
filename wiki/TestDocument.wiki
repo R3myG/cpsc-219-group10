@@ -42,6 +42,10 @@ In progress:
 
 
 Working methods are:
- * 
+ * setOwner() = done
+ * Board() = done
+ * getSquare() = done
+ * addBoat() = true
+ * targetSquare() = true
 In progress: 
- * 
+ * Everything should be set for the Board Class
