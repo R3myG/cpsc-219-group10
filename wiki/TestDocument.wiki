@@ -25,20 +25,21 @@ In progress:
 
 
 Working classes are:
-
+ * 
 In progress: 
-
+ * 
 == Player ==
 
 
 Working classes are:
-
+ * 
 In progress: 
-
+ * 
 
 == Board ==
 
 
 Working classes are:
-
+ * 
 In progress: 
+ * 
