@@ -24,14 +24,15 @@ In progress:
 == Boats ==
 
 
-Working classes are:
- * 
+Working methods are:
+ * setPostion = done
+ * Boat = done
 In progress: 
- * 
+ * isMe = in progress
 == Player ==
 
 
-Working classes are:
+Working methods are:
  * 
 In progress: 
  * 
@@ -39,7 +40,7 @@ In progress:
 == Board ==
 
 
-Working classes are:
+Working methods are:
  * 
 In progress: 
  * 
