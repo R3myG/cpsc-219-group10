@@ -16,15 +16,20 @@ In the future, there may be an AI aspect of the game developed, where a player c
 == UML Diagrams of 4 Classes ==
 
 || *Boat* ||
-|| +owner: String
-+vertical: boolean
-+x: int
-+y: int
--type: String
--types: String
--length: int
--health: int
-
+||*______________*||
+||+owner: String||
+||+vertical: boolean||
+||+x: int||
+||+y: int||
+||-type: String||
+||-types: String||
+||-length: int||
+||-health: int||
+||*____________*||
+||+Boat(type_num: int, pname: int)||
+||+setPosition(xCoordinate: int, yCoordinate: int, orientation: boolean)||
+||+isMe(x: int, y:int)||
+||+isSunk(): boolean||
 
 
 
@@ -34,3 +39,17 @@ In the future, there may be an AI aspect of the game developed, where a player c
 
 
 || *Board* ||
+||__________||
+||-board_size: int||
+||-gameBoard: char||
+||emptySpace: char||
+||boatSpace: char||
+||missedSpace: char||
+||HitSpace: char||
+||-owner: String||
+||______________||
+||+setOwner(name: String)||
+||+Board(name: String)||
+||+getSquare(player: String, x: int, ychar: char)||
+||+addBoat(boat: Boat): boolean||
+||targetSquare(x: int, ychar: char): boolean||
