@@ -1,5 +1,7 @@
 package com.cpsc219g10.view;
 import java.awt.Graphics;
+import com.cpsc219g10.model.*;
+
 
 
 public class turn {
@@ -87,8 +89,8 @@ public class turn {
 				if(((x2)/45)==x){
 					System.out.println("position "+x+" "+y+" placing vertical");
 
-					p[pnum].b[bnum].setPosition(x,y,true);
-					if(p[pnum].gb.addBoat(p[pnum].b[bnum])){
+					p[pnum].getBoat(bnum).setPosition(x,y,true);
+					if(p[pnum].getBoard.addBoat(p[pnum].getBoat(bnum))){
 						idraw.drawplyaterBoard(p[pnum]);
 						idraw.drawBoats(p[pnum],bnum);
 						try{Thread.sleep(1000);}catch(InterruptedException e){}
@@ -107,10 +109,10 @@ public class turn {
 				}
 				else if(y==(y2-155)/45){
 					System.out.println("position "+x+" "+y+" placing horizontal");
-					p[pnum].b[bnum].setPosition(x,y,false);
-					System.out.println(p[pnum].b[bnum]);
+					p[pnum].getBoat(bnum).setPosition(x,y,false);
+					System.out.println(p[pnum].getBoat(bnum));
 
-					if(p[pnum].gb.addBoat(p[pnum].b[bnum])){
+					if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
 						idraw.drawplyaterBoard(p[pnum]);
 						idraw.drawBoats(p[pnum],bnum);
 						try{Thread.sleep(1000);}catch(InterruptedException e){}

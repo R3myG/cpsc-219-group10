@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import com.cpsc219g10.model.Player;
+import com.cpsc219g10.model.*;
 import javax.imageio.ImageIO;
 
 
@@ -124,7 +124,7 @@ public class draw {
 				int x=50+i*GRIDSIZE+2+XSHIFT2;
 				int y=YSHIFT+((int)j-97)*GRIDSIZE+2;
 				
-				switch(op.gb.getSquare(p.name,i,j)){
+				switch(op.getBoard().getSquare(p.getName(),i,j)){
 				case emptySpace:
 					canvas.setColor(blue);
 					break;
@@ -151,13 +151,13 @@ public class draw {
 	 */
 	public void drawBoats(Player p){
 		for(int i=0;i<5;i++){	
-			if(p.b[i].x==-1&&p.b[i].y==-1){
+			if(p.getBoat(i).x==-1&&p.getBoat(i).y==-1){
 			}
 			else{
-				int x=p.b[i].x*45+50;
-				int y = p.b[i].y*45+200;
-				int l = p.b[i].length()*45;
-				if(p.b[i].vertical){
+				int x=p.getBoat(i).x*45+50;
+				int y = p.getBoat(i).y*45+200;
+				int l = p.getBoat(i).length()*45;
+				if(p.getBoat(i).vertical){
 					canvas.drawImage(vert, x, y, x+45,y+l , 45*i, 0, 45*(i+1), l, null );
 				}
 				else{
@@ -169,15 +169,15 @@ public class draw {
 	}
 	public void drawBoats(Player p,int num){
 		for(int i=0;i<num+1;i++){	
-			int l = p.b[i].length()*45;
-			System.out.println(p.b[i]);
-			if(p.b[i].x==-1&&p.b[i].y==-1){
+			int l = p.getBoat(i).length()*45;
+			System.out.println(p.getBoat(i));
+			if(p.getBoat(i).x==-1&&p.getBoat(i).y==-1){
 				canvas.drawImage(hor, 50, 150, 50+l,195 , 0, 45*i, l, 45*(i+1), null );
 			}
 			else{
-				int x=p.b[i].x*45+50;
-				int y = p.b[i].y*45+200;
-				if(p.b[i].vertical){
+				int x=p.getBoat(i).x*45+50;
+				int y = p.getBoat(i).y*45+200;
+				if(p.getBoat(i).vertical){
 					canvas.drawImage(vert, x, y, x+45,y+l , 45*i, 0, 45*(i+1), l, null );
 				}
 				else{
@@ -204,7 +204,7 @@ public class draw {
 		canvas.fillRect(0,0,10000,10000);
 		canvas.setColor(red);		
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
-		canvas.drawString(winner.name+" wins!!",600,300);
+		canvas.drawString(winner.getName()+" wins!!",600,300);
 		
 	}
 }

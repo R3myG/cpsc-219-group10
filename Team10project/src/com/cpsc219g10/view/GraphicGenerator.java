@@ -1,5 +1,6 @@
 package com.cpsc219g10.view;
 import java.awt.Graphics;
+
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +11,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import com.cpsc219g10.model.*;
+
 public class GraphicGenerator {		
 	//generate an instance of the turns
 	public turn game = new turn();
@@ -23,8 +26,8 @@ public class GraphicGenerator {
  */
 	public void start(JPanel pan1){
 		Player[] p=new Player[2];
-		p[0]=new Player("Gavin");
-		p[1]=new Player("Claire");
+		//p[0]=new Player("Gavin");
+		//p[1]=new Player("Claire");
 		Random gen = new Random();
 		//set boat positoins randomly.
 		/*
