@@ -92,13 +92,15 @@ public class Board {
 		}
 		
 		// Check if the boat will fit
-		for(int i = 0; i < boat.length()&&legal; i++) {
-			if(boat.x + (i * horizontal)<10 && boat.y + (i * vertical)<10){
+		for(int i = 0; i < boat.length() && legal; i++) {
+			if(boat.x + (i * horizontal) < 10 && boat.y + (i * vertical) < 10) {
 				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
+					System.out.println("There is another boat in the way!");
 					legal=false;
 				}
 			}
 			else{
+				System.out.println("The boat you have placed will not fit!");
 				legal=false;
 			}
 		}

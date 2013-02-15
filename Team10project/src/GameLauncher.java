@@ -4,10 +4,9 @@ import java.util.Scanner;
  */
 
 public class GameLauncher{
-	private static final Object[] Boats = null;
 	static Scanner keyboard = new Scanner(System.in);
 	
-	public static void main(String[] args){		
+	public static void main(String[] args){
 		Player Winner = new Player();
 		
 		//Asks user for the number of players, and converts it to an integer
@@ -36,20 +35,20 @@ public class GameLauncher{
 
 		}
 		
-		System.out.println("Create your boards!");
+		System.out.println("Create your boards!\n");
 		
 		
 		// Get each player to add boats to their board
 		// MAY GET MOVED TO BOAT CLASS!!!
 		for (int i = 0; i < numberOfPlayers; i++) {
-			System.out.println("It is " + Player[i].getName() +"'s turn to set their board!");
+			System.out.println("It is " + Player[i].getName() +"'s turn to set their board!\n");
 			for(int j = 0; j < 5; j++) {
 				Boat[i][j] = new Boat(j, Player[i].getName());
 				
 				// Print out what type of boat is being added
 				// OR let the user choose which type (and length)
 				// Use some method of setting the position
-				// NOTE: Orientation and the board.addBoat loop is wrong
+				do{
 				System.out.print("Enter the x coordinate: ");
 				int xCoordinate = keyboard.nextInt();
 				System.out.print("Enter the y coordinate: ");
@@ -58,20 +57,22 @@ public class GameLauncher{
 				boolean orientation = keyboard.nextBoolean();
 				
 				Boat[i][j].setPosition(xCoordinate, yCoordinate, orientation);
-				Board[i].addBoat(Boat[i][j]);
+				
+				// Keep asking for an input until a valid input is correct
+				} while(!Board[i].addBoat(Boat[i][j]));
+				
 				System.out.print(Boat[i][j] + "\n");
-				System.out.print(Board[i]);
 			}
 		}
-		
+		System.out.println("Finished placing boats, begin attacking!");
 		
 		// Start the game
 		int target;
 		int x;
-		int y;
-		
-		while (Winner.getName() == null) {
-			for (int i = 0; i < numberOfPlayers-1; i++) {
+		String y;
+		char ychar;
+		int i = 0;
+		do {
 			System.out.println("It is " + Player[i].getName() + "'s turn!");
 			
 			// Change this to either a string or a select method.
@@ -82,14 +83,30 @@ public class GameLauncher{
 			x = keyboard.nextInt();
 			
 			System.out.println("Enter the y-coordinate you want to attack:");
-			y = keyboard.nextInt();
+			y = keyboard.next();
 			
+			ychar = y.charAt(0);
 			
-			Player[i].attack(Player[target], x, y);
-			System.out.println("There is no winner!");			
-			
+			if (Board[target].targetSquare(x, ychar)) {
+				System.out.println("You have hit the opponent!");
+				/* Display on both boards
+				 * if sunk, print out which boat is sunk
+				 * if game is over, Winner.setName(Player[i].getName());
+				 * 
+				 */
+			} else {
+				System.out.println("You missed!");
 			}
-		}
+			
+			
+			if (i == numberOfPlayers - 1) {
+				i = 0;
+			} else {
+				i++;
+			}
+			
+		}	while (Winner.getName() == null);
+		
 		System.out.println("The winner is: " + Winner.getName());
 		
 		
