@@ -41,16 +41,18 @@ public class turn {
 				//check if sqare is targetable
 				if(p[pnum].canAttack(p[opnum],x,y)){
 					//attack square
-					System.out.println(p[pnum].name+" is targeting"+y+" "+x);
+					System.out.println(p[pnum].getName()+" is targeting"+y+" "+x);
 					if(p[pnum].attack(p[opnum],x,y)){
 						System.out.println("hit!!");
 
 					}
 					//check for  victory
-					if(p[opnum].hp==0){
+					
+					/*if(p[opnum].hp==0){
 				    	idraw.won(p[pnum]);
 						//return p[pnum];
-					}
+					}*/
+					
 					//switch players
 					else{
 						int hold =pnum;
@@ -90,7 +92,7 @@ public class turn {
 					System.out.println("position "+x+" "+y+" placing vertical");
 
 					p[pnum].getBoat(bnum).setPosition(x,y,true);
-					if(p[pnum].getBoard.addBoat(p[pnum].getBoat(bnum))){
+					if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
 						idraw.drawplyaterBoard(p[pnum]);
 						idraw.drawBoats(p[pnum],bnum);
 						try{Thread.sleep(1000);}catch(InterruptedException e){}

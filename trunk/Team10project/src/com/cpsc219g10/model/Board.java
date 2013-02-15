@@ -60,7 +60,7 @@ public class Board {
 	 * @param ychar - y coordinate as a character 
 	 * @return value of the board at that space x,y if your not the board owner 
 	 */
-	char getSquare(String player, int x, char ychar){
+	public char getSquare(String player, int x, char ychar){
 		int y = yConv(ychar);
 		
 		if(player == owner) {
