@@ -1,3 +1,4 @@
+package com.cpsc219g10.model;
 /**
  * Creating the instance variables
  * and methods for the 
@@ -44,7 +45,6 @@ public class Boat {
 		vertical = orientation;
 	}
 	public void isMe(int x,int y){
-		boolean me = false;
 		int vertical = 0, horizontal = 0;
 		
 		// Set the orientation of the boat
