@@ -30,11 +30,9 @@ Working methods are:
 In progress: 
  * isMe = in progress
 BoatTest
--boat test is a simple test that ensures a boat object can be created and that the position of the boat can
- be set and altered.
+*boat test is a simple test that ensures a boat object can be created and that the position of the boat can be set and altered.
 
-the output should be simply a print out of the boat's stats. followed by a length print out matching the
- length of the boat.
+*the output should be simply a print out of the boat's stats. followed by a length print out matching the length of the boat.
 == Player ==
 
 
