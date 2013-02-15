@@ -92,12 +92,14 @@ public class Board {
 		}
 		
 		// Check if the boat will fit
-		for(int i = 0; i < boat.length() && legal; i++) {
-			if(boat.x + (i * horizontal) < 10 || boat.y + (i * vertical) < 10){
-				System.out.println(boat.x + (i * horizontal)+" "+boat.y + (i * vertical));
+		for(int i = 0; i < boat.length()&&legal; i++) {
+			if(boat.x + (i * horizontal)<10 && boat.y + (i * vertical)<10){
 				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
-					legal = false;
+					legal=false;
 				}
+			}
+			else{
+				legal=false;
 			}
 		}
 
@@ -136,7 +138,7 @@ public class Board {
 		String out = "";
 		for(int i = 0; i < 10; i++){
 			for(int j = 0; j < 10; j++){
-				out += gameBoard[i][j]+"\t";
+				out += gameBoard[j][i]+"\t";
 			}
 			out += "\n";
 		}
