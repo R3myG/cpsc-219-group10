@@ -32,6 +32,7 @@ In progress:
 BoatTest
 boat test is a simple test that ensures a boat object can be created and that the position of the boat can be set and altered.
 the output should be simply a print out of the boat's stats. followed by a length print out matching the length of the boat.
+the BoatTest class need only be run along with the boat class.
 
 == Player ==
 
@@ -58,3 +59,5 @@ BoardTest:
 	
 	after this it goes though and attacks every other space on the board. printing out the board afterwards as well.
 	you should be able to view the position of each boat on the grid and compare it to the two different boards. the positions and orientations should match up. 
+
+the BoardTest class has to run along with the Board class as well however it must also have the the Boat class present as well. 
