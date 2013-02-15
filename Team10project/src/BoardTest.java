@@ -8,20 +8,15 @@ public class BoardTest {
 		for(int i=0;i<5;i++){
 			do{
 				boats[i].setPosition(gen.nextInt(10)+1,gen.nextInt(10)+1,gen.nextBoolean());
-				System.out.println(boats[i]);
-
 			}while(!gb.addBoat(boats[i]));
+			System.out.println(boats[i]);
 		}
 		System.out.print(gb);
-		for(int i=0;i<10;i+=1){
-			for(char j='a';j<'k';j+=1){
-				System.out.println("attack: "+i+","+j+"\t"+
-						gb.targetSquare(i,j));
+		for(int i=0;i<10;i+=2){
+			for(char j='a';j<'k';j+=2){
+				gb.targetSquare(i,j);
 			}
-			System.out.println(gb);
 		}
-
-		
-		
+		System.out.println("\n"+gb);
 	}
 }
