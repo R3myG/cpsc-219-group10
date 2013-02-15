@@ -10,7 +10,7 @@ public class drawOnWindow extends JPanel {
 	
 	
 	public void paintComponent(Graphics g){
-		int X_UP = middleX -250;
+		int X_UP = middleX -300;
 		int Y_UP = middleY -250;
 	
 		int X_DOWN = middleX + 250;
