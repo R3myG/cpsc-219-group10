@@ -47,7 +47,7 @@ public class Window extends JFrame{
 	    file.setMnemonic('f');
 	    
 	    //set new in column file
-	    newgame = new JMenuItem("New");
+	    newgame = new JMenuItem("New Game");
 	    newgame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
 	                                                  InputEvent.CTRL_MASK));
 	    newgame.addActionListener(new ActionListener(){
