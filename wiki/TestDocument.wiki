@@ -30,9 +30,9 @@ Working methods are:
 In progress: 
  * isMe = in progress
 BoatTest
-boat test is a simple test that ensures a boat object can be created and that the position of the boat can be set and altered.
-the output should be simply a print out of the boat's stats. followed by a length print out matching the length of the boat.
-the BoatTest class need only be run along with the boat class.
+Boat test is a simple test that ensures a boat object can be created, and that the position of the boat can be set and altered.
+The output should be simply a print out of the boat's stats, followed by a length print out, matching the length of the boat.
+The BoatTest class need only be run along with the boat class.
 
 == Player ==
 
@@ -55,9 +55,9 @@ Working methods are:
 In progress: 
  * Everything should be set for the Board Class
 BoardTest:
-	the board test is a little more involved. it generates a board and all 5 boat objects then adds the boats to the board. it will then print out the board as a text. 
+	The BoardTest is a little more involved. It generates a board and all 5 boat objects, then adds the boats to the board. It will then print out the board as a text. 
 	
-	after this it goes though and attacks every other space on the board. printing out the board afterwards as well.
-	you should be able to view the position of each boat on the grid and compare it to the two different boards. the positions and orientations should match up. 
+	After this it goes through and attacks every other space on the board. Printing out the board afterwards as well.
+	You should be able to view the position of each boat on the grid and compare it to the two different boards. The positions and orientations should match up. 
 
-the BoardTest class has to run along with the Board class as well however it must also have the the Boat class present as well. 
+The BoardTest class has to run along with the Board class as well, however it must also have the the BoatClass present as well. 
