@@ -76,3 +76,4 @@ http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png
 ||+Window()||
 
 == Classes still needed to be created ==
+As of right now, there are no classes that we need to create. However, it is almost assured that we will stumble upon a case in which we need to implement a few more classes.
