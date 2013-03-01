@@ -1,6 +1,5 @@
 package com.cpsc219g10.model;
 
-
 public class Player {
 	
 	/**
@@ -9,6 +8,7 @@ public class Player {
 	private String name;
 	public Boat[] boats= new Boat[5];
 	public Board gameBoard;
+	public int hp=17;
 	public Player(String Pname){
 		for(int i=0;i<5;i++){
 			boats[i]=new Boat(i,Pname);
@@ -38,16 +38,26 @@ public class Player {
 		name = someName;
 		
 	}
-	public boolean attack(Player target, int x, int y){
-		// Check board if hit
-		// If miss, update board
-		// If hit, update board
-			// if sunk, display message
-				// if gg, display message, quit
+	public Boolean canAttack(Player opponent,int x,char y){
+		if(opponent.gameBoard.getSquare(name,x-1,y)=='O')
+			return true;
+		else
+			return false;
+	}
+	public boolean attack(Player opponent, int x, char y){
+		if(opponent.gameBoard.targetSquare(x-1,y)){
+			opponent.hp--;
+			return true;
+		}
 		return false;
 	}
-	public boolean canAttack(Player player, int x, char y) {
-		// TODO Auto-generated method stub
-		return false;
+	public String toString(){
+		String msg=name+"\n\n";
+		for(int i=0;i<5;i++){
+			msg+=boats[i]+"\n";
+		}
+		msg+=gameBoard;
+		return msg;
+		
 	}
 }

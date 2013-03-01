@@ -19,8 +19,8 @@ public class GameLauncher{
 		for (int i = 0; i < numberOfPlayers; i++) {
 			System.out.println("Please enter player " + (i + 1) + "'s name: ");
 			String someName = keyboard.nextLine();
-			Player player = new Player();
-			player.setName(someName + i);
+			Player player = new Player(someName);
+			//player.setName(someName + i);
 		}
 		/*while (Winner.getName() == null) {
 			
