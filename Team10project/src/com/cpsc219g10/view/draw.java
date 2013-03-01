@@ -42,10 +42,10 @@ public class draw {
 	public draw(Graphics acanvas){
 		try 
 		{
-		hit = ImageIO.read(new File("HIT!.png"));
-		vert = ImageIO.read(new File("VERTBOATS.png"));
-		hor = ImageIO.read(new File("HORBOATS.png"));
-		back = ImageIO.read(new File("back.png"));
+		hit = ImageIO.read(new File("pictures/HIT!.png"));
+		vert = ImageIO.read(new File("pictures/VERTBOATS.png"));
+		hor = ImageIO.read(new File("pictures/HORBOATS.png"));
+		back = ImageIO.read(new File("pictures/back.png"));
 
 		} 
 		catch (IOException e) 
@@ -59,8 +59,19 @@ public class draw {
 		canvas.setColor(black);
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString(p.getName(),100,100);
+		/*for(int i=0;i<GRIDSIZE*11;i+=GRIDSIZE){
+			canvas.drawLine(XSHIFT,i+YSHIFT,GRIDSIZE*10+XSHIFT,i+YSHIFT);
+			canvas.drawLine(i+XSHIFT,YSHIFT,i+XSHIFT,GRIDSIZE*10+YSHIFT);
+
+		}
+		int point=1;
+		for(int i=0;i<GRIDSIZE*10;i+=GRIDSIZE){
+			canvas.setFont(new Font("sansserif", Font.BOLD, 32));
+			canvas.drawString(Integer.toString(point), i+XSHIFT,YSHIFT-10);
+			canvas.drawString(Character.toString((char)(point+64)), 20,i+YSHIFT+30);
+			point++;
+		}*/
 		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
-		drawBoats(p);
 		for(int i=0;i<10;i++){
 			for(char j='a';j<'k';j++){
 				int x=XSHIFT+i*GRIDSIZE+2;
@@ -99,6 +110,18 @@ public class draw {
 	 */
 	public void drawopponentBoard(Player p,Player op){
 		canvas.setColor(black);
+		/*for(int i=0;i<GRIDSIZE*11;i+=GRIDSIZE){
+			canvas.drawLine(50+XSHIFT2,i+YSHIFT,GRIDSIZE*10+50+XSHIFT2,i+YSHIFT);
+			canvas.drawLine(i+50+XSHIFT2,YSHIFT,i+50+XSHIFT2,GRIDSIZE*10+YSHIFT);
+
+		}
+		int point=1;
+		for(int i=0;i<GRIDSIZE*10;i+=GRIDSIZE){
+			canvas.drawString(Integer.toString(point), i+50+XSHIFT2,YSHIFT-10);
+			canvas.drawString(Character.toString((char)(point+64)), 20+XSHIFT2,i+YSHIFT+30);
+			point++;
+		}
+		*/
 		for(int i=0;i<10;i++){
 			for(char j='a';j<'k';j++){
 				int x=50+i*GRIDSIZE+2+XSHIFT2;
@@ -127,6 +150,7 @@ public class draw {
 	 * @param canvas
 	 */
 	public void drawBoats(Player p){
+		System.out.println("drawboats!!!");
 		for(int i=0;i<5;i++){	
 			if(p.getBoat(i).x==-1&&p.getBoat(i).y==-1){
 			}
@@ -145,6 +169,7 @@ public class draw {
 		}
 	}
 	public void drawBoats(Player p,int num){
+		System.out.println("drawboats to "+num);
 		for(int i=0;i<num+1;i++){	
 			int l = p.getBoat(i).length()*45;
 			System.out.println(p.getBoat(i));
@@ -196,8 +221,9 @@ public class draw {
 				y=YSHIFT+y*GRIDSIZE+2;
 				canvas.setColor(red);
 				canvas.fillRect(x,y,GRIDSIZE-4,GRIDSIZE-4);
+
+				
 			}
 		}		
 	}
 }
-

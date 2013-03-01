@@ -119,7 +119,7 @@ public class turn {
 							bnum++;
 						}
 						idraw.black();
-
+						return true;
 					}
 					else
 						System.out.println("position "+x+" "+y+" placing failed");
@@ -139,7 +139,6 @@ public class turn {
 			if(bnum<5)
 				idraw.drawBoats(p[pnum],bnum);
 		}
-		//return null;
 		return false;
 	}
 	public boolean allready() {
