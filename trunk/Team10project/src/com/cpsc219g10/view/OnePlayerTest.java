@@ -9,15 +9,15 @@ public class OnePlayerTest {
 		myframe.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		myframe.setSize(1440,781);
 		myframe.setLocation(30,30);
-		JPanel pan1 = new JPanel();
+		JPanel pan = new JPanel();
 		try{Thread.sleep(1000);}catch(InterruptedException e){}
-		myframe.add(pan1);
-		pan1.setLocation(0,0);
-		pan1.setSize(1440,781);
+		myframe.add(pan);
+		pan.setLocation(0,0);
+		pan.setSize(1440,781);
 		try{Thread.sleep(1000);}catch(InterruptedException e){}
 		myframe.setVisible(true);
 		
 		GraphicGenerator game = new GraphicGenerator();
-		game.start(pan1);
+		game.start(pan);
 	}
 }
