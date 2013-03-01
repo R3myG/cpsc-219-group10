@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import com.cpsc219g10.model.*;
+
 import javax.imageio.ImageIO;
+
+import com.cpsc219g10.model.Player;
 
 
 public class draw {
@@ -17,7 +19,7 @@ public class draw {
 	private final Color black=new Color(0,0,0,255);
 	private final Color red=new Color(255,0,0,255);
 	private final Color green=new Color(0,255,0,255);
-	private final Color blue=new Color(0,0,255,255);
+	//private final Color blue=new Color(0,0,255,255);
 	private final Color white=new Color(255,255,255,255);
 	private final Color clear=new Color(0,0,0,0);
 	
@@ -40,10 +42,10 @@ public class draw {
 	public draw(Graphics acanvas){
 		try 
 		{
-		hit = ImageIO.read(new File("pictures/HIT!.png"));
-		vert = ImageIO.read(new File("pictures/VERTBOATS.png"));
-		hor = ImageIO.read(new File("pictures/ORBOATS.png"));
-		back = ImageIO.read(new File("pictures/back.png"));
+		hit = ImageIO.read(new File("HIT!.png"));
+		vert = ImageIO.read(new File("VERTBOATS.png"));
+		hor = ImageIO.read(new File("HORBOATS.png"));
+		back = ImageIO.read(new File("back.png"));
 
 		} 
 		catch (IOException e) 
@@ -57,18 +59,7 @@ public class draw {
 		canvas.setColor(black);
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString(p.getName(),100,100);
-		for(int i=0;i<GRIDSIZE*11;i+=GRIDSIZE){
-			canvas.drawLine(XSHIFT,i+YSHIFT,GRIDSIZE*10+XSHIFT,i+YSHIFT);
-			canvas.drawLine(i+XSHIFT,YSHIFT,i+XSHIFT,GRIDSIZE*10+YSHIFT);
-
-		}
-		int point=1;
-		for(int i=0;i<GRIDSIZE*10;i+=GRIDSIZE){
-			canvas.setFont(new Font("sansserif", Font.BOLD, 32));
-			canvas.drawString(Integer.toString(point), i+XSHIFT,YSHIFT-10);
-			canvas.drawString(Character.toString((char)(point+64)), 20,i+YSHIFT+30);
-			point++;
-		}
+		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
 		drawBoats(p);
 		for(int i=0;i<10;i++){
 			for(char j='a';j<'k';j++){
@@ -77,7 +68,7 @@ public class draw {
 				
 				switch(p.getBoard().getSquare(p.getName(),i,j)){
 				case emptySpace:
-					canvas.setColor(blue);
+					canvas.setColor(clear);
 					break;
 				case boatSpace:
 					canvas.setColor(clear);
@@ -97,7 +88,7 @@ public class draw {
 				
 			}
 		}
-		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
+		//canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
 
 	}
 	/**
@@ -108,17 +99,6 @@ public class draw {
 	 */
 	public void drawopponentBoard(Player p,Player op){
 		canvas.setColor(black);
-		for(int i=0;i<GRIDSIZE*11;i+=GRIDSIZE){
-			canvas.drawLine(50+XSHIFT2,i+YSHIFT,GRIDSIZE*10+50+XSHIFT2,i+YSHIFT);
-			canvas.drawLine(i+50+XSHIFT2,YSHIFT,i+50+XSHIFT2,GRIDSIZE*10+YSHIFT);
-
-		}
-		int point=1;
-		for(int i=0;i<GRIDSIZE*10;i+=GRIDSIZE){
-			canvas.drawString(Integer.toString(point), i+50+XSHIFT2,YSHIFT-10);
-			canvas.drawString(Character.toString((char)(point+64)), 20+XSHIFT2,i+YSHIFT+30);
-			point++;
-		}
 		for(int i=0;i<10;i++){
 			for(char j='a';j<'k';j++){
 				int x=50+i*GRIDSIZE+2+XSHIFT2;
@@ -126,10 +106,7 @@ public class draw {
 				
 				switch(op.getBoard().getSquare(p.getName(),i,j)){
 				case emptySpace:
-					canvas.setColor(blue);
-					break;
-				case boatSpace:
-					canvas.setColor(green);
+					canvas.setColor(clear);
 					break;
 				case missedSpace:
 					canvas.setColor(white);
@@ -191,9 +168,11 @@ public class draw {
 		canvas.setColor(black);		
 		canvas.fillRect(0,0,10000,10000);
 		canvas.setColor(white);	
+		canvas.fillRect(560,250,300,70);
+		canvas.setColor(black);		
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString("NEXT PLAYER",600,300);
-	}
+}
 	/**
 	 * displays the winner on a green canvas
 	 * @param winner - the person who has won
@@ -207,4 +186,18 @@ public class draw {
 		canvas.drawString(winner.getName()+" wins!!",600,300);
 		
 	}
+	public void paintSquare(int ax, int ay) {
+		if(ax<500&&ax>50){
+			int x=((ax)/45)-1;
+			if(ay<650&&ay>200){
+				int y=((ay-155)/45)-1;
+				System.out.println(y+" "+x);
+				x=x*GRIDSIZE+2+XSHIFT;
+				y=YSHIFT+y*GRIDSIZE+2;
+				canvas.setColor(red);
+				canvas.fillRect(x,y,GRIDSIZE-4,GRIDSIZE-4);
+			}
+		}		
+	}
 }
+

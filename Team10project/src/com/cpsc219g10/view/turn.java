@@ -1,13 +1,9 @@
 package com.cpsc219g10.view;
-import java.awt.Graphics;
-import com.cpsc219g10.model.*;
-
-
+import com.cpsc219g10.model.Player;
 
 public class turn {
 	//graphics from canvas and players
 	private Player[] p = new Player[2];
-	private Graphics canvas;
 	//curent value's of player turns
 	int pnum=0;
 	int opnum=1;
@@ -20,7 +16,6 @@ public class turn {
 	 * @param canvas
 	 */
 	public void set(Player player, Player opponent,draw adraw){
-		this.canvas=canvas;
 		p[0]=player;
 		p[1]=opponent;
 		idraw=adraw;
@@ -47,12 +42,10 @@ public class turn {
 
 					}
 					//check for  victory
-					
-					/*if(p[opnum].hp==0){
+					if(p[opnum].hp==0){
 				    	idraw.won(p[pnum]);
 						//return p[pnum];
-					}*/
-					
+					}
 					//switch players
 					else{
 						int hold =pnum;
@@ -82,7 +75,7 @@ public class turn {
 		//return null;
 
 }
-	public void place(int x1,int y1, int x2, int y2) {
+	public boolean place(int x1,int y1, int x2, int y2) {
 		if(x1<500&&x1>50){
 			int x=((x1)/45);
 			if(y1<650&&y1>200){
@@ -103,6 +96,7 @@ public class turn {
 							bnum++;
 						}
 						idraw.black();
+						return true;
 
 					}
 					else
@@ -133,13 +127,6 @@ public class turn {
 				}
 				else
 					System.out.println("position "+x+" "+y+" placing failed");
-			//refresh board on click outside of box
-			/*try{Thread.sleep(3000);}catch(InterruptedException e){}
-			idraw.drawplyaterBoard(p[pnum]);
-			if(bnum<5)
-				idraw.drawBoats(p[pnum],bnum);
-			*/
-			//draw.drawopponentBoard(p[pnum],p[opnum]);
 			}
 			else{
 				idraw.drawplyaterBoard(p[pnum]);
@@ -153,6 +140,7 @@ public class turn {
 				idraw.drawBoats(p[pnum],bnum);
 		}
 		//return null;
+		return false;
 	}
 	public boolean allready() {
 		if(bnum==5)
@@ -174,4 +162,8 @@ public class turn {
 			draw();
 		}
 	}
+	public void markSquare(int ax, int ay) {
+
+	}
 }
+
