@@ -27,9 +27,8 @@ public class turn {
 	 */
 	public void play(int i, int j){
 		//check that x and y are in the play box. if they are in the play feild calculating the box they are in if so. 
-		if(i<1200&&i>750){
+		if(i<1200&&i>750&&j<650&&j>200){
 			int x=((i-700)/45);
-			if(j<650&&j>200){
 				char y=(char)(((j-200)/45)+(int)'a');
 				//try an attack on the player at teh square clicked
 				
@@ -54,13 +53,6 @@ public class turn {
 					}
 					//black out for trun change
 					idraw.black();
-					/*try{Thread.sleep(3000);}catch(InterruptedException e){}
-					//draw new board
-					idraw.drawplyaterBoard(p[pnum]);
-					idraw.drawopponentBoard(p[pnum],p[opnum]);
-					*/
-
-				}
 			}
 			else{
 				idraw.drawplyaterBoard(p[pnum]);
@@ -76,64 +68,54 @@ public class turn {
 
 }
 	public boolean place(int x1,int y1, int x2, int y2) {
-		if(x1<500&&x1>50){
+		if(x1<500&&x1>50&&y1<650&&y1>200){
 			int x=((x1)/45);
-			if(y1<650&&y1>200){
-				int y=((y1-155)/45);
-				System.out.println("position "+x+" "+y+" placing attempt");
-				if(((x2)/45)==x){
-					System.out.println("position "+x+" "+y+" placing vertical");
+			int y=((y1-155)/45);
+			System.out.println("position "+x+" "+y+" placing attempt");
+			if(((x2)/45)==x){
+				System.out.println("position "+x+" "+y+" placing vertical");
 
-					p[pnum].getBoat(bnum).setPosition(x,y,true);
-					if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-						idraw.drawplyaterBoard(p[pnum]);
-						idraw.drawBoats(p[pnum],bnum);
-						try{Thread.sleep(1000);}catch(InterruptedException e){}
-						int hold =pnum;
-						pnum=opnum;
-						opnum=hold;
-						if(opnum==1){
-							bnum++;
-						}
-						idraw.black();
-						return true;
-
-					}
-					else
-						System.out.println("position "+x+" "+y+" placing failed");
-
-				}
-				else if(y==(y2-155)/45){
-					System.out.println("position "+x+" "+y+" placing horizontal");
-					p[pnum].getBoat(bnum).setPosition(x,y,false);
-					System.out.println(p[pnum].getBoat(bnum));
-
-					if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-						idraw.drawplyaterBoard(p[pnum]);
-						idraw.drawBoats(p[pnum],bnum);
-						try{Thread.sleep(1000);}catch(InterruptedException e){}
-						int hold =pnum;
-						pnum=opnum;
-						opnum=hold;
-						if(opnum==1){
-							bnum++;
-						}
-						idraw.black();
-						return true;
-					}
-					else
-						System.out.println("position "+x+" "+y+" placing failed");
-
-				}
-				else
-					System.out.println("position "+x+" "+y+" placing failed");
-			}
-			else{
-				idraw.drawplyaterBoard(p[pnum]);
-				if(bnum<5)
+				p[pnum].getBoat(bnum).setPosition(x,y,true);
+				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
+					idraw.drawplyaterBoard(p[pnum]);
 					idraw.drawBoats(p[pnum],bnum);
+					try{Thread.sleep(1000);}catch(InterruptedException e){}
+					int hold =pnum;
+					pnum=opnum;
+					opnum=hold;
+					if(opnum==1){
+						bnum++;
+					}
+					idraw.black();
+					return true;
+
+				}
+				else{System.out.println("position "+x+" "+y+" placing failed");}
+
 			}
-		}
+			else if(y==(y2-155)/45){
+				System.out.println("position "+x+" "+y+" placing horizontal");
+				p[pnum].getBoat(bnum).setPosition(x,y,false);
+				System.out.println(p[pnum].getBoat(bnum));
+
+				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
+					idraw.drawplyaterBoard(p[pnum]);
+					idraw.drawBoats(p[pnum],bnum);
+					try{Thread.sleep(1000);}catch(InterruptedException e){}
+					int hold =pnum;
+					pnum=opnum;
+					opnum=hold;
+					if(opnum==1){
+						bnum++;
+					}
+					idraw.black();
+					return true;
+				}
+				else{System.out.println("position "+x+" "+y+" placing failed");}
+
+			}
+			else{System.out.println("position "+x+" "+y+" placing failed");}
+			}
 		else{
 			idraw.drawplyaterBoard(p[pnum]);
 			if(bnum<5)
@@ -160,9 +142,6 @@ public class turn {
 		else{
 			draw();
 		}
-	}
-	public void markSquare(int ax, int ay) {
-
 	}
 }
 
