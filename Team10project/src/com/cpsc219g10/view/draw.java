@@ -181,10 +181,13 @@ public class draw {
 		canvas.setColor(black);		
 		canvas.fillRect(0, 0, 10000, 10000);
 		canvas.setColor(white);	
-		canvas.fillRect(560, 250, 300, 70);
+		canvas.fillRect(500, 250, 250, 120);
 		canvas.setColor(black);		
-		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
-		canvas.drawString("NEXT PLAYER", 600, 300);
+		canvas.setFont(new Font("sansserif", Font.BOLD, 28));
+		canvas.drawString("NEXT", 550, 300);
+		canvas.drawString("PLAYER", 540, 340);
+
+		
 }
 	/**
 	 * Displays the winner on a green canvas
