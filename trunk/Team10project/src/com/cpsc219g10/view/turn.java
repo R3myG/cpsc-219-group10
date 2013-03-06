@@ -50,7 +50,7 @@ public class turn {
 					}
 					
 					//check for  victory
-					if(p[opnum].hp == 0) {
+					if(p[opnum].hasBoat()) {
 				    	idraw.won(p[pnum]);
 						//return p[pnum];
 					}

@@ -48,7 +48,7 @@ public class GraphicGenerator {
 		    	System.out.println("click!@" + e.getX() + " " + e.getY());
 		    	
 		    	//play a round of the game
-		    	if(e.getX() > 560 && e.getX() < 860 && e.getY() > 300 && e.getY() < 370) {
+		    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
 		    		game.refresh(placing);
 		    		blank = false;
 		    	}
