@@ -46,10 +46,21 @@ public class Player {
 	}
 	public boolean attack(Player opponent, int x, char y){
 		if(opponent.gameBoard.targetSquare(x-1,y)){
-			opponent.hp--;
+			for(int i=0;i<5;i++){
+				boats[i].isMe(x,y);
+			}
 			return true;
 		}
 		return false;
+	}
+	public boolean hasBoat(){
+		boolean has=false;
+		for(int i=0;i<5;i++){
+			if(!boats[i].isSunk()){
+				has=true;
+			}
+		}
+		return has;
 	}
 	public String toString(){
 		String msg=name+"\n\n";

@@ -45,19 +45,24 @@ public class Boat {
 		vertical = orientation;
 	}
 	public void isMe(int x,int y){
+		x=x-97;
 		int vertical = 0, horizontal = 0;
-		
 		// Set the orientation of the boat
 		if(this.vertical) {
 			vertical = 1;
 		} else {
 			horizontal = 1;
 		}
-		
+		System.out.println("call"+this);
 		// Check if the boat will fit
 		for(int i = 0; i < length; i++) {
-			if(this.x + (i * horizontal) == x || this.y + (i * vertical) == y){
+			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
+				System.out.println(new Point(x,y)+" "+new Point(this.x + (i * horizontal),this.y + (i * vertical))+" "+this);
+				System.out.println("you hit my "+type);
 				health--;
+				if(isSunk()){
+					System.out.println("you sunk my "+type);
+				}
 			}
 		}
 	}
