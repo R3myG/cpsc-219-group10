@@ -8,6 +8,10 @@ public class AI {
 	Point[] moves = new Point[100];
 	boolean[] hits = new boolean[100];
 	boolean first = true;
+	
+	boolean foundBoat = false;
+	
+	int numberOfOpBoats = 5;
 	int move = -1;
 	Random gen = new Random();
 	public AI(Player p){
@@ -15,7 +19,7 @@ public class AI {
 	}
 	public void attack(){
 		if(!first){
-			if(hits[move])
+			if(foundBoat)
 				attackHit();
 			else
 				attackRandom();
@@ -42,6 +46,8 @@ public class AI {
 		}
 		else
 			attackAround();
+		
+		
 	}
 	private void attackAround() {
 		int attack=gen.nextInt(4);
