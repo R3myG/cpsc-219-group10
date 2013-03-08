@@ -12,7 +12,9 @@ public class AI {
 	boolean foundBoat = false;
 	
 	int numberOfOpBoats = 5;
+	
 	int move = -1;
+	
 	Random gen = new Random();
 	public AI(Player p){
 		opponent=p;
@@ -105,7 +107,13 @@ public class AI {
 			move++;	
 			hits[move]=ai.attack(opponent,x,(char)(y+97));
 			moves[move]=new Point(x,(int)y-97);
-			
+			if(hits[move]){
+				foundBoat=true;
+			}
+			if(opponent.numberOfBoats()<numberOfOpBoats){
+				foundBoat=false;
+				numberOfOpBoats=opponent.numberOfBoats();
+			}
 			return true;
 		}
 		return false;

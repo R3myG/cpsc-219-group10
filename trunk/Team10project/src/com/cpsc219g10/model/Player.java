@@ -71,4 +71,13 @@ public class Player {
 		return msg;
 		
 	}
+	public int numberOfBoats() {
+		int number=0;
+		for(int i=0;i<5;i++){
+			if(!boats[i].isSunk()){
+				number++;
+			}
+		}
+		return number;
+	}
 }
