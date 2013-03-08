@@ -69,9 +69,9 @@ public class draw {
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString(p.getName(), 100, 100);
 		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
-		for(int i = 0; i < 10; i++){
+		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
-				int x = XSHIFT + i * GRIDSIZE + 2;
+				int x = XSHIFT + (i-1) * GRIDSIZE + 2;
 				int y = YSHIFT + ((int)j - 97) * GRIDSIZE + 2;
 				switch(p.getBoard().getSquare(p.getName(), i, j)){
 				case emptySpace:
@@ -103,9 +103,9 @@ public class draw {
 	 */
 	public void drawopponentBoard(Player p, Player op){
 		canvas.setColor(black);
-		for(int i = 0;i < 10; i++){
+		for(int i = 1;i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
-				int x = 50 + i * GRIDSIZE + 2 + XSHIFT2;
+				int x = 50 + (i-1) * GRIDSIZE + 2 + XSHIFT2;
 				int y = YSHIFT + ((int)j - 97) * GRIDSIZE + 2;
 				
 				switch(op.getBoard().getSquare(p.getName(), i, j)){

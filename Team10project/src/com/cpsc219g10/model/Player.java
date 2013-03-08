@@ -34,10 +34,6 @@ public class Player {
 	 * so it can be used outside of this class
 	 * @param someName
 	 */
-	public void setName(String someName) {
-		name = someName;
-		
-	}
 	public Boolean canAttack(Player opponent,int x,char y){
 		if(opponent.gameBoard.getSquare(name,x-1,y)=='O')
 			return true;
@@ -62,15 +58,6 @@ public class Player {
 		}
 		return has;
 	}
-	public String toString(){
-		String msg=name+"\n\n";
-		for(int i=0;i<5;i++){
-			msg+=boats[i]+"\n";
-		}
-		msg+=gameBoard;
-		return msg;
-		
-	}
 	public int numberOfBoats() {
 		int number=0;
 		for(int i=0;i<5;i++){
@@ -79,5 +66,14 @@ public class Player {
 			}
 		}
 		return number;
+	}
+	public String toString(){
+		String msg=name+"\n\n";
+		for(int i=0;i<5;i++){
+			msg+=boats[i]+"\n";
+		}
+		msg+=gameBoard;
+		return msg;
+		
 	}
 }
