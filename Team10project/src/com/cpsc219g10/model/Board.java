@@ -12,12 +12,12 @@ public class Board {
 	 * X-boat struck at this point
 	 */
 	private int board_size=10;
-	private char[][] gameBoard= new char[10][10];
+	protected char[][] gameBoard= new char[10][10];
 
-	private final char emptySpace = 'O';
-	private final char boatSpace = 'B';
-	private final char missedSpace = 'M';
-	private final char HitSpace = 'X';
+	protected final char emptySpace = 'O';
+	protected final char boatSpace = 'B';
+	protected final char missedSpace = 'M';
+	protected final char HitSpace = 'X';
 
 	private String owner = "";
 
@@ -144,5 +144,5 @@ public class Board {
 			out += "\n";
 		}
 		return out;	
-	}	
+	}
 }

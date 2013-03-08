@@ -69,6 +69,7 @@ public class turn {
 			else {
 				idraw.drawplyaterBoard(p[pnum]);
 				idraw.drawopponentBoard(p[pnum],p[opnum]);
+				idraw.drawBoats(p[pnum]);
 			}
 		}
 		
@@ -76,6 +77,7 @@ public class turn {
 		//refresh board on click outside of box
 		idraw.drawplyaterBoard(p[pnum]);
 		idraw.drawopponentBoard(p[pnum],p[opnum]);
+		idraw.drawBoats(p[pnum]);
 		}
 		//return null;
 }
