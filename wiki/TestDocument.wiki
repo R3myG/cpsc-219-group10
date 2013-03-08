@@ -95,6 +95,7 @@ Play:
  * play continues till one player looses all there boats at which point the game enters the winning phase simply displaying the name of the winner"
 
 _Known Bugs_
+
 Graphics:
  * during he playing phase boats do not always draw to the board == fixed.
  * text not centered in all boxes
