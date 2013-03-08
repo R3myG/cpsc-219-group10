@@ -30,7 +30,7 @@ public class turn {
 	 * @param i - x coordinates of click
 	 * @param j - y coordinates of click
 	 */
-	public void play(int i, int j) {
+	public boolean play(int i, int j) {
 		/**
 		 * Check that x and y are in the play box 
 		 * If they are in the play field calculating the box they are in if so
@@ -42,7 +42,6 @@ public class turn {
 				
 				//check if square is targetable
 				if(p[pnum].canAttack(p[opnum], x, y)) {
-					
 					//attack square
 					System.out.println(p[pnum].getName() + "is targeting" + y + " " + x);
 					if(p[pnum].attack(p[opnum], x, y)) {
@@ -52,34 +51,30 @@ public class turn {
 					//check for  victory
 					if(p[opnum].hasBoat()) {
 				    	idraw.won(p[pnum]);
-						//return p[pnum];
+						return true;
 					}
 					
 					//switch players
-					else {
-						int hold = pnum;
-						pnum = opnum;
-						opnum = hold;
-					}
+					int hold = pnum;
+					pnum = opnum;
+					opnum = hold;
 					
 					//black out for turn change
 					idraw.black();
 			}
 				
 			else {
-				idraw.drawplyaterBoard(p[pnum]);
+				idraw.drawplyaterBoard(p[pnum],true);
 				idraw.drawopponentBoard(p[pnum],p[opnum]);
-				idraw.drawBoats(p[pnum]);
 			}
 		}
 		
 		else {
 		//refresh board on click outside of box
-		idraw.drawplyaterBoard(p[pnum]);
+		idraw.drawplyaterBoard(p[pnum],true);
 		idraw.drawopponentBoard(p[pnum],p[opnum]);
-		idraw.drawBoats(p[pnum]);
 		}
-		//return null;
+		return false;
 }
 	/**
 	 * Method Description: Attempts to place the boats vertical and horizontal
@@ -101,7 +96,7 @@ public class turn {
 
 				p[pnum].getBoat(bnum).setPosition(x, y, true);
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-					idraw.drawplyaterBoard(p[pnum]);
+					idraw.drawplyaterBoard(p[pnum],false);
 					idraw.drawBoats(p[pnum], bnum);
 					try{Thread.sleep(1000);
 					}
@@ -125,7 +120,7 @@ public class turn {
 				System.out.println(p[pnum].getBoat(bnum));
 
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-					idraw.drawplyaterBoard(p[pnum]);
+					idraw.drawplyaterBoard(p[pnum],false);
 					idraw.drawBoats(p[pnum],bnum);
 					try{Thread.sleep(1000);
 					}
@@ -148,7 +143,7 @@ public class turn {
 				}
 			}
 		else {
-			idraw.drawplyaterBoard(p[pnum]);
+			idraw.drawplyaterBoard(p[pnum],false);
 			if(bnum < 5)
 				idraw.drawBoats(p[pnum],bnum);
 		}
@@ -161,12 +156,12 @@ public class turn {
 			return true;
 	}
 	public void draw() {
-		idraw.drawplyaterBoard(p[pnum]);
+		idraw.drawplyaterBoard(p[pnum],true);
 		idraw.drawopponentBoard(p[pnum], p[opnum]);
 	}
 	public void refresh(boolean placing) {
 		if(placing) {
-			idraw.drawplyaterBoard(p[pnum]);
+			idraw.drawplyaterBoard(p[pnum],false);
 			if(bnum < 5)
 				idraw.drawBoats(p[pnum], bnum);
 		}

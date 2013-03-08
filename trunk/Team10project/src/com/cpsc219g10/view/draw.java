@@ -63,12 +63,14 @@ public class draw {
 	 * Draws the board onto the canvas for a given player
 	 * @param p: player whose turn it is
 	 */
-		public void drawplyaterBoard(Player p){
+		public void drawplyaterBoard(Player p,boolean playing){
 		canvas.clearRect(0, 0, 10000, 10000);
 		canvas.setColor(black);
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString(p.getName(), 100, 100);
 		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
+		if(playing)
+			drawBoats(p);
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
 				int x = XSHIFT + (i-1) * GRIDSIZE + 2;
