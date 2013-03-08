@@ -96,8 +96,8 @@ Play:
 
 _Known Bugs_
 Graphics:
- * during he playing phase boats do not always draw to the board
+ * during he playing phase boats do not always draw to the board == fixed.
  * text not centered in all boxes
  * back ground image has some errors
 Logic:
- * winning state not entered when a player wins
+ * winning state not entered when a player wins = fixed?(needs testing)
