@@ -62,7 +62,7 @@ public class Board {
 	 */
 	public char getSquare(String player, int x, char ychar){
 		int y = yConv(ychar);
-		
+		x--;
 		if(player == owner) {
 			return gameBoard[x][y];
 		} else {

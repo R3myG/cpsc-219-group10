@@ -44,7 +44,7 @@ public class AI {
 	 */
 	private void attackPossible() {
 		boolean possible=false;
-		for(int i=0;i<10;i++){
+		for(int i=1;i<11;i++){
 			for(char j='a';j<'k';j++){
 				if(opBoard.getSquare("comp",i,j)=='H'){
 					attackaround(new Point(i,(int)j-97));
