@@ -74,3 +74,30 @@ BoardTest:
 	You should be able to view the position of each boat on the grid and compare it to the two different boards. The positions and orientations should match up. 
 
      The BoardTest class has to run along with the Board class as well, however it must also have the the BoatClass present as well. 
+
+== OnePlayerTest==
+this is the first Playable game test it uses a mouse listener on a JPannel to track where the players click the board and enables each player to place boats and target boats.
+
+the game is a one computer PVP that involves switching computer users
+
+_Instructions:_
+View:
+ * the left board is the player board and is clicked on only during the placing phase in order to place boats
+ * the right board is the opponent board and is clicked during the playing phase in order to target an opponent square
+Play:
+ * the game is played between 2 players Gavin and Claire by default  the game has 4 states the placing state the playing state the turn switch state and the winning state.  
+ * the game begins on gavins turn on the placing phase the boat being placed is shown on the top corner of the board. you click the board where you want the top left corner of the boat to go then select a vertical or horizontal orientation by clicking either beside or bellow the last box(which will be painted red)
+ * the screen then turns to the switching state. simply click any where in the white box to switch players.
+ * for the remainder of the placing turn the turns progress the same(*note: if you try and place a boat illegally it will not place and the switching phase will not be entered.)
+ * after claire places her last boat the game mode will switch to the playing mode
+ * gavin starts and this time by click the square on the opponents board where he would like to attack
+ * if the attack hits it will inform the user though a message box that they hit and then go to the switch state, if it does not no message is displayed and switch state is entered immediately(*note: once a boat has been sunk the message will switch to "you sunk my 'boat type' "
+ * play continues till one player looses all there boats at which point the game enters the winning phase simply displaying the name of the winner"
+
+_Known Bugs_
+Graphics:
+ * during he playing phase boats do not always draw to the board
+ * text not centered in all boxes
+ * back ground image has some errors
+Logic:
+ * winning state not entered when a player wins
