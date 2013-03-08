@@ -37,7 +37,7 @@ public class GraphicGenerator {
 		game.set(p[0], p[1], idraw);
 		
 		//initiate the board
-		idraw.drawplyaterBoard(p[0]);
+		idraw.drawplyaterBoard(p[0],false);
 		idraw.drawBoats(p[0], 0);
 		
 		//add mouse listener. to get x and y coordenants of mosue position.

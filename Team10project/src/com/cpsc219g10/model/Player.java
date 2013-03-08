@@ -35,7 +35,7 @@ public class Player {
 	 * @param someName
 	 */
 	public Boolean canAttack(Player opponent,int x,char y){
-		if(opponent.gameBoard.getSquare(name,x-1,y)=='O')
+		if(opponent.gameBoard.getSquare(name,x,y)=='O')
 			return true;
 		else
 			return false;
@@ -43,7 +43,7 @@ public class Player {
 	public boolean attack(Player opponent, int x, char y){
 		if(opponent.gameBoard.targetSquare(x-1,y)){
 			for(int i=0;i<5;i++){
-				boats[i].isMe(x,y);
+				opponent.getBoat(i).isMe(x,y);
 			}
 			return true;
 		}

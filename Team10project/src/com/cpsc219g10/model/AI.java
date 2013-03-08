@@ -98,7 +98,7 @@ public class AI {
 		int x;
 		char y;
 		do{
-		x=gen.nextInt(10);
+		x=gen.nextInt(10)+1;
 		y=(char)(gen.nextInt(10)+97);
 		}while(ai.canAttack(opponent,x,y));
 		
