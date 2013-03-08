@@ -43,6 +43,19 @@ Working methods are:
 In progress: 
  * attack = done
 
+PlayerTest Class
+the player test class is a very involved test that checks all of the methods in the class
+it generates 2 players and places a few boats around. 
+
+at this point player 1 attacks and hits player 2's battle ship. a message box should open saying you hit my battle ship.
+
+after this it ensures that player 2 is still alive and playing.
+
+after this player 2 sends a barrage of 25 attacks levelling all of player 1's boats. and checks to make sure that player 1 is completely wiped out. in the attack it will list all missed attacks.
+
+it then prints out each player displaying all of there vital information 
+
+lastly assuming all previous test have passed it out putts a successes message(this is the most important message to see). if it does not display this then every specific fail is tagged with a number
 == Board ==
 
 
