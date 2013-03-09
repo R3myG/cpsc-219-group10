@@ -49,7 +49,7 @@ public class turn {
 					}
 					
 					//check for  victory
-					if(p[opnum].hasBoat()) {
+					if(!p[opnum].hasBoat()) {
 				    	idraw.won(p[pnum]);
 						return true;
 					}
