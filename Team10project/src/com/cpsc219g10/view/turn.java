@@ -2,6 +2,8 @@
  * Class Description: 
  */
 package com.cpsc219g10.view;
+import javax.swing.JOptionPane;
+
 import com.cpsc219g10.model.Player;
 
 public class turn {
@@ -39,29 +41,30 @@ public class turn {
 			int x = ((i - 700) / 45);
 				char y = (char)(((j - 200) / 45) + (int)'a');
 				//try an attack on the player at the square clicked
-				
+				if(JOptionPane.showConfirmDialog(null, "target square "+x+" , "+y, "move check", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
 				//check if square is targetable
-				if(p[pnum].canAttack(p[opnum], x, y)) {
-					//attack square
-					System.out.println(p[pnum].getName() + "is targeting" + y + " " + x);
-					if(p[pnum].attack(p[opnum], x, y)) {
-						System.out.println("hit!!");
+					if(p[pnum].canAttack(p[opnum], x, y)) {
+						//attack square
+						System.out.println(p[pnum].getName() + "is targeting" + y + " " + x);
+						if(p[pnum].attack(p[opnum], x, y)) {
+							System.out.println("hit!!");
+						}
+						
+						//check for  victory
+						if(!p[opnum].hasBoat()) {
+					    	idraw.won(p[pnum]);
+							return true;
+						}
+						
+						//switch players
+						int hold = pnum;
+						pnum = opnum;
+						opnum = hold;
+						
+						//black out for turn change
+						idraw.black();
 					}
-					
-					//check for  victory
-					if(!p[opnum].hasBoat()) {
-				    	idraw.won(p[pnum]);
-						return true;
-					}
-					
-					//switch players
-					int hold = pnum;
-					pnum = opnum;
-					opnum = hold;
-					
-					//black out for turn change
-					idraw.black();
-			}
+				}
 				
 			else {
 				idraw.drawplyaterBoard(p[pnum],true);

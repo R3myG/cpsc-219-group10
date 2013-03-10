@@ -64,10 +64,10 @@ public class Boat {
 			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
 				health--;
 				if(isSunk()){
-					JOptionPane.showMessageDialog(null,"you sunk my "+type);
+					JOptionPane.showMessageDialog(null,"you sunk my "+type+"!");
 				}
 				else
-					JOptionPane.showMessageDialog(null,"you hit my "+type);
+					JOptionPane.showMessageDialog(null,"you hit!");
 
 			}
 		}
