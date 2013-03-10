@@ -49,7 +49,7 @@ public class draw {
 		hit = ImageIO.read(new File("pictures/HIT!.png"));
 		vert = ImageIO.read(new File("pictures/VERTBOATS.png"));
 		hor = ImageIO.read(new File("pictures/HORBOATS.png"));
-		back = ImageIO.read(new File("pictures/back.png"));
+		back = ImageIO.read(new File("pictures/backe.png"));
 
 		} 
 		catch (IOException e) 
