@@ -33,11 +33,16 @@ public class AI {
 	 * AI attack comand tells AI to attack oppoenent
 	 */
 	public void attack(){
-			if(foundBoat)
+		System.out.println(foundBoat);
+		System.out.println("point 1");
+			if(foundBoat){
+				System.out.println("point 1a");
 				attackHit();
-			else
+				}
+			else{
+				System.out.println("point 1b");
 				attackPossible();
-
+			}
 	}
 	/**
 	 * finds a space on the opBoard that is marked as hit
@@ -47,12 +52,15 @@ public class AI {
 		for(int i=1;i<11;i++){
 			for(char j='a';j<'k';j++){
 				if(opBoard.getSquare("comp",i,j)=='H'){
+					System.out.println("point 2");
 					attackaround(new Point(i,(int)j-97));
 					possible=true;
+					return;
 				}
 			}
 		}
 		if(!possible){
+			System.out.println("point 2a");
 			attackRandom();
 		}
 	}
@@ -98,14 +106,21 @@ public class AI {
 		int x;
 		char y;
 		do{
+			System.out.println("point 3");
+
 		x=gen.nextInt(10)+1;
 		y=(char)(gen.nextInt(10)+97);
-		}while(ai.canAttack(opponent,x,y));
+		System.out.println(x+" "+y);
+		}while(!ai.canAttack(opponent,x,y));
 		
 		move++;	
 	
 		hits[move]=ai.attack(opponent,x,y);
 		moves[move]=new Point(x,(int)y-97);
+		if(hits[move]){
+			System.out.println("point a");
+			foundBoat=true;
+		}
 	}
 	/**
 	 * attack opponents board that a boat is being found
@@ -214,21 +229,28 @@ public class AI {
 	 * @return whether or not the spot is legal to attack;
 	 */
 	private boolean attack(int x, int y) {
-		if(ai.canAttack(opponent,x,(char)(y+97))){
-			move++;	
-			hits[move]=ai.attack(opponent,x,(char)(y+97));
-			moves[move]=new Point(x,(int)y-97);
-			if(hits[move]){
-				foundBoat=true;
-			}
-			if(opponent.numberOfBoats()<numberOfOpBoats){
-				for(int i=0;i<5;i++){
-					opBoard.removeIfsunk(opponent.getBoat(i));
+		System.out.println(Thread.currentThread().getStackTrace());
+		if(x>0 && y>0){
+			if(ai.canAttack(opponent,x,(char)(y+97))){
+				move++;	
+				hits[move]=ai.attack(opponent,x,(char)(y+97));
+				System.out.println(hits[move]);
+	
+				moves[move]=new Point(x,(int)y-97);
+				if(hits[move]){
+					System.out.println("point a");
+					foundBoat=true;
 				}
-				foundBoat=false;
-				numberOfOpBoats=opponent.numberOfBoats();
+				if(opponent.numberOfBoats()<numberOfOpBoats){
+					System.out.println("point b");
+					for(int i=0;i<5;i++){
+						opBoard.removeIfsunk(opponent.getBoat(i));
+					}
+					foundBoat=false;
+					numberOfOpBoats=opponent.numberOfBoats();
+				}
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
