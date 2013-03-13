@@ -32,7 +32,7 @@ public class Window extends JFrame{
 	
 	public Window(){
 		this.setTitle("Battleship Game");
-	    this.setSize(900, 600);
+	    this.setSize(1440, 781);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setLocationRelativeTo(null);
 	    this.setResizable(false);
@@ -53,10 +53,10 @@ public class Window extends JFrame{
 	    newgame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				conteneur.removeAll();
-				//GamePanel gp = new GamePanel(size, model);
-				//model.addObserver(gp);
-				//conteneur.add(gp.getPanel(), BorderLayout.CENTER);
-				//conteneur.revalidate();
+				GraphicGenerator game = new GraphicGenerator();
+				game.start(conteneur);
+				//conteneur.add(game.start(), BorderLayout.CENTER);
+				conteneur.revalidate();
 				//initModel();
 			}	    	
 	    });
