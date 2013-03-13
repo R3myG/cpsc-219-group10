@@ -86,11 +86,11 @@ public class Window extends JFrame{
 	    file.add(quit);
 	    
 	    // set colum about
-	    about = new JMenu("À about");
+	    about = new JMenu("About");
 	    about.setMnemonic('o');
 	    
 	    //set rule for about
-	    rules = new JMenuItem("Rules of the game");
+	    rules = new JMenuItem("How to play");
 	    rules.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				conteneur.removeAll();
