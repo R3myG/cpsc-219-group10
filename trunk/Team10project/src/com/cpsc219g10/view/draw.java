@@ -116,16 +116,14 @@ public class draw {
 				
 				switch(op.getBoard().getSquare(p.getName(), i, j)){
 				case emptySpace:
-					canvas.setColor(clear);
 					break;
 				case missedSpace:
-					canvas.setColor(white);
+					canvas.drawImage(miss, x - 2, y - 2, x + 45,y + 45 , 0, 0, 45, 45, null );
 					break;
 				case HitSpace:
-					canvas.setColor(red);
+					canvas.drawImage(hit, x - 2, y - 2, x + 45,y + 45 , 0, 0, 45, 45, null );
 					break;
 				}
-				canvas.fillRect(x,y,GRIDSIZE-4,GRIDSIZE-4);		
 			}
 		}		
 	}

@@ -20,6 +20,7 @@ public class AI {
 	int numberOfOpBoats = 5;
 	//tells the AI the move its on
 	int move = -1;
+	int numberOfAttempts=0;
 	//generator for random attack and attack around
 	Random gen = new Random();
 	/**
@@ -247,9 +248,15 @@ public class AI {
 		try{Thread.sleep(100); } 
 		catch(InterruptedException e) {}
 		if(x > 0 && y > 0 && x<11 && y<11){
+			numberOfAttempts++;
+			if(numberOfAttempts>5){
+				attackRandom();
+				return true;
+			}
 			System.out.println("point "+x+" "+y);
 			System.out.println("poss a");
 			if(ai.canAttack(opponent, x, (char)(y + 97))){
+				numberOfAttempts=0;
 				System.out.println("try a");
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
