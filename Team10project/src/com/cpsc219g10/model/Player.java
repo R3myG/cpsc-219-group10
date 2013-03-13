@@ -6,15 +6,15 @@ public class Player {
 	 * Instance variables
 	 */
 	private String name;
-	public Boat[] boats= new Boat[5];
+	public Boat[] boats = new Boat[5];
 	public Board gameBoard;
-	public int hp=17;
+	public int hp = 17;
 	public Player(String Pname){
-		for(int i=0;i<5;i++){
-			boats[i]=new Boat(i,Pname);
+		for(int i = 0; i < 5; i++){
+			boats[i] = new Boat(i,Pname);
 		}
-		gameBoard=new Board(Pname);
-		name=Pname;
+		gameBoard = new Board(Pname);
+		name = Pname;
 	}
 	/**
 	 * Returning the name given to the player
@@ -35,32 +35,32 @@ public class Player {
 	 * @param someName
 	 */
 	public Boolean canAttack(Player opponent,int x,char y){
-		if(opponent.gameBoard.getSquare(name,x,y)=='O')
+		if(opponent.gameBoard.getSquare(name, x, y) == 'O')
 			return true;
 		else
 			return false;
 	}
 	public boolean attack(Player opponent, int x, char y){
-		if(opponent.gameBoard.targetSquare(x-1,y)){
-			for(int i=0;i<5;i++){
-				opponent.getBoat(i).isMe(x,y);
+		if(opponent.gameBoard.targetSquare(x - 1, y)){
+			for(int i = 0; i < 5; i++){
+				opponent.getBoat(i).isMe(x, y);
 			}
 			return true;
 		}
 		return false;
 	}
 	public boolean hasBoat(){
-		boolean has=false;
-		for(int i=0;i<5;i++){
+		boolean has = false;
+		for(int i = 0; i < 5; i++){
 			if(!boats[i].isSunk()){
-				has=true;
+				has = true;
 			}
 		}
 		return has;
 	}
 	public int numberOfBoats() {
-		int number=0;
-		for(int i=0;i<5;i++){
+		int number = 0;
+		for(int i = 0; i < 5; i++){
 			if(!boats[i].isSunk()){
 				number++;
 			}
@@ -68,11 +68,11 @@ public class Player {
 		return number;
 	}
 	public String toString(){
-		String msg=name+"\n\n";
-		for(int i=0;i<5;i++){
-			msg+=boats[i]+"\n";
+		String msg = name + "\n\n";
+		for(int i = 0; i < 5; i++){
+			msg += boats[i] + "\n";
 		}
-		msg+=gameBoard;
+		msg += gameBoard;
 		return msg;
 		
 	}
