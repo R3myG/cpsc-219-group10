@@ -27,7 +27,7 @@ public class AI {
 	 * @param p - oppoent to AI
 	 */
 	public AI(Player p){
-		opponent=p;
+		opponent = p;
 	}
 	/**
 	 * AI attack comand tells AI to attack oppoenent
@@ -48,13 +48,13 @@ public class AI {
 	 * finds a space on the opBoard that is marked as hit
 	 */
 	private void attackPossible() {
-		boolean possible=false;
-		for(int i=1;i<11;i++){
-			for(char j='a';j<'k';j++){
-				if(opBoard.getSquare("comp",i,j)=='H'){
+		boolean possible = false;
+		for(int i = 1; i < 11; i++){
+			for(char j = 'a'; j < 'k'; j++){
+				if(opBoard.getSquare("comp", i, j) == 'H'){
 					System.out.println("point 2");
-					attackaround(new Point(i,(int)j-97));
-					possible=true;
+					attackaround(new Point(i, (int)j - 97));
+					possible = true;
 					return;
 				}
 			}
@@ -69,32 +69,32 @@ public class AI {
 	 * @param point - point to attack around
 	 */
 	private void attackaround(Point point) {
-		int attack=gen.nextInt(4);
-		boolean hit=false;
+		int attack = gen.nextInt(4);
+		boolean hit = false;
 		do{
 			switch(attack){
 			case 0:
-				if(attack(point.x()+1,point.y())){
-					hit=true;
+				if(attack(point.x() + 1, point.y())){
+					hit = true;
 					break;
 				}		
 			case 1:
-				if(attack(point.x()-1,point.y())){
-					hit=true;
+				if(attack(point.x() - 1, point.y())){
+					hit = true;
 					break;
 				}	
 			case 2:
-				if(attack(point.x(),point.y()+1)){
-					hit=true;
+				if(attack(point.x(), point.y() + 1)){
+					hit = true;
 					break;
 				}	
 			case 3:
-				if(attack(point.x(),point.y()-1)){
-					hit=true;
+				if(attack(point.x(), point.y() - 1)){
+					hit = true;
 					break;
 				}
 				else{
-					attack=0;
+					attack = 0;
 				}
 			}
 		}while(!hit);
@@ -108,28 +108,28 @@ public class AI {
 		do{
 			System.out.println("point 3");
 
-		x=gen.nextInt(10)+1;
-		y=(char)(gen.nextInt(10)+97);
-		System.out.println(x+" "+y);
-		}while(!ai.canAttack(opponent,x,y));
+		x = gen.nextInt(10) + 1;
+		y = (char)(gen.nextInt(10) + 97);
+		System.out.println(x + " " + y);
+		}while(!ai.canAttack(opponent, x, y));
 		
 		move++;	
 	
-		hits[move]=ai.attack(opponent,x,y);
-		moves[move]=new Point(x,(int)y-97);
+		hits[move] = ai.attack(opponent, x, y);
+		moves[move] = new Point(x, (int)y - 97);
 		if(hits[move]){
 			System.out.println("point a");
-			foundBoat=true;
+			foundBoat = true;
 		}
 	}
 	/**
 	 * attack opponents board that a boat is being found
 	 */
 	private void attackHit(){
-		if(hits[move-1]&&hits[move]){
+		if(hits[move - 1] && hits[move]){
 			attackInLine();
 		}
-		else if(hits[move-1]&&!hits[move]){
+		else if(hits[move - 1] && !hits[move]){
 			attackFromStart();
 		}
 		else{
@@ -142,21 +142,21 @@ public class AI {
 	 * attack backwards from the start point to the most recent attack point
 	 */
 	private void attackFromStart() {
-		if(start.x()<moves[move].x()){
-			if(attack(start.x()+1,start.y()))
+		if(start.x() < moves[move].x()){
+			if(attack(start.x() + 1, start.y()))
 				return;
 		}
-		if(start.x()>moves[move].x()){
-			if(attack(start.x()-1,start.y()))
+		if(start.x() > moves[move].x()){
+			if(attack(start.x() - 1, start.y()))
 				return;
 			
 		}
-		if(start.y()<moves[move].y()){
-			if(attack(start.x(),start.y()+1))
+		if(start.y() < moves[move].y()){
+			if(attack(start.x(), start.y() + 1))
 				return;
 		}
-		if(start.y()>moves[move].y()){
-			if(attack(start.x(),start.y()-1))
+		if(start.y() > moves[move].y()){
+			if(attack(start.x(), start.y() - 1))
 				return;
 		}
 		else{
@@ -167,33 +167,33 @@ public class AI {
 	 * attacks around the current hit point
 	 */
 	private void attackAround() {
-		start=new Point(moves[move].x(),moves[move].y());
-		int attack=gen.nextInt(4);
-		boolean hit=false;
+		start = new Point(moves[move].x(), moves[move].y());
+		int attack = gen.nextInt(4);
+		boolean hit = false;
 		do{
 			switch(attack){
 			case 0:
-				if(attack(moves[move].x()+1,moves[move].y())){
-					hit=true;
+				if(attack(moves[move].x() + 1, moves[move].y())){
+					hit = true;
 					break;
 				}		
 			case 1:
 				if(attack(moves[move].x()-1,moves[move].y())){
-					hit=true;
+					hit = true;
 					break;
 				}	
 			case 2:
 				if(attack(moves[move].x(),moves[move].y()+1)){
-					hit=true;
+					hit = true;
 					break;
 				}	
 			case 3:
 				if(attack(moves[move].x(),moves[move].y()-1)){
-					hit=true;
+					hit = true;
 					break;
 				}
 				else{
-					attack=0;
+					attack = 0;
 				}
 			}
 		}while(!hit);
@@ -202,21 +202,21 @@ public class AI {
 	 * attacks in-line with the last 2 attacks
 	 */
 	private void attackInLine() {
-		if(moves[move-1].x()<moves[move].x()){
-			if(attack(moves[move].x()+1,moves[move].y()))
+		if(moves[move - 1].x() < moves[move].x()){
+			if(attack(moves[move].x() + 1, moves[move].y()))
 				return;
 		}
-		if(moves[move-1].x()>moves[move].x()){
-			if(attack(moves[move].x()-1,moves[move].y()))
+		if(moves[move - 1].x()>moves[move].x()){
+			if(attack(moves[move].x() - 1, moves[move].y()))
 				return;
 			
 		}
-		if(moves[move-1].y()<moves[move].y()){
-			if(attack(moves[move].x(),moves[move].y()+1))
+		if(moves[move - 1].y()<moves[move].y()){
+			if(attack(moves[move].x(), moves[move].y() + 1))
 				return;
 		}
-		if(moves[move-1].y()>moves[move].y()){
-			if(attack(moves[move].x(),moves[move].y()-1))
+		if(moves[move - 1].y()>moves[move].y()){
+			if(attack(moves[move].x(), moves[move].y() - 1))
 				return;
 		}
 		
@@ -230,23 +230,23 @@ public class AI {
 	 */
 	private boolean attack(int x, int y) {
 		System.out.println(Thread.currentThread().getStackTrace());
-		if(x>0 && y>0){
-			if(ai.canAttack(opponent,x,(char)(y+97))){
+		if(x > 0 && y > 0){
+			if(ai.canAttack(opponent, x, (char)(y + 97))){
 				move++;	
-				hits[move]=ai.attack(opponent,x,(char)(y+97));
+				hits[move] = ai.attack(opponent, x, (char)(y + 97));
 				System.out.println(hits[move]);
 	
-				moves[move]=new Point(x,(int)y-97);
+				moves[move]=new Point(x, (int)y - 97);
 				if(hits[move]){
 					System.out.println("point a");
-					foundBoat=true;
+					foundBoat = true;
 				}
-				if(opponent.numberOfBoats()<numberOfOpBoats){
+				if(opponent.numberOfBoats() < numberOfOpBoats){
 					System.out.println("point b");
-					for(int i=0;i<5;i++){
+					for(int i = 0; i < 5; i++){
 						opBoard.removeIfsunk(opponent.getBoat(i));
 					}
-					foundBoat=false;
+					foundBoat = false;
 					numberOfOpBoats=opponent.numberOfBoats();
 				}
 				return true;
