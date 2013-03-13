@@ -19,7 +19,7 @@ public class AIBoard extends Board {
 			
 		}
 	}
-	public void addSpace(int x, int y){
-		gameBoard[x-1][y-1]='H';
+	public void addSpace(int x, int y, char m){
+		gameBoard[x-1][y-1]=m;
 	}
 }
