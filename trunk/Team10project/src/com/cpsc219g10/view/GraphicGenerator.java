@@ -43,23 +43,23 @@ public class GraphicGenerator {
 		//add mouse listener. to get x and y coordenants of mosue position.
 		pan.addMouseListener(new MouseAdapter() {  
 		    public void mouseClicked(MouseEvent e) {
-		    	
-		    	//output attack coordednets for debug
-		    	System.out.println("click!@" + e.getX() + " " + e.getY());
-		    	
-		    	//play a round of the game
-		    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
-		    		game.refresh(placing);
-		    		blank = false;
-		    	}
-		    	else if(placing) {
-		    		 placing(e);
-		    	}
-		    	else
-		    		game.play(e.getX(), e.getY());
+		    	if(winner==null){
+			    	//output attack coordednets for debug
+			    	System.out.println("click!@" + e.getX() + " " + e.getY());
+			    	
+			    	//play a round of the game
+			    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
+			    		game.refresh(placing);
+			    		blank = false;
+			    	}
+			    	else if(placing) {
+			    		 placing(e);
+			    	}
+			    	else
+			    		game.play(e.getX(), e.getY());
 		    	}
 			}
-		 );
+		});
 	}
 	/**
 	 * Method Description: 
