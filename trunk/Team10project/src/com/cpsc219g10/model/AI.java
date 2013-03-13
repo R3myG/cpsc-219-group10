@@ -167,6 +167,7 @@ public class AI {
 	 * attacks around the current hit point
 	 */
 	private void attackAround() {
+		System.out.println("point 3");
 		start = new Point(moves[move].x(), moves[move].y());
 		int attack = gen.nextInt(4);
 		boolean hit = false;
@@ -175,20 +176,25 @@ public class AI {
 			case 0:
 				if(attack(moves[move].x() + 1, moves[move].y())){
 					hit = true;
+					System.out.println("point 3a");
 					break;
 				}		
 			case 1:
 				if(attack(moves[move].x()-1,moves[move].y())){
 					hit = true;
+					System.out.println("point 3b");
+
 					break;
 				}	
 			case 2:
 				if(attack(moves[move].x(),moves[move].y()+1)){
 					hit = true;
+					System.out.println("point 3c");
 					break;
 				}	
 			case 3:
 				if(attack(moves[move].x(),moves[move].y()-1)){
+					System.out.println("point 3d");
 					hit = true;
 					break;
 				}
@@ -202,22 +208,30 @@ public class AI {
 	 * attacks in-line with the last 2 attacks
 	 */
 	private void attackInLine() {
+		System.out.println("point 4");
 		if(moves[move - 1].x() < moves[move].x()){
 			if(attack(moves[move].x() + 1, moves[move].y()))
-				return;
+				{System.out.println("point 4a");
+				return;}
 		}
-		if(moves[move - 1].x()>moves[move].x()){
-			if(attack(moves[move].x() - 1, moves[move].y()))
+		if(moves[move-1].x()>moves[move].x()){
+			if(attack(moves[move].x()-1,moves[move].y())){
+				System.out.println("point 4b");
 				return;
+				}
 			
 		}
-		if(moves[move - 1].y()<moves[move].y()){
-			if(attack(moves[move].x(), moves[move].y() + 1))
+		if(moves[move-1].y()<moves[move].y()){
+			if(attack(moves[move].x(),moves[move].y()+1)){
+				System.out.println("point 4c");
 				return;
+			}
 		}
-		if(moves[move - 1].y()>moves[move].y()){
-			if(attack(moves[move].x(), moves[move].y() - 1))
+		if(moves[move-1].y()>moves[move].y()){
+			if(attack(moves[move].x(),moves[move].y()-1)){
+				System.out.println("point 4d");
 				return;
+			}
 		}
 		
 	}
@@ -229,14 +243,17 @@ public class AI {
 	 * @return whether or not the spot is legal to attack;
 	 */
 	private boolean attack(int x, int y) {
-		System.out.println(Thread.currentThread().getStackTrace());
+		try{Thread.sleep(100); } 
+		catch(InterruptedException e) {}
+		System.out.println("point "+x+" "+y);
 		if(x > 0 && y > 0){
 			if(ai.canAttack(opponent, x, (char)(y + 97))){
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
 				System.out.println(hits[move]);
 	
-				moves[move]=new Point(x, (int)y - 97);
+				moves[move] = new Point(x, (int) y);
+
 				if(hits[move]){
 					System.out.println("point a");
 					foundBoat = true;
