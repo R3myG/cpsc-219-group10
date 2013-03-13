@@ -39,6 +39,8 @@ public class draw {
 	private Image vert = null;
 	private Image hor = null;
 	private Image back = null;
+	private Image miss = null;
+
 	/**
 	 * Draws the board to the canvas that the current player can view (his or her own board)
 	 * @param canvas: canvas to be painted on
@@ -50,6 +52,8 @@ public class draw {
 		vert = ImageIO.read(new File("pictures/VERTBOATS.png"));
 		hor = ImageIO.read(new File("pictures/HORBOATS.png"));
 		back = ImageIO.read(new File("pictures/backe.png"));
+		miss = ImageIO.read(new File("pictures/SPLOOSH.png"));
+
 
 		} 
 		catch (IOException e) 
@@ -83,10 +87,10 @@ public class draw {
 					canvas.setColor(clear);
 					break;
 				case missedSpace:
-					canvas.setColor(green);
+					canvas.setColor(clear);
+					canvas.drawImage(miss, x - 2, y - 2, x + 45,y + 45 , 0, 0, 45, 45, null );
 					break;
 				case HitSpace:
-	
 					canvas.setColor(clear);
 					canvas.drawImage(hit, x - 2, y - 2, x + 45,y + 45 , 0, 0, 45, 45, null );
 					break;

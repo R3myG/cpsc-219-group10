@@ -142,6 +142,7 @@ public class AI {
 	 * attack backwards from the start point to the most recent attack point
 	 */
 	private void attackFromStart() {
+		System.out.println("attackFromStart");
 		if(start.x() < moves[move].x()){
 			if(attack(start.x() + 1, start.y()))
 				return;
@@ -167,7 +168,7 @@ public class AI {
 	 * attacks around the current hit point
 	 */
 	private void attackAround() {
-		System.out.println("point 3");
+		System.out.println("attackAround");
 		start = new Point(moves[move].x(), moves[move].y());
 		int attack = gen.nextInt(4);
 		boolean hit = false;
@@ -208,7 +209,7 @@ public class AI {
 	 * attacks in-line with the last 2 attacks
 	 */
 	private void attackInLine() {
-		System.out.println("point 4");
+		System.out.println("attackInLine");
 		if(moves[move - 1].x() < moves[move].x()){
 			if(attack(moves[move].x() + 1, moves[move].y()))
 				{System.out.println("point 4a");
@@ -245,9 +246,11 @@ public class AI {
 	private boolean attack(int x, int y) {
 		try{Thread.sleep(100); } 
 		catch(InterruptedException e) {}
-		System.out.println("point "+x+" "+y);
-		if(x > 0 && y > 0){
+		if(x > 0 && y > 0 && x<11 && y<11){
+			System.out.println("point "+x+" "+y);
+			System.out.println("poss a");
 			if(ai.canAttack(opponent, x, (char)(y + 97))){
+				System.out.println("try a");
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
 				System.out.println(hits[move]);
@@ -255,12 +258,15 @@ public class AI {
 				moves[move] = new Point(x, y);
 
 				if(hits[move]){
-					System.out.println("point a");
-					opBoard.addSpace(x,y);
+					System.out.println("hit a");
+					opBoard.addSpace(x,y,'H');
 					foundBoat = true;
 				}
+				else{
+					opBoard.addSpace(x,y,'M');
+				}
 				if(opponent.numberOfBoats() < numberOfOpBoats){
-					System.out.println("point b");
+					System.out.println("hit b");
 					for(int i = 0; i < 5; i++){
 						opBoard.removeIfsunk(opponent.getBoat(i));
 					}
