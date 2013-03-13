@@ -105,7 +105,7 @@ public class Window extends JFrame{
 	    about2.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		JOptionPane.showMessageDialog(null,
-							    		          "Creator : Remy\nLicence : Freeware\nCopyright : remy@gvr.re",
+							    		          "Creator : Remy-Gavin-Terry-Nic\nLicence : Freeware\nCopyright : remy@gvr.re",
 							    		          "Informations", JOptionPane.NO_OPTION);
 	    		conteneur.removeAll();
 	    		conteneur.add(new HomePanel(size).getPanel());
