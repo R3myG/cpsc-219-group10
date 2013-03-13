@@ -3,6 +3,8 @@
  */
 package com.cpsc219g10.view;
 import java.awt.Graphics;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import com.cpsc219g10.model.Player;
 import java.awt.event.MouseAdapter;
@@ -21,7 +23,9 @@ public class GraphicGenerator {
  * 	This runs the game generating players 
  */
 	public void start(JPanel pan) {
-		Player[] p = {new Player("Gavin"), new Player("Claire")};
+		String namePlayerOne = JOptionPane.showInputDialog("Player one, please enter your name: ");
+		String namePlayerTwo = JOptionPane.showInputDialog("Player two, please enter your name: ");
+		Player[] p = {new Player(namePlayerOne), new Player(namePlayerTwo)};
 
 		//set all basic variables
 		try{Thread.sleep(1000); 
