@@ -10,10 +10,9 @@ public class AITest {
 				System.out.println("fail 6 @"+i);
 			}
 		}
-		System.out.println(p);
 		do{
+			System.out.println(comp.opBoard);
 		comp.attack();
-		System.out.println(p);
 		try{Thread.sleep(1000); } 
 		catch(InterruptedException e) {}
 		}while(p.hasBoat());
