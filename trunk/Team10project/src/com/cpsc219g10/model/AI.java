@@ -252,10 +252,11 @@ public class AI {
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
 				System.out.println(hits[move]);
 	
-				moves[move] = new Point(x, (int) y);
+				moves[move] = new Point(x, y);
 
 				if(hits[move]){
 					System.out.println("point a");
+					opBoard.addSpace(x,y);
 					foundBoat = true;
 				}
 				if(opponent.numberOfBoats() < numberOfOpBoats){

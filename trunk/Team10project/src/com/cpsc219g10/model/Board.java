@@ -38,7 +38,7 @@ public class Board {
 	/**
 	 * Convert the y coordinate from a letter coordinate to a number coordinate and vice versa
 	 */
-	private int yConv(char y) {
+	protected int yConv(char y) {
 		int yint = (int)y - (int)'a';
 		return yint;
 	}
