@@ -21,6 +21,7 @@ public class Window extends JFrame{
 
 	private JMenuBar menu = null;
 	private JMenu file = null;
+	private JMenuItem home = null;
 	private JMenuItem newgame = null;
 	private JMenuItem score = null;
 	private JMenuItem quit = null;
@@ -46,6 +47,16 @@ public class Window extends JFrame{
 	    file = new JMenu("File");
 	    file.setMnemonic('f');
 	    
+	    home = new JMenuItem("Home");
+	    home.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
+                InputEvent.CTRL_MASK));
+	    home.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				conteneur.removeAll();
+				conteneur.add(new HomePanel(size).getPanel());
+				conteneur.revalidate();
+			}
+			});
 	    //set new in column file
 	    newgame = new JMenuItem("New Game");
 	    newgame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
@@ -80,6 +91,7 @@ public class Window extends JFrame{
 	    	}
 	    });
 	    //add all the previous to file
+	    file.add(home);
 	    file.add(newgame);
 	    file.add(score);
 	    file.addSeparator();
