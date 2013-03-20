@@ -16,7 +16,7 @@ There has been a graphical interface added to give the players a visual interpre
 
 There was some bugs with the "Next Player" button that have been resolved, which will allow you to correctly place boats where you want, as opposed to where you may have clicked on the screen during the "Player Swap" phase.
 
-In the last deliverable we described a possibility of adding an AI to the game. This will allow a single player to face off against an AI of various difficulty. The logic for the code involving the AI has been started, even though it is currently at the very basic levels of production.
+In deliverable three we described a possibility of adding an AI to the game. This will allow a single player to face off against an AI of various difficulty. The logic for the code involving the AI has been started, even though it is currently at the very basic levels of production. Now for deliverable four we have made quite strides with the AI, but still have yet to implement it into the actual game files. It is still undetermined if it will be ready in time for the final deliverable, but it will be an ongoing task to attempt to complete. 
 
 There has now been a set of rules added to the interface that you can view before the game starts. These rules briefly explain how to play the game. They include: how do place your boats, how to attack, how to switch turns and most importantly, how to win!
 
