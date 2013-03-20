@@ -10,6 +10,8 @@ public class turn {
 	//graphics from canvas and players
 	
 	private Player[] p = new Player[2];
+	@SuppressWarnings("unused")
+	private Player winner;
 	//current value's of player turns
 	
 	int pnum = 0;
@@ -22,10 +24,11 @@ public class turn {
 	 * @param opponent
 	 * @param canvas
 	 */
-	public void set(Player player, Player opponent, draw adraw) {
+	public void set(Player player, Player opponent, draw adraw,Player awinner) {
 		p[0] = player;
 		p[1] = opponent;
 		idraw = adraw;
+		winner = awinner;
 	}
 	/**
 	 * plays a round if click was in playable area 
@@ -53,6 +56,7 @@ public class turn {
 						//check for  victory
 						if(!p[opnum].hasBoat()) {
 					    	idraw.won(p[pnum]);
+					    	winner=p[pnum];
 							return true;
 						}
 						
