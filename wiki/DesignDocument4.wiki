@@ -10,11 +10,15 @@ The application in progress of creation is a Battleship game. The game as of rig
 
 Since it is two people playing on one computer, when one person is taking a turn the opponent must be looking away or facing across from the first player. Once the first players turn is over, there will be a slight delay, where a black screen will appear to allow the players to swap spots, or rotate the laptop.
 
+As the game progresses, a player will eventually sink all of their opponents boats. When this event occurs, the screen will change and a message will pop up saying the winner of the game.
+
 There has been a graphical interface added to give the players a visual interpretation of the game. This allows the players to place their boats on a grid, as well as see the game progress as they attempt to hit their opponents boats. 
 
 There was some bugs with the "Next Player" button that have been resolved, which will allow you to correctly place boats where you want, as opposed to where you may have clicked on the screen during the "Player Swap" phase.
 
 In the last deliverable we described a possibility of adding an AI to the game. This will allow a single player to face off against an AI of various difficulty. The logic for the code involving the AI has been started, even though it is currently at the very basic levels of production.
+
+There has now been a set of rules added to the interface that you can view before the game starts. These rules briefly explain how to play the game. They include: how do place your boats, how to attack, how to switch turns and most importantly, how to win!
 
 == UML Diagrams ==
 http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png
