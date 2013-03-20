@@ -193,6 +193,18 @@ public class draw {
 
 		
 }
+	public void black(String msg) {
+		canvas.setColor(black);		
+		canvas.fillRect(0, 0, 10000, 10000);
+		canvas.setColor(white);	
+		canvas.fillRect(500, 250, 250, 120);
+		canvas.setColor(black);		
+		canvas.setFont(new Font("sansserif", Font.BOLD, 28));
+		canvas.drawString(msg, 550, 300);
+
+
+		
+}
 	/**
 	 * Displays the winner on a green canvas
 	 * @param winner: the person who has won

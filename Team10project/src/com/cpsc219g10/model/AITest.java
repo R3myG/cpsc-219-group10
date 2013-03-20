@@ -11,7 +11,7 @@ public class AITest {
 			}
 		}
 		do{
-			System.out.println(comp.opBoard);
+			System.out.println("\n turn \n");
 		comp.attack();
 		try{Thread.sleep(1000); } 
 		catch(InterruptedException e) {}

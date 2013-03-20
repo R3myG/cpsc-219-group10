@@ -34,14 +34,12 @@ public class AI {
 	 * AI attack comand tells AI to attack oppoenent
 	 */
 	public void attack(){
-		System.out.println(foundBoat);
-		System.out.println("point 1");
 			if(foundBoat){
-				System.out.println("point 1a");
+				System.out.println("foundBoat");
 				attackHit();
 				}
 			else{
-				System.out.println("point 1b");
+				System.out.println("havent Found Boat");
 				attackPossible();
 			}
 	}
@@ -49,11 +47,13 @@ public class AI {
 	 * finds a space on the opBoard that is marked as hit
 	 */
 	private void attackPossible() {
+		System.out.println("attackPossible");
+
 		boolean possible = false;
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
 				if(opBoard.getSquare("comp", i, j) == 'H'){
-					System.out.println("point 2");
+					//System.out.println("point 2");
 					attackaround(new Point(i, (int)j - 97));
 					possible = true;
 					return;
@@ -61,7 +61,7 @@ public class AI {
 			}
 		}
 		if(!possible){
-			System.out.println("point 2a");
+			//System.out.println("point 2a");
 			attackRandom();
 		}
 	}
@@ -70,6 +70,8 @@ public class AI {
 	 * @param point - point to attack around
 	 */
 	private void attackaround(Point point) {
+		System.out.println("attackaround");
+
 		int attack = gen.nextInt(4);
 		boolean hit = false;
 		do{
@@ -104,11 +106,10 @@ public class AI {
 	 * attacks the opponents board at random
 	 */
 	private void attackRandom(){
+		System.out.println("attackRandom");
 		int x;
 		char y;
 		do{
-			System.out.println("point 3");
-
 		x = gen.nextInt(10) + 1;
 		y = (char)(gen.nextInt(10) + 97);
 		System.out.println(x + " " + y);
@@ -119,14 +120,23 @@ public class AI {
 		hits[move] = ai.attack(opponent, x, y);
 		moves[move] = new Point(x, (int)y - 97);
 		if(hits[move]){
-			System.out.println("point a");
+			System.out.println("hit a");
+			opBoard.addSpace(x,(int)y - 96,'H');
 			foundBoat = true;
+		}
+		else{
+			opBoard.addSpace(x,(int)y - 96,'M');
 		}
 	}
 	/**
 	 * attack opponents board that a boat is being found
 	 */
 	private void attackHit(){
+		System.out.println("attackHit");
+		if(move<1){
+			attackAround();
+		}
+		else{
 		if(hits[move - 1] && hits[move]){
 			attackInLine();
 		}
@@ -135,6 +145,7 @@ public class AI {
 		}
 		else{
 			attackAround();
+		}
 		}
 		
 		
@@ -178,25 +189,25 @@ public class AI {
 			case 0:
 				if(attack(moves[move].x() + 1, moves[move].y())){
 					hit = true;
-					System.out.println("point 3a");
+					//System.out.println("point 3a");
 					break;
 				}		
 			case 1:
 				if(attack(moves[move].x()-1,moves[move].y())){
 					hit = true;
-					System.out.println("point 3b");
+					//System.out.println("point 3b");
 
 					break;
 				}	
 			case 2:
 				if(attack(moves[move].x(),moves[move].y()+1)){
 					hit = true;
-					System.out.println("point 3c");
+					//System.out.println("point 3c");
 					break;
 				}	
 			case 3:
 				if(attack(moves[move].x(),moves[move].y()-1)){
-					System.out.println("point 3d");
+					//System.out.println("point 3d");
 					hit = true;
 					break;
 				}
@@ -213,25 +224,25 @@ public class AI {
 		System.out.println("attackInLine");
 		if(moves[move - 1].x() < moves[move].x()){
 			if(attack(moves[move].x() + 1, moves[move].y()))
-				{System.out.println("point 4a");
+				{//System.out.println("point 4a");
 				return;}
 		}
 		if(moves[move-1].x()>moves[move].x()){
 			if(attack(moves[move].x()-1,moves[move].y())){
-				System.out.println("point 4b");
+				//System.out.println("point 4b");
 				return;
 				}
 			
 		}
 		if(moves[move-1].y()<moves[move].y()){
 			if(attack(moves[move].x(),moves[move].y()+1)){
-				System.out.println("point 4c");
+				//System.out.println("point 4c");
 				return;
 			}
 		}
 		if(moves[move-1].y()>moves[move].y()){
 			if(attack(moves[move].x(),moves[move].y()-1)){
-				System.out.println("point 4d");
+				//System.out.println("point 4d");
 				return;
 			}
 		}
@@ -245,6 +256,7 @@ public class AI {
 	 * @return whether or not the spot is legal to attack;
 	 */
 	private boolean attack(int x, int y) {
+		System.out.println("attack");
 		try{Thread.sleep(100); } 
 		catch(InterruptedException e) {}
 		if(x > 0 && y > 0 && x<11 && y<11){
@@ -254,18 +266,18 @@ public class AI {
 				return true;
 			}
 			System.out.println("point "+x+" "+y);
-			System.out.println("poss a");
+			//System.out.println("poss a");
 			if(ai.canAttack(opponent, x, (char)(y + 97))){
 				numberOfAttempts=0;
-				System.out.println("try a");
+				//System.out.println("try a");
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
-				System.out.println(hits[move]);
+				//System.out.println(hits[move]);
 	
 				moves[move] = new Point(x, y);
 
 				if(hits[move]){
-					System.out.println("hit a");
+					//System.out.println("hit a");
 					opBoard.addSpace(x,y,'H');
 					foundBoat = true;
 				}
@@ -273,7 +285,7 @@ public class AI {
 					opBoard.addSpace(x,y,'M');
 				}
 				if(opponent.numberOfBoats() < numberOfOpBoats){
-					System.out.println("hit b");
+					//System.out.println("hit b");
 					for(int i = 0; i < 5; i++){
 						opBoard.removeIfsunk(opponent.getBoat(i));
 					}
