@@ -3,7 +3,7 @@ package com.cpsc219g10.view;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import com.cpsc219g10.model.Player;
+import com.cpsc219g10.model.*;
 
 public class GraphicsContoler extends MouseAdapter{
 	private turn game;
