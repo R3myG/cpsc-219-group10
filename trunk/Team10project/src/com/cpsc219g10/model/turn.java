@@ -1,10 +1,10 @@
 /**
  * Class Description: 
  */
-package com.cpsc219g10.view;
+package com.cpsc219g10.model;
 import javax.swing.JOptionPane;
 
-import com.cpsc219g10.model.Player;
+import com.cpsc219g10.view.*;
 
 public class turn {
 	//graphics from canvas and players

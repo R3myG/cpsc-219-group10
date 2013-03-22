@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import com.cpsc219g10.model.Player;
+import com.cpsc219g10.model.*;
 
 public class GraphicGenerator {		
 	

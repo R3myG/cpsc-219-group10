@@ -1,4 +1,6 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.AI;
+
+import com.cpsc219g10.model.Player;
 
 public class AITest {
 	public static void main(String[] args){

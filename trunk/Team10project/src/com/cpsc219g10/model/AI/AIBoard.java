@@ -1,4 +1,7 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.AI;
+
+import com.cpsc219g10.model.Board;
+import com.cpsc219g10.model.Boat;
 
 public class AIBoard extends Board {
 

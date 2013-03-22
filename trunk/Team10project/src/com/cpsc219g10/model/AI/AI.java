@@ -1,6 +1,9 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.AI;
 
 import java.util.Random;
+
+import com.cpsc219g10.model.Player;
+import com.cpsc219g10.model.Point;
 
 public class AI {
 	//give AI a player
