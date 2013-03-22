@@ -21,4 +21,4 @@ In deliverable three we described a possibility of adding an AI to the game. Thi
 There has now been a set of rules added to the interface that you can view before the game starts. These rules briefly explain how to play the game. They include: how do place your boats, how to attack, how to switch turns and most importantly, how to win!
 
 == UML Diagram for the Final Product ==
-[[ http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png | frame thumb | left | 2240px 1598px | UML design ]]
+http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png 
