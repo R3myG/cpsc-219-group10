@@ -1,4 +1,4 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.Lan;
 import java.io.*;
 import java.net.*;
 public class server {
