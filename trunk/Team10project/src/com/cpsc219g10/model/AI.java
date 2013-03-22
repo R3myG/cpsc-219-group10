@@ -14,6 +14,7 @@ public class AI {
 	// set up a moves repitour();
 	Point[] moves = new Point[100];
 	boolean[] hits = new boolean[100];
+	int[] moveTypes = new int[100];
 	//tells AI if its on to a boat	
 	boolean foundBoat = false;
 	//tells AI how many boats the opponent has
@@ -21,6 +22,15 @@ public class AI {
 	//tells the AI the move its on
 	int move = -1;
 	int numberOfAttempts=0;
+	
+	private final int ATTACKRANDOM = 0;
+	private final int ATTACKPOSSIBLES = 1;
+	private final int ATTACKAROUND = 2;
+	private final int ATTACKINLINE = 3;
+	private final int ATTACKFROMSTART = 4;
+
+
+
 	//generator for random attack and attack around
 	Random gen = new Random();
 	/**
@@ -48,20 +58,19 @@ public class AI {
 	 */
 	private void attackPossible() {
 		System.out.println("attackPossible");
-
 		boolean possible = false;
+		/*
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
 				if(opBoard.getSquare("comp", i, j) == 'H'){
-					//System.out.println("point 2");
+					System.out.println(i+" "+j);
 					attackaround(new Point(i, (int)j - 97));
 					possible = true;
 					return;
 				}
 			}
-		}
+		}*/
 		if(!possible){
-			//System.out.println("point 2a");
 			attackRandom();
 		}
 	}
@@ -71,28 +80,28 @@ public class AI {
 	 */
 	private void attackaround(Point point) {
 		System.out.println("attackaround");
-
+		start=point;
 		int attack = gen.nextInt(4);
 		boolean hit = false;
 		do{
 			switch(attack){
 			case 0:
-				if(attack(point.x() + 1, point.y())){
+				if(attack(point.x() + 1, point.y(),ATTACKAROUND)){
 					hit = true;
 					break;
 				}		
 			case 1:
-				if(attack(point.x() - 1, point.y())){
+				if(attack(point.x() - 1, point.y(),ATTACKAROUND)){
 					hit = true;
 					break;
 				}	
 			case 2:
-				if(attack(point.x(), point.y() + 1)){
+				if(attack(point.x(), point.y() + 1,ATTACKAROUND)){
 					hit = true;
 					break;
 				}	
 			case 3:
-				if(attack(point.x(), point.y() - 1)){
+				if(attack(point.x(), point.y() - 1,ATTACKAROUND)){
 					hit = true;
 					break;
 				}
@@ -107,6 +116,7 @@ public class AI {
 	 */
 	private void attackRandom(){
 		System.out.println("attackRandom");
+		numberOfAttempts=0;
 		int x;
 		char y;
 		do{
@@ -119,8 +129,8 @@ public class AI {
 	
 		hits[move] = ai.attack(opponent, x, y);
 		moves[move] = new Point(x, (int)y - 97);
+		moveTypes[move] = 0;
 		if(hits[move]){
-			System.out.println("hit a");
 			opBoard.addSpace(x,(int)y - 96,'H');
 			foundBoat = true;
 		}
@@ -137,17 +147,58 @@ public class AI {
 			attackAround();
 		}
 		else{
-		if(hits[move - 1] && hits[move]){
-			attackInLine();
-		}
-		else if(hits[move - 1] && !hits[move]){
-			attackFromStart();
-		}
-		else{
+		if(moveTypes[move]==ATTACKRANDOM){
 			attackAround();
+		}
+		else if(moveTypes[move]==ATTACKAROUND){
+			if(hits[move]){
+				attackInLine(start,moves[move]);
+			}
+			else{
+				attackaround(start);
+			}
+		}
+		else if(moveTypes[move]==ATTACKINLINE){
+			if(hits[move]){
+				attackInLine(start,moves[move]);
+			}
+			else{
+				attackFromStart();
+			}
+		}
+		else if(moveTypes[move]==ATTACKFROMSTART){
+			if(hits[move]){
+				attackInLine(start,moves[move]);
+			}
+			else{
+				attackaround(start);
+			}
 		}
 		}
 		
+		
+	}
+	private void attackInLine(Point point1, Point point2) {
+		if(point1.x() < point2.x()){
+			if(attack(point2.x() + 1, point2.y(),ATTACKINLINE)){
+				return;}
+		}
+		if(point1.x()>point2.x()){
+			if(attack(point2.x()-1,point2.y(),ATTACKINLINE)){
+				return;
+				}
+			
+		}
+		if(point1.y()<point2.y()){
+			if(attack(point2.x(),point2.y()+1,ATTACKINLINE)){
+				return;
+			}
+		}
+		if(point1.y()>point2.y()){
+			if(attack(point2.x(),point2.y()-1,ATTACKINLINE)){
+				return;
+			}
+		}
 		
 	}
 	/**
@@ -156,20 +207,20 @@ public class AI {
 	private void attackFromStart() {
 		System.out.println("attackFromStart");
 		if(start.x() < moves[move].x()){
-			if(attack(start.x() + 1, start.y()))
+			if(attack(start.x() + 1, start.y(),ATTACKFROMSTART))
 				return;
 		}
 		if(start.x() > moves[move].x()){
-			if(attack(start.x() - 1, start.y()))
+			if(attack(start.x() - 1, start.y(),ATTACKFROMSTART))
 				return;
 			
 		}
 		if(start.y() < moves[move].y()){
-			if(attack(start.x(), start.y() + 1))
+			if(attack(start.x(), start.y() + 1,ATTACKFROMSTART))
 				return;
 		}
 		if(start.y() > moves[move].y()){
-			if(attack(start.x(), start.y() - 1))
+			if(attack(start.x(), start.y() - 1,ATTACKFROMSTART))
 				return;
 		}
 		else{
@@ -187,26 +238,26 @@ public class AI {
 		do{
 			switch(attack){
 			case 0:
-				if(attack(moves[move].x() + 1, moves[move].y())){
+				if(attack(moves[move].x() + 1, moves[move].y(),ATTACKAROUND)){
 					hit = true;
 					//System.out.println("point 3a");
 					break;
 				}		
 			case 1:
-				if(attack(moves[move].x()-1,moves[move].y())){
+				if(attack(moves[move].x()-1,moves[move].y(),ATTACKAROUND)){
 					hit = true;
 					//System.out.println("point 3b");
 
 					break;
 				}	
 			case 2:
-				if(attack(moves[move].x(),moves[move].y()+1)){
+				if(attack(moves[move].x(),moves[move].y()+1,ATTACKAROUND)){
 					hit = true;
 					//System.out.println("point 3c");
 					break;
 				}	
 			case 3:
-				if(attack(moves[move].x(),moves[move].y()-1)){
+				if(attack(moves[move].x(),moves[move].y()-1,ATTACKAROUND)){
 					//System.out.println("point 3d");
 					hit = true;
 					break;
@@ -223,25 +274,25 @@ public class AI {
 	private void attackInLine() {
 		System.out.println("attackInLine");
 		if(moves[move - 1].x() < moves[move].x()){
-			if(attack(moves[move].x() + 1, moves[move].y()))
+			if(attack(moves[move].x() + 1, moves[move].y(),ATTACKINLINE))
 				{//System.out.println("point 4a");
 				return;}
 		}
 		if(moves[move-1].x()>moves[move].x()){
-			if(attack(moves[move].x()-1,moves[move].y())){
+			if(attack(moves[move].x()-1,moves[move].y(),ATTACKINLINE)){
 				//System.out.println("point 4b");
 				return;
 				}
 			
 		}
 		if(moves[move-1].y()<moves[move].y()){
-			if(attack(moves[move].x(),moves[move].y()+1)){
+			if(attack(moves[move].x(),moves[move].y()+1,ATTACKINLINE)){
 				//System.out.println("point 4c");
 				return;
 			}
 		}
 		if(moves[move-1].y()>moves[move].y()){
-			if(attack(moves[move].x(),moves[move].y()-1)){
+			if(attack(moves[move].x(),moves[move].y()-1,ATTACKINLINE)){
 				//System.out.println("point 4d");
 				return;
 			}
@@ -255,16 +306,17 @@ public class AI {
 	 * @param y - y corrdidnent for attacking
 	 * @return whether or not the spot is legal to attack;
 	 */
-	private boolean attack(int x, int y) {
-		System.out.println("attack");
+	private boolean attack(int x, int y, int type) {
+		numberOfAttempts++;
+		if(numberOfAttempts>5){
+			attackRandom();
+			return true;
+		}
+		System.out.println("attack ");
 		try{Thread.sleep(100); } 
 		catch(InterruptedException e) {}
-		if(x > 0 && y > 0 && x<11 && y<11){
-			numberOfAttempts++;
-			if(numberOfAttempts>5){
-				attackRandom();
-				return true;
-			}
+		if(x > 0 && y >= 0 && x<11 && y<10){
+
 			System.out.println("point "+x+" "+y);
 			//System.out.println("poss a");
 			if(ai.canAttack(opponent, x, (char)(y + 97))){
@@ -272,12 +324,9 @@ public class AI {
 				//System.out.println("try a");
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97));
-				//System.out.println(hits[move]);
-	
 				moves[move] = new Point(x, y);
-
+				moveTypes[move] = type;
 				if(hits[move]){
-					//System.out.println("hit a");
 					opBoard.addSpace(x,y,'H');
 					foundBoat = true;
 				}
@@ -285,7 +334,6 @@ public class AI {
 					opBoard.addSpace(x,y,'M');
 				}
 				if(opponent.numberOfBoats() < numberOfOpBoats){
-					//System.out.println("hit b");
 					for(int i = 0; i < 5; i++){
 						opBoard.removeIfsunk(opponent.getBoat(i));
 					}
