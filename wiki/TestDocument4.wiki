@@ -97,8 +97,9 @@ Play:
 _Known Bugs_
 
 Graphics:
- * during he playing phase boats do not always draw to the board == fixed.
- * text not centered in all boxes
- * back ground image has some errors
+ * During he playing phase boats do not always draw to the board = fixed.
+ * Text not centred in all boxes 
+ * Back ground image has some errors = fixed
 Logic:
- * winning state not entered when a player wins = fixed?(needs testing)
+ * Winning state not entered when a player wins = fixed
+ * When you open a new game on top of an existing game, there will be a second instance of the game playing. The boards will randomly switch between the two instances of the game.
