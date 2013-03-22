@@ -22,3 +22,104 @@ There has now been a set of rules added to the interface that you can view befor
 
 == UML Diagram for the Final Product ==
 http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png 
+
+== Other UML Diagrams ==
+|| *Boat* ||
+||*______________*||
+||+owner: String||
+||+vertical: boolean||
+||+x: int||
+||+y: int||
+||-type: String||
+||-types: String||
+||-length: int||
+||-health: int||
+||*____________*||
+||+Boat(type_num: int, pname: int)||
+||+setPosition(xCoordinate: int, yCoordinate: int, orientation: boolean)||
+||+isMe(x: int, y:int)||
+||+isSunk(): boolean||
+
+
+
+|| *Player* ||
+||____________||
+||-name: String||
+||____________||
+||+setName(someName: String)||
+||+attack(target: Player, x: int, y:int)||
+
+
+
+|| *Board* ||
+||__________||
+||-board_size: int||
+||-gameBoard: char||
+||emptySpace: char||
+||boatSpace: char||
+||missedSpace: char||
+||HitSpace: char||
+||-owner: String||
+||______________||
+||+setOwner(name: String)||
+||+Board(name: String)||
+||+getSquare(player: String, x: int, ychar: char)||
+||+addBoat(boat: Boat): boolean||
+||targetSquare(x: int, ychar: char): boolean||
+
+
+
+|| *Window* ||
+||___________||
+||-menu: JMenuBar||
+||-file: JMenu||
+||-newgame: JMenuItem||
+||-score: JMenuItem||
+||-quit: JMenuItem||
+||-about: JMenu||
+||-about2: JMenu||
+||-rules: JMenuItem||
+||-conteneur: JPanel||
+||-size: Dimension||
+||________________||
+||+Window()||
+
+|| *Turn* ||
+||____________||
+||-pnum: int||
+||-opnum: int||
+||-bnum: int||
+||____________||
+||+set(player: Player, opponent: Player, adraw: draw)||
+||+play(i: int, j: int)||
+||+place(x1: int, y1: int, x2: int, y2: int): boolean||
+||+refresh(placing: boolean)||
+
+|| *Draw* ||
+||____________||
+||-emptySpace: char||
+||-boatSpace: char||
+||-missedSpace: char||
+||-hitSpace: char||
+||-black: Color||
+||-red: Color||
+||-green: Color||
+||-white: Color||
+||-clear: Color||
+||-YSHIFT: int||
+||-GRIDSIZE: int||
+||-XSHIFT: int||
+||-XSHIFT2: int||
+||-canvas: Graphics||
+||-hit: Image||
+||-vert: Image||
+||-hor: Image||
+||-bacl: Image||
+||____________||
+||+draw(acanvas: Graphics)||
+||+drawplyaterBoard(p: Player)||
+||+drawopponentBoard(p: Player, op: Player)||
+||+drawBoats(p: Player)||
+||+drawBoats(p: Player, num: int)||
+||+won(winner: Player)||
+||+paintSquare(ax: int, ay: int)||
