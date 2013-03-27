@@ -16,7 +16,8 @@ public class AIBoard extends Board {
 			horizontal = 1;
 		}
 		for(int i = 0; i < boat.length(); i++) {
-			if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] == HitSpace){
+			System.out.println(boat);
+			if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)+1] == HitSpace){
 				gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)]=emptySpace;
 			}
 			
