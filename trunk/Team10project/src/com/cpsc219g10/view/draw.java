@@ -159,7 +159,6 @@ public class draw {
 	public void drawBoats(Player p, int num) {
 		for(int i = 0; i < num + 1; i++) {	
 			int l = p.getBoat(i).length() * 45;
-			System.out.println(p.getBoat(i));
 			if(p.getBoat(i).x == -1 && p.getBoat(i).y == -1) {
 				canvas.drawImage(hor, 50, 150, 50 + l, 195, 0, 45 * i, l, 45 * (i + 1), null);
 			}
@@ -225,7 +224,6 @@ public class draw {
 		if(ax < 500 && ax > 50 && ay < 650 && ay > 200) {
 			int x = ((ax) / 45) - 1;
 			int y = ((ay - 155) / 45) - 1;
-			System.out.println(y + " " + x);
 			x = x * GRIDSIZE + 2 + XSHIFT;
 			y = YSHIFT + y * GRIDSIZE + 2;
 			canvas.setColor(red);
