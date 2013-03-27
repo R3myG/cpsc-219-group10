@@ -72,7 +72,7 @@ public class draw {
 		canvas.setColor(black);
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
 		canvas.drawString(p.getName(), 100, 100);
-		canvas.drawImage(back, 0, 0, 1440,781, 0, 0, 1440,781, null );
+		canvas.drawImage(back, 0, 0, 1440, 781, 0, 0, 1440, 781, null );
 		if(playing)
 			drawBoats(p);
 		for(int i = 1; i < 11; i++){
@@ -104,8 +104,8 @@ public class draw {
 	/**
 	 * Draws the opponents canvas to the board (from the perspective of the enemy)
 	 * (Includes: spaces not hit, missed spaces and empty spaces)
-	 * @param p: player whos turn it is
-	 * @param op: opponent of curent player
+	 * @param p: player who's turn it is
+	 * @param op: opponent of current player
 	 */
 	public void drawopponentBoard(Player p, Player op){
 		canvas.setColor(black);
@@ -152,7 +152,7 @@ public class draw {
 	}
 	
 	/**
-	 * Draws the boars for each player
+	 * Draws the boats for each player
 	 * @param p: player who's turn it is
 	 * @param num
 	 */
@@ -186,8 +186,8 @@ public class draw {
 		canvas.fillRect(500, 250, 250, 120);
 		canvas.setColor(black);		
 		canvas.setFont(new Font("sansserif", Font.BOLD, 28));
-		canvas.drawString("NEXT", 550, 300);
-		canvas.drawString("PLAYER", 540, 340);
+		canvas.drawString("NEXT", 587, 300);
+		canvas.drawString("PLAYER", 575, 340);
 
 		
 }
@@ -205,7 +205,7 @@ public class draw {
 }
 	/**
 	 * Displays the winner on a green canvas
-	 * @param winner: the person who has won
+	 * @param winner: the person who has won the game
 	 * @param canvas
 	 */
 	public void won(Player winner) {
