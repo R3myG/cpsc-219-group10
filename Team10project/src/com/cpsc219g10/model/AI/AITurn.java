@@ -31,7 +31,6 @@ public class AITurn extends turn {
 					if(p[pnum].canAttack(p[opnum], x, y)) {
 						//attack square
 						if(p[pnum].attack(p[opnum], x, y)) {
-							System.out.println("hit!!");
 						}
 						
 						//check for  victory
