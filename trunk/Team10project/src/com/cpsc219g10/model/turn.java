@@ -9,24 +9,23 @@ import com.cpsc219g10.view.*;
 public class turn {
 	//graphics from canvas and players
 	
-	private Player[] p = new Player[2];
-	@SuppressWarnings("unused")
-	private Player winner;
+	protected Player[] p = new Player[2];
+	protected Player winner;
 	//current value's of player turns
 	
-	int pnum = 0;
-	int opnum = 1;
-	int bnum = 0;
-	draw idraw;
+	private int pnum = 0;
+	private int opnum = 1;
+	protected int bnum = 0;
+	protected draw idraw;
+	public turn(Player player, Player opponent) {
+		p[0] = player;
+		p[1] = opponent;	
+		}
 	/**
 	 * Sets up all of the variables for the game
-	 * @param player
-	 * @param opponent
 	 * @param canvas
 	 */
-	public void set(Player player, Player opponent, draw adraw,Player awinner) {
-		p[0] = player;
-		p[1] = opponent;
+	public void set(draw adraw,Player awinner) {
 		idraw = adraw;
 		winner = awinner;
 	}
@@ -97,10 +96,7 @@ public class turn {
 		if(x1 < 500 && x1 > 50 && y1 < 650 && y1 > 200) {
 			int x = ((x1) / 45);
 			int y = ((y1 - 155) / 45);
-			System.out.println("position " + x + " " + y + " placing attempt");
 			if(((x2) / 45) == x) {
-				System.out.println("position " + x + " " + y + " placing vertical");
-
 				p[pnum].getBoat(bnum).setPosition(x, y, true);
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
 					idraw.drawplyaterBoard(p[pnum],false);
@@ -118,13 +114,9 @@ public class turn {
 					idraw.black();
 					return true;
 				}
-				else{System.out.println("position " + x + " " + y + " placing failed");
-				}
 			}
 			else if(y == (y2 - 155) / 45) {
-				System.out.println("position " + x + " " + y + " placing horizontal");
 				p[pnum].getBoat(bnum).setPosition(x, y, false);
-				System.out.println(p[pnum].getBoat(bnum));
 
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
 					idraw.drawplyaterBoard(p[pnum],false);
@@ -142,12 +134,7 @@ public class turn {
 					idraw.black();
 					return true;
 				}
-				else{System.out.println("position " + x + " " + y + " placing failed");
-				}
 			}
-			else {
-				System.out.println("position " + x + " " + y + " placing failed");
-				}
 			}
 		else {
 			idraw.drawplyaterBoard(p[pnum],false);
@@ -175,5 +162,8 @@ public class turn {
 		else{
 			draw();
 		}
+	}
+	public Player getAI() {
+		return null;
 	}
 }
