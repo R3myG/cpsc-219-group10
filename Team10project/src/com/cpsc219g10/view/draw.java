@@ -134,7 +134,6 @@ public class draw {
 	 * @param canvas
 	 */
 	public void drawBoats(Player p) {
-		System.out.println("Drawboats!!!");
 		for(int i = 0; i < 5; i++){	
 			if(p.getBoat(i).x == -1 && p.getBoat(i).y == -1){
 			}
@@ -158,7 +157,6 @@ public class draw {
 	 * @param num
 	 */
 	public void drawBoats(Player p, int num) {
-		System.out.println("drawboats to " + num);
 		for(int i = 0; i < num + 1; i++) {	
 			int l = p.getBoat(i).length() * 45;
 			System.out.println(p.getBoat(i));

@@ -1,33 +1,21 @@
-package com.cpsc219g10.view;
+package com.cpsc219g10.model.AI;
 
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import com.cpsc219g10.model.*;
+import com.cpsc219g10.model.turn;
+import com.cpsc219g10.view.*;
 
-public class GraphicsContoler extends MouseAdapter{
-	protected turn game;
-	protected draw idraw;
-	protected boolean playing = true;
-	
+public class AIGraphicsControler extends GraphicsContoler {
 
-	protected boolean placing = true;
-	protected boolean oneclick = false;
-	private boolean blank = false;
-	protected int lastclickX, lastclickY;
-    public GraphicsContoler(draw aidraw, turn agame) {
-    	idraw=aidraw;
-    	game=agame;
+	public AIGraphicsControler(draw aidraw, turn agame) {
+		super(aidraw, agame);
 	}
 	public void mouseClicked(MouseEvent e) {
 		if(playing){
-	    	//output attack coordednets for debug
-	    	System.out.println("click!@" + e.getX() + " " + e.getY());
-	    	
+	    	//output attack coordednets for debug	    	
 	    	//play a round of the game
 	    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
 	    		game.refresh(placing);
-	    		blank = false;
 	    	}
 	    	else if(placing) {
 	    		 placing(e);
@@ -46,24 +34,14 @@ public class GraphicsContoler extends MouseAdapter{
 		}
 	}
 	public void placing(MouseEvent e) {
-		if(e.getX() < 500 && e.getX() > 50 && e.getY() < 650 && e.getY() > 200 && !blank) {
+		if(e.getX() < 500 && e.getX() > 50 && e.getY() < 650 && e.getY() > 200 ) {
     		if(oneclick) {
 	    		game.refresh(placing);
 	    		if(game.place(lastclickX, lastclickY, e.getX(), e.getY())) {
-	    			blank = true; System.out.println("blank is true");
 	    			}
 	    		oneclick = false;
 	    		if(!game.allready()) {
 	    			//initiate game count down
-	    			idraw.black("BEGIN!");
-	    			for(int i=3;i>=0;i--){
-		    			try{Thread.sleep(1000); 
-		    			} 
-		    			catch(InterruptedException j) {
-		    			}
-		    			idraw.black(i+"");
-	    			}
-
 	    			placing = false;
 	    			game.draw();
 	    		}

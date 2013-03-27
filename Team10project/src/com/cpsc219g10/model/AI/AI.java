@@ -42,6 +42,20 @@ public class AI {
 	 */
 	public AI(Player p){
 		opponent = p;
+		setBoard();
+		
+	}
+	public Player getAI(){
+		return ai;
+	}
+	private void setBoard() {
+		for(int i=0;i<5;i++){
+			do{
+			ai.getBoat(i).setPosition(gen.nextInt(10)+1, (char)(gen.nextInt(10)+1), gen.nextBoolean());
+			//System.out.println(ai.getBoat(i));
+
+			}while(!ai.getBoard().addBoat(ai.getBoat(i)));
+		}
 	}
 	/**
 	 * AI attack comand tells AI to attack oppoenent
@@ -347,5 +361,8 @@ public class AI {
 			}
 		}
 		return false;
+	}
+	public Player getPlayer() {
+		return ai;
 	}
 }
