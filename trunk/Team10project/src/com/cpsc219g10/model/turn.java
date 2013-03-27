@@ -27,8 +27,8 @@ public class turn {
 	 * Accessor or Mutator
 	 * Pre-condition: 
 	 * Post-condition: 
-
-	 * @param canvas
+	 * @param adraw
+	 * @param awinner
 	 */
 	public void set(draw adraw,Player awinner) {
 		idraw = adraw;
@@ -185,6 +185,7 @@ public class turn {
 			draw();
 		}
 	}
+	
 	public Player getAI() {
 		return null;
 	}
