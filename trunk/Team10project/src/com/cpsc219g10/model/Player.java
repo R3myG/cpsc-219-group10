@@ -16,22 +16,24 @@ public class Player {
 		gameBoard = new Board(Pname);
 		name = Pname;
 	}
-	/**
-	 * Returning the name given to the player
-	 * @return
-	 */
+	
 	public String getName() {
 		return name;
 	}
+	
 	public Boat getBoat(int i) {
 		return boats[i];
 	}
+	
 	public Board getBoard() {
 		return gameBoard;
 	}
+	
 	/**
-	 * Converting name to someName
-	 * so it can be used outside of this class
+	 * Converting name to someName so it can be used outside of this class
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
 	 * @param someName
 	 */
 	public Boolean canAttack(Player opponent,int x,char y){
@@ -40,6 +42,17 @@ public class Player {
 		else
 			return false;
 	}
+	
+	/**
+	 * Allows you to attack a player
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @param opponent
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public boolean attack(Player opponent, int x, char y){
 		if(opponent.gameBoard.targetSquare(x - 1, y)){
 			for(int i = 0; i < 5; i++){
@@ -49,6 +62,14 @@ public class Player {
 		}
 		return false;
 	}
+	
+	/**
+	 *
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @return
+	 */
 	public boolean hasBoat(){
 		boolean has = false;
 		for(int i = 0; i < 5; i++){
@@ -58,6 +79,14 @@ public class Player {
 		}
 		return has;
 	}
+	
+	/**
+	 * 
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @return
+	 */
 	public int numberOfBoats() {
 		int number = 0;
 		for(int i = 0; i < 5; i++){
@@ -67,6 +96,7 @@ public class Player {
 		}
 		return number;
 	}
+	
 	public String toString(){
 		String msg = name + "\n\n";
 		for(int i = 0; i < 5; i++){
@@ -74,6 +104,5 @@ public class Player {
 		}
 		msg += gameBoard;
 		return msg;
-		
 	}
 }

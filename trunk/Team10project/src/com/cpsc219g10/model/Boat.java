@@ -4,8 +4,7 @@ import javax.swing.JOptionPane;
 
 /**
  * Creating the instance variables
- * and methods for the 
- * boat class
+ * and methods for the boat class
  */
 public class Boat {
 	
@@ -24,7 +23,7 @@ public class Boat {
 	private int health;
 	
 	/**
-	 * returns the length of the boat
+	 * Returns the length of the boat
 	 * @return
 	 */
 	public int length() {
@@ -32,9 +31,13 @@ public class Boat {
 	};
 	
 	/**
-	 * generates a new boat object with a specific type and length
-	 * @param type_num - the kind of boat(0 = aircraft carrier, 1 = battleship,
+	 * Generates a new boat object with a specific type and length
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @param type_numthe kind of boat(0 = aircraft carrier, 1 = battleship,
 			2 = submarine, 3 = destroyer, 4 = patrol boat
+	 * @param pname
 	 */
 	public Boat(int type_num, String pname) {
 		type = types[type_num];
@@ -42,24 +45,44 @@ public class Boat {
 		owner = pname;
 		health = length;
 	}
+	
+	/**
+	 * Sets the position of the boat
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @param xCoordinate
+	 * @param yCoordinate
+	 * @param orientation
+	 */
 	public void setPosition(int xCoordinate, int yCoordinate, boolean orientation) {
 		x = xCoordinate - 1;
 		y = yCoordinate - 1;
 		vertical = orientation;
 	}
-	public void isMe(int x,int y){
+	
+	/**
+	 * Allows you to set your boats horizontally or vertically
+	 * and checks to see if the boat will fit in the space
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @param x
+	 * @param y
+	 */
+	public void isMe(int x,int y) {
 		x--;
-		y=y-97;
+		y = y - 97;
 		
 		int vertical = 0, horizontal = 0;
-		// Set the orientation of the boat
+		//Set the orientation of the boat
 		if(this.vertical) {
 			vertical = 1;
 		} else {
 			horizontal = 1;
 		}
 		//System.out.println("call"+this);
-		// Check if the boat will fit
+		//Check if the boat will fit
 		for(int i = 0; i < length; i++) {
 			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
 				health--;
@@ -82,7 +105,6 @@ public class Boat {
 			return true;
 		else
 			return false;
-		
 	}
 	public String toString(){
 		return owner + " " + type + " " + length + " " + x + " " + y + " " + vertical +" "+health;
