@@ -21,11 +21,18 @@ public class Board {
 
 	private String owner = "";
 
-	// Define the owner of the board
+	/**
+	 * Define the owner of the board
+	 * @param name
+	 */
 	public void setOwner(String name){
 		if(owner == "")
 			owner = name;
 	}
+	/**
+	 * Assigning board to an owner
+	 * @param name
+	 */
 	public Board(String name){
 		for(int i = 0; i < 10; i++){
 			for(int j = 0; j < 10; j++){
@@ -37,6 +44,11 @@ public class Board {
 
 	/**
 	 * Convert the y coordinate from a letter coordinate to a number coordinate and vice versa
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
+	 * @param y
+	 * @return
 	 */
 	protected int yConv(char y) {
 		int yint = (int)y - (int)'a';
@@ -55,6 +67,9 @@ public class Board {
 	 * If you are checking your own board, it will return whatever value is there.
 	 * If you are checking the opponent's board, it will return whether or not there is a boat there
 	 * 
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
 	 * @param player - checks that the player name is the same as the owner or the board
 	 * @param x - x coordinate 
 	 * @param ychar - y coordinate as a character 
@@ -77,7 +92,9 @@ public class Board {
 	
 	/**
 	 * Adds a boat object onto the board. 
-	 * 
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
 	 * @param boat - The type of boat that's being added
 	 * @return whether or not the boat can be added at the requested coordinates
 	 */
@@ -92,7 +109,7 @@ public class Board {
 			horizontal = 1;
 		}
 		
-		// Check if the boat will fit
+		//Check if the boat will fit
 		for(int i = 0; i < boat.length() && legal; i++) {
 			if(boat.x + (i * horizontal) < 10 && boat.y + (i * vertical) < 10) {
 				if(gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] != emptySpace) {
@@ -110,7 +127,6 @@ public class Board {
 				gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)] = boatSpace;
 			}
 		}
-
 		return legal;
 	}
 	
@@ -118,7 +134,9 @@ public class Board {
 	 * Attack a particular square on the board.
 	 * If the attack hits a boat, it sinks that section and returns a success.
 	 * Otherwise it misses the boat and returns a failure.
-	 * 
+	 * Accessor or Mutator
+	 * Pre-condition: 
+	 * Post-condition: 
 	 * @param x - The x coordinate of the attack
 	 * @param ychar - The y coordinate of the attack as a character
 	 * @return whether or not the boat was hit
@@ -135,6 +153,10 @@ public class Board {
 		}
 		return hit;
 	}
+	
+	/**
+	 * 
+	 */
 	public String toString(){
 		String out = "";
 		for(int i = 0; i < 10; i++){
