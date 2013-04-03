@@ -61,20 +61,12 @@ public class AI {
 	 * AI attack comand tells AI to attack oppoenent
 	 */
 	public void attack(){
-		System.out.println("\n turn \n");
-		System.out.println("possibles:");
-		for(int i = 1; i < 11; i++){
-			for(char j = 'a'; j < 'k'; j++){
-				System.out.print(opBoard.getSquare("Computer", i, j)+" ");
+		if(foundBoat){
+			attackHit();
 			}
-			System.out.println();
+		else{
+			attackPossible();
 		}
-			if(foundBoat){
-				attackHit();
-				}
-			else{
-				attackPossible();
-			}
 	}
 	/**
 	 * finds a space on the opBoard that is marked as hit
@@ -84,7 +76,6 @@ public class AI {
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
 				if(opBoard.getSquare("Computer", i, j) == 'H'){
-					System.out.println("attack possible at"+i+" "+j);
 					attackaround(new Point(i, (int)j - 97));
 					possible = true;
 					return;
@@ -319,8 +310,6 @@ public class AI {
 		}
 		if(x > 0 && y >= 0 && x<11 && y<10){
 			if(ai.canAttack(opponent, x, (char)(y + 'a'))){
-				try{Thread.sleep(500); } 
-				catch(InterruptedException e) {}
 				JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 				numberOfAttempts=0;
 				move++;	

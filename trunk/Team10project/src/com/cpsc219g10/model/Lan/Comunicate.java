@@ -5,6 +5,13 @@ public class Comunicate {
     private Socket smtpSocket = null;  
     private DataOutputStream os = null;
     private DataInputStream is = null;
+    public static void main(String[] args){
+    	Comunicate com = new Comunicate();
+    	com.initiate("10.11.17.196");
+    	com.send_message("1a");
+    	
+    	System.out.println(com.recive_message());
+    }
     public void initiate(String host) {
 	/* declaration section:
 	 * smtpClient: our client socket
