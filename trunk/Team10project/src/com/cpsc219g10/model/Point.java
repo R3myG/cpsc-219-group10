@@ -19,21 +19,10 @@ public class Point {
 		y = ay;
 		}
 	
-	/**
-	 * Gets the x coordinate of the point
-	 * Accessor
-	 * Pre-condition: 
-	 * Post-condition:  
-	 * @return x coordinate
-	 */
 	public int x() {
 		return x;
 	}
 	
-	/**
-	 * Accessor
-	 * @return
-	 */
 	public int y() {
 		return y;
 	}
@@ -41,8 +30,8 @@ public class Point {
 	/**
 	 * Adds the values of this point to those of a different point and returns the values as a new point
 	 * Accessor
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Pre-condition: two points are given
+	 * Post-condition: a single new point is returned
 	 * @param apoint
 	 * @return
 	 */
@@ -53,8 +42,8 @@ public class Point {
 	/**
 	 * Multiplies the x and y coordinates of the point by a scaler and passes them back to the user.
 	 * Accessor
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Pre-condition: two points are given
+	 * Post-condition: a single new point is returned
 	 * @param multiplier
 	 * @return
 	 */
@@ -63,14 +52,17 @@ public class Point {
 	}
 	
 	/**
-	 * Accsessor
+	 * Returns as a string
 	 */
 	public String toString(){
 		return "("+ x +", "+ y +")";
 	}
 	
 	/**
+	 * Determines if the point has the same x and y coordinate
 	 * Accessor
+	 * Pre-condition: nothing
+	 * Post-condition: returns true if the x and y are equal and false otherwise
 	 * @param p
 	 * @return
 	 */

@@ -1,11 +1,11 @@
-/**
- * Class Description: 
- */
 package com.cpsc219g10.model;
 import javax.swing.JOptionPane;
 
 import com.cpsc219g10.view.*;
 
+/**
+ * Class for a basic turn of the game
+ */
 public class turn {
 	//graphics from canvas and players
 	
@@ -23,14 +23,15 @@ public class turn {
 		}
 	/**
 	 * Sets up all of the variables for the game
-	 * @param canvas
+	 * @param adraw
+	 * @param awinner
 	 */
 	public void set(draw adraw,Player awinner) {
 		idraw = adraw;
 		winner = awinner;
 	}
 	/**
-	 * plays a round if click was in playable area 
+	 * Plays a round if click was in playable area 
 	 * @param i - x coordinates of click
 	 * @param j - y coordinates of click
 	 */
@@ -43,7 +44,7 @@ public class turn {
 			int x = ((i - 700) / 45);
 				char y = (char)(((j - 200) / 45) + (int)'a');
 				//try an attack on the player at the square clicked
-				if(JOptionPane.showConfirmDialog(null, "target square "+x+" , "+y, "move check", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+				if(JOptionPane.showConfirmDialog(null, "target square "+ x +" , "+ y, "move check", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
 				//check if square is targetable
 					if(p[pnum].canAttack(p[opnum], x, y)) {
 						//attack square
@@ -68,20 +69,20 @@ public class turn {
 				}
 				
 			else {
-				idraw.drawplyaterBoard(p[pnum],true);
-				idraw.drawopponentBoard(p[pnum],p[opnum]);
+				idraw.drawplyaterBoard(p[pnum], true);
+				idraw.drawopponentBoard(p[pnum], p[opnum]);
 			}
 		}
 		
 		else {
 		//refresh board on click outside of box
-		idraw.drawplyaterBoard(p[pnum],true);
-		idraw.drawopponentBoard(p[pnum],p[opnum]);
+		idraw.drawplyaterBoard(p[pnum], true);
+		idraw.drawopponentBoard(p[pnum], p[opnum]);
 		}
 		return false;
 }
 	/**
-	 * Method Description: Attempts to place the boats vertical and horizontal
+	 * Attempts to place the boats vertical and horizontal
 	 * and will not allow the continuation of the game until
 	 * each boat has been placed in a spot that is acceptable
 	 * @param x1
@@ -90,14 +91,14 @@ public class turn {
 	 * @param y2
 	 * @return
 	 */
-	public boolean place(int x1,int y1, int x2, int y2) {
+	public boolean place(int x1, int y1, int x2, int y2) {
 		if(x1 < 500 && x1 > 50 && y1 < 650 && y1 > 200) {
 			int x = ((x1) / 45);
 			int y = ((y1 - 155) / 45);
 			if(((x2) / 45) == x) {
 				p[pnum].getBoat(bnum).setPosition(x, y, true);
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-					idraw.drawplyaterBoard(p[pnum],false);
+					idraw.drawplyaterBoard(p[pnum], false);
 					idraw.drawBoats(p[pnum], bnum);
 					try{Thread.sleep(1000);
 					}
@@ -105,7 +106,7 @@ public class turn {
 					}
 					int hold = pnum;
 					pnum = opnum;
-					opnum=hold;
+					opnum = hold;
 					if(opnum == 1) {
 						bnum++;
 					}
@@ -117,8 +118,8 @@ public class turn {
 				p[pnum].getBoat(bnum).setPosition(x, y, false);
 
 				if(p[pnum].getBoard().addBoat(p[pnum].getBoat(bnum))){
-					idraw.drawplyaterBoard(p[pnum],false);
-					idraw.drawBoats(p[pnum],bnum);
+					idraw.drawplyaterBoard(p[pnum], false);
+					idraw.drawBoats(p[pnum], bnum);
 					try{Thread.sleep(1000);
 					}
 					catch(InterruptedException e) {
@@ -135,25 +136,28 @@ public class turn {
 			}
 			}
 		else {
-			idraw.drawplyaterBoard(p[pnum],false);
+			idraw.drawplyaterBoard(p[pnum], false);
 			if(bnum < 5)
-				idraw.drawBoats(p[pnum],bnum);
+				idraw.drawBoats(p[pnum], bnum);
 		}
 		return false;
 	}
+	
 	public boolean allready() {
 		if(bnum == 5)
 			return false;
 		else
 			return true;
 	}
+	
 	public void draw() {
-		idraw.drawplyaterBoard(p[pnum],true);
+		idraw.drawplyaterBoard(p[pnum], true);
 		idraw.drawopponentBoard(p[pnum], p[opnum]);
 	}
+	
 	public void refresh(boolean placing) {
 		if(placing) {
-			idraw.drawplyaterBoard(p[pnum],false);
+			idraw.drawplyaterBoard(p[pnum], false);
 			if(bnum < 5)
 				idraw.drawBoats(p[pnum], bnum);
 		}
