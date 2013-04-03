@@ -21,25 +21,16 @@ public class turn {
 		p[0] = player;
 		p[1] = opponent;	
 		}
-
 	/**
 	 * Sets up all of the variables for the game
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
-	 * @param adraw
-	 * @param awinner
+	 * @param canvas
 	 */
 	public void set(draw adraw,Player awinner) {
 		idraw = adraw;
 		winner = awinner;
 	}
-	
 	/**
-	 * Plays a round if click was in playable area
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition:  
+	 * plays a round if click was in playable area 
 	 * @param i - x coordinates of click
 	 * @param j - y coordinates of click
 	 */
@@ -56,29 +47,32 @@ public class turn {
 				//check if square is targetable
 					if(p[pnum].canAttack(p[opnum], x, y)) {
 						//attack square
-						System.out.println(p[pnum].getName() + "is targeting" + y + " " + x);
 						if(p[pnum].attack(p[opnum], x, y)) {
-							System.out.println("hit!!");
 						}
+						
 						//check for  victory
 						if(!p[opnum].hasBoat()) {
 					    	idraw.won(p[pnum]);
 					    	winner=p[pnum];
 							return true;
-						}				
+						}
+						
 						//switch players
 						int hold = pnum;
 						pnum = opnum;
 						opnum = hold;
+						
 						//black out for turn change
 						idraw.black();
 					}
 				}
+				
 			else {
 				idraw.drawplyaterBoard(p[pnum],true);
 				idraw.drawopponentBoard(p[pnum],p[opnum]);
 			}
 		}
+		
 		else {
 		//refresh board on click outside of box
 		idraw.drawplyaterBoard(p[pnum],true);
@@ -86,14 +80,10 @@ public class turn {
 		}
 		return false;
 }
-	
 	/**
-	 * Attempts to place the boats vertical and horizontal
+	 * Method Description: Attempts to place the boats vertical and horizontal
 	 * and will not allow the continuation of the game until
 	 * each boat has been placed in a spot that is acceptable
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
 	 * @param x1
 	 * @param y1
 	 * @param x2
@@ -151,30 +141,16 @@ public class turn {
 		}
 		return false;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
 	public boolean allready() {
 		if(bnum == 5)
 			return false;
 		else
 			return true;
 	}
-	
-	/**
-	 * 
-	 */
 	public void draw() {
 		idraw.drawplyaterBoard(p[pnum],true);
 		idraw.drawopponentBoard(p[pnum], p[opnum]);
 	}
-	
-	/**
-	 * 
-	 * @param placing
-	 */
 	public void refresh(boolean placing) {
 		if(placing) {
 			idraw.drawplyaterBoard(p[pnum],false);
@@ -185,7 +161,6 @@ public class turn {
 			draw();
 		}
 	}
-	
 	public Player getAI() {
 		return null;
 	}

@@ -25,7 +25,7 @@ public class Comunicate {
 	// If everything has been initialized then we want to write some data
 	// to the socket we have opened a connection to on port 25
 	    }
-	boolean send_message(String message){
+	public boolean send_message(String message){
 	    if (smtpSocket != null && os != null && is != null) {
 	            try {
 			        os.writeBytes(message);    
@@ -43,7 +43,7 @@ public class Comunicate {
 	    }
 		return false;
 	}
-	String recive_message(){
+	public String recive_message(){
         String responseLine = null;
 		try{
 	        while ((responseLine = is.readLine()) != null) {
@@ -59,17 +59,17 @@ public class Comunicate {
         }
         return responseLine;
 	}
-void disconect(){
-	try{
-    os.close();
-    is.close();
-    smtpSocket.close();  
-	}catch (UnknownHostException e) {
-        System.err.println("Trying to connect to unknown host: " + e);
-    } catch (IOException e) {
-        System.err.println("IOException:  " + e);
-    }
-	
-	}
+	public void disconect(){
+		try{
+	    os.close();
+	    is.close();
+	    smtpSocket.close();  
+		}catch (UnknownHostException e) {
+	        System.err.println("Trying to connect to unknown host: " + e);
+	    } catch (IOException e) {
+	        System.err.println("IOException:  " + e);
+	    }
+		
+		}
 }
 
