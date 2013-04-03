@@ -56,7 +56,16 @@ public class Player {
 	public boolean attack(Player opponent, int x, char y){
 		if(opponent.gameBoard.targetSquare(x - 1, y)){
 			for(int i = 0; i < 5; i++){
-				opponent.getBoat(i).isMe(x, y);
+				opponent.getBoat(i).isMe(x, y,false);
+			}
+			return true;
+		}
+		return false;
+	}
+	public boolean attack(Player opponent, int x, char y,String s){
+		if(opponent.gameBoard.targetSquare(x - 1, y)){
+			for(int i = 0; i < 5; i++){
+				opponent.getBoat(i).isMe(x, y,true);
 			}
 			return true;
 		}
@@ -104,15 +113,5 @@ public class Player {
 		}
 		msg += gameBoard;
 		return msg;
-	}
-
-	public boolean attack(Player opponent, int x, char y, String string) {
-		if(opponent.gameBoard.targetSquare(x - 1, y)){
-			for(int i = 0; i < 5; i++){
-				opponent.getBoat(i).isMe(x, y,string);
-			}
-			return true;
-		}
-		return false;
 	}
 }
