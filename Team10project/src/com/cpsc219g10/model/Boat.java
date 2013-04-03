@@ -32,9 +32,9 @@ public class Boat {
 	
 	/**
 	 * Generates a new boat object with a specific type and length
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Mutator
+	 * Pre-condition: nothing
+	 * Post-condition: a boat is created with a specific length and type
 	 * @param type_numthe kind of boat(0 = aircraft carrier, 1 = battleship,
 			2 = submarine, 3 = destroyer, 4 = patrol boat
 	 * @param pname
@@ -48,9 +48,9 @@ public class Boat {
 	
 	/**
 	 * Sets the position of the boat
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Mutator
+	 * Pre-condition: a valid space for the boat is available
+	 * Post-condition: the boat is placed on the valid space
 	 * @param xCoordinate
 	 * @param yCoordinate
 	 * @param orientation
@@ -64,9 +64,9 @@ public class Boat {
 	/**
 	 * Allows you to set your boats horizontally or vertically
 	 * and checks to see if the boat will fit in the space
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Mutator
+	 * Pre-condition: a boat is placed on a valid space
+	 * Post-condition: the boat can be hit and destroyed when it is hit enough times
 	 * @param x
 	 * @param y
 	 */
@@ -116,6 +116,16 @@ public class Boat {
 		return owner + " " + type + " " + length + " " + x + " " + y + " " + vertical +" "+health;
 	}
 
+	/**
+	 * Allows you to set your boats horizontally or vertically
+	 * and checks to see if the boat will fit in the space
+	 * Mutator
+	 * Pre-condition: a boat is placed on a valid space
+	 * Post-condition: the boat can be hit and destroyed when it is hit enough times
+	 * @param x2
+	 * @param y2
+	 * @param string
+	 */
 	public void isMe(int x2, char y2, String string) {
 		x--;
 		y = y - 97;

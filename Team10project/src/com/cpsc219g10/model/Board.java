@@ -44,9 +44,9 @@ public class Board {
 
 	/**
 	 * Convert the y coordinate from a letter coordinate to a number coordinate and vice versa
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Accessor
+	 * Pre-condition: a character value is given
+	 * Post-condition: an integer value is returned
 	 * @param y
 	 * @return
 	 */
@@ -67,9 +67,9 @@ public class Board {
 	 * If you are checking your own board, it will return whatever value is there.
 	 * If you are checking the opponent's board, it will return whether or not there is a boat there
 	 * 
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Accessor
+	 * Pre-condition: A grid has been established
+	 * Post-condition: returns either a hit, or a miss depending on if there is a boat on the board
 	 * @param player - checks that the player name is the same as the owner or the board
 	 * @param x - x coordinate 
 	 * @param ychar - y coordinate as a character 
@@ -92,9 +92,9 @@ public class Board {
 	
 	/**
 	 * Adds a boat object onto the board. 
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Mutator
+	 * Pre-condition: there is an empty space where a boat can be placed
+	 * Post-condition: a boat is placed on a valid space on the board
 	 * @param boat - The type of boat that's being added
 	 * @return whether or not the boat can be added at the requested coordinates
 	 */
@@ -134,9 +134,9 @@ public class Board {
 	 * Attack a particular square on the board.
 	 * If the attack hits a boat, it sinks that section and returns a success.
 	 * Otherwise it misses the boat and returns a failure.
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Accessor
+	 * Pre-condition: a grid has been established
+	 * Post-condition: if a target has been selected with a boat, it returns success, if not, returns fail
 	 * @param x - The x coordinate of the attack
 	 * @param ychar - The y coordinate of the attack as a character
 	 * @return whether or not the boat was hit
@@ -154,9 +154,9 @@ public class Board {
 		return hit;
 	}
 	
-	/**
-	 * 
-	 */
+/**
+ * Returns to a string
+ */
 	public String toString(){
 		String out = "";
 		for(int i = 0; i < 10; i++){
