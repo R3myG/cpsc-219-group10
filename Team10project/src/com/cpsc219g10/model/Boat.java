@@ -70,7 +70,7 @@ public class Boat {
 	 * @param x
 	 * @param y
 	 */
-	public void isMe(int x,int y) {
+	public void isMe(int x,int y,boolean AI) {
 		x--;
 		y = y - 97;
 		
@@ -87,11 +87,17 @@ public class Boat {
 			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
 				health--;
 				if(isSunk()){
-					JOptionPane.showMessageDialog(null,"you sunk my "+type+"!");
+					if(AI)
+						JOptionPane.showMessageDialog(null,"the computer sunk your "+type+"!");
+					else
+						JOptionPane.showMessageDialog(null,"you sunk my "+type+"!");
 				}
-				else
-					JOptionPane.showMessageDialog(null,"you hit!");
-
+				else{
+					if(AI)
+						JOptionPane.showMessageDialog(null,"the Computer hit you!");
+					else
+						JOptionPane.showMessageDialog(null,"you hit!");
+				}
 			}
 		}
 	}
