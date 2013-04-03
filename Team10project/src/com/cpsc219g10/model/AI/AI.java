@@ -65,10 +65,9 @@ public class AI {
 		System.out.println("possibles:");
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
-				if(opBoard.getSquare("Computer", i, j) == 'H'){
-					System.out.println(" -"+i+" "+j);
-				}
+				System.out.print(opBoard.getSquare("Computer", i, j)+" ");
 			}
+			System.out.println();
 		}
 			if(foundBoat){
 				attackHit();
@@ -82,19 +81,17 @@ public class AI {
 	 */
 	private void attackPossible() {
 		boolean possible = false;
-		/*
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
 				if(opBoard.getSquare("Computer", i, j) == 'H'){
+					System.out.println("attack possible at"+i+" "+j);
 					attackaround(new Point(i, (int)j - 97));
 					possible = true;
 					return;
 				}
 			}
-		}*/
-		if(!possible){
-			attackRandom();
 		}
+			attackRandom();
 	}
 	/**
 	 * attacks around a designated point
