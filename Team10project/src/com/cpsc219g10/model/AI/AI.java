@@ -217,7 +217,7 @@ public class AI {
 				return;
 			}
 		}
-		
+		attackFromStart();
 	}
 	/**
 	 * attack backwards from the start point to the most recent attack point
