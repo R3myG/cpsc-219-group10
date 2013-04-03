@@ -2,6 +2,8 @@ package com.cpsc219g10.model.AI;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import com.cpsc219g10.model.Player;
 import com.cpsc219g10.model.Point;
 
@@ -318,14 +320,13 @@ public class AI {
 			attackRandom();
 			return true;
 		}
-		try{Thread.sleep(100); } 
-		catch(InterruptedException e) {}
 		if(x > 0 && y >= 0 && x<11 && y<10){
-
 			if(ai.canAttack(opponent, x, (char)(y + 'a'))){
+				try{Thread.sleep(500);}catch(InterruptedException e) {}
+				JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",0);
 				numberOfAttempts=0;
 				move++;	
-				hits[move] = ai.attack(opponent, x, (char)(y + 97));
+				hits[move] = ai.attack(opponent, x, (char)(y + 97),"comp");
 				moves[move] = new Point(x, y);
 				moveTypes[move] = type;
 				if(hits[move]){
