@@ -35,11 +35,11 @@ public class GraphicGenerator {
 			p[1]=game.getAI();
 		}
 		else{
-		game = new turn(p[0], p[1]);
 		String namePlayerOne = JOptionPane.showInputDialog("Player one, please enter your name: ");
 		String namePlayerTwo = JOptionPane.showInputDialog("Player two, please enter your name: ");
 		p[0]=new Player(namePlayerOne);
 		p[1]=new Player(namePlayerTwo);
+		game = new turn(p[0], p[1]);
 		//set all basic variables
 		}
 		game.set(idraw,winner);
