@@ -143,10 +143,10 @@ public class AI {
 		x = gen.nextInt(10) + 1;
 		y = (char)(gen.nextInt(10) + 97);
 		}while(!ai.canAttack(opponent, x, y));
-		
+		JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 		move++;	
 	
-		hits[move] = ai.attack(opponent, x, y);
+		hits[move] = ai.attack(opponent, x, y,"");
 		moves[move] = new Point(x, (int)y - 97);
 		moveTypes[move] = 0;
 		if(hits[move]){
@@ -322,11 +322,12 @@ public class AI {
 		}
 		if(x > 0 && y >= 0 && x<11 && y<10){
 			if(ai.canAttack(opponent, x, (char)(y + 'a'))){
-				try{Thread.sleep(500);}catch(InterruptedException e) {}
-				JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",0);
+				try{Thread.sleep(500); } 
+				catch(InterruptedException e) {}
+				JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 				numberOfAttempts=0;
 				move++;	
-				hits[move] = ai.attack(opponent, x, (char)(y + 97),"comp");
+				hits[move] = ai.attack(opponent, x, (char)(y + 97),"");
 				moves[move] = new Point(x, y);
 				moveTypes[move] = type;
 				if(hits[move]){
