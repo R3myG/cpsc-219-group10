@@ -62,6 +62,7 @@ public class Player {
 		}
 		return false;
 	}
+	
 	/**
 	 * Allows you to attack a player
 	 * Accessor
