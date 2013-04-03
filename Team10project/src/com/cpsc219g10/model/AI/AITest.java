@@ -12,11 +12,13 @@ public class AITest {
 				System.out.println("fail 6 @"+i);
 			}
 		}
+		int count=0;
 		do{
 			System.out.println("\n turn \n"+comp.opBoard);
 		comp.attack();
-		try{Thread.sleep(1000); } 
-		catch(InterruptedException e) {}
+			System.out.println("\n turn \n"+comp.opBoard);
+			count++;
 		}while(p.hasBoat());
+		System.out.println(count+"/"+100);
 	}
 }

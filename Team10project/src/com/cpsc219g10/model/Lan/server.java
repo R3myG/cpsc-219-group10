@@ -10,12 +10,21 @@ public class server {
     private PrintStream os;
     private Socket clientSocket = null;
     private boolean recived = false;
-    private final String HIT = "H";
-    private final String MISS ="M";
-    private final String FALSE ="F";
-
+    private final String HIT = "Hit";
+    private final String MISS ="Miss";
+    private final String FALSE ="False";
+    public static void main(String[] args){
+    	server com = new server();
+    	com.initialize();
+    	Player p1,p2;
+    	p1=new Player("server");
+    	p2=new Player("local");
+    	com.waitForAttack(p1,p2);
+    }
     
     public void initialize() {
+        System.out.println("Server initilizing");
+
 // declaration section:
 // declare a server socket and a client socket for the server
 // declare an input and an output stream
@@ -24,7 +33,7 @@ public class server {
 // Note that we can't choose a port less than 1023 if we are not
 // privileged users (root)
         try {
-           echoServer = new ServerSocket(9999);
+           echoServer = new ServerSocket(9998);
         }
         catch (IOException e) {
            System.out.println(e);
@@ -41,25 +50,32 @@ public class server {
     catch (IOException e) {
            System.out.println(e);
         }
+    System.out.println("Server initilized");
     }
 
+	@SuppressWarnings("deprecation")
 	public void waitForAttack(Player server,Player local) {
+		recived=false;
+	    System.out.println("Server waiting for attack");
 		while(!recived){
 			try {
+				System.out.println("try");
 				line = is.readLine();
 				if(line.indexOf("END")!=-1){
 					recived=true;
-					if(server.canAttack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[2])){
-						if(server.attack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[2])){
+					System.out.println(line);
+					if(server.canAttack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[1])){
+						if(server.attack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[1])){
 							os.println(HIT);
-					}else 
-						os.println(MISS);
-				}else
-					os.println(FALSE);
+						}else 
+							os.println(MISS);
+					}else
+						os.println(FALSE);
 			}
 			}catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.exit(0);
 			}
 		}
 	}

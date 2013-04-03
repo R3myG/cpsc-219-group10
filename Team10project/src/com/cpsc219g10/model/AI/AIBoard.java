@@ -9,7 +9,6 @@ public class AIBoard extends Board {
 		super(name);
 	}
 	public void removeIfsunk(Boat boat){
-		System.out.println("called");
 		int vertical = 0, horizontal = 0;
 		if(boat.vertical) {
 			vertical = 1;
@@ -18,9 +17,7 @@ public class AIBoard extends Board {
 		}
 		if(boat.isSunk()){
 		for(int i = 0; i < boat.length(); i++) {
-			System.out.println(boat);
 			gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)]=emptySpace;
-			System.out.println((boat.x + (i * horizontal))+" "+(boat.y + (i * vertical)));
 
 		}
 		}
