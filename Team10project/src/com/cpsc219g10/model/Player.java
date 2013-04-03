@@ -30,13 +30,13 @@ public class Player {
 	}
 	
 	/**
-	 * Converting name to someName so it can be used outside of this class
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Determines whether or not the player you are attacking is able to be attacked
+	 * Mutator
+	 * Pre-condition: a player is created
+	 * Post-condition: the player is attacked if it was a valid opponent
 	 * @param someName
 	 */
-	public Boolean canAttack(Player opponent,int x,char y){
+	public Boolean canAttack(Player opponent, int x, char y){
 		if(opponent.gameBoard.getSquare(name, x, y) == 'O')
 			return true;
 		else
@@ -45,9 +45,9 @@ public class Player {
 	
 	/**
 	 * Allows you to attack a player
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Accessor
+	 * Pre-condition: an opponent has been declared
+	 * Post-condition: an attack is initiated
 	 * @param opponent
 	 * @param x
 	 * @param y
@@ -62,7 +62,18 @@ public class Player {
 		}
 		return false;
 	}
-	public boolean attack(Player opponent, int x, char y,String s){
+	/**
+	 * Allows you to attack a player
+	 * Accessor
+	 * Pre-condition: an opponent has been declared
+	 * Post-condition: an attack is initiated
+	 * @param opponent
+	 * @param x
+	 * @param y
+	 * @param string
+	 * @return
+	 */
+	public boolean attack(Player opponent, int x, char y, String s){
 		if(opponent.gameBoard.targetSquare(x - 1, y)){
 			for(int i = 0; i < 5; i++){
 				opponent.getBoat(i).isMe(x, y,true);
@@ -73,10 +84,10 @@ public class Player {
 	}
 	
 	/**
-	 *
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Determines if the player has a boat
+	 * Accessor
+	 * Pre-condition: boats were created
+	 * Post-condition: determines if the player actually has boats remaining
 	 * @return
 	 */
 	public boolean hasBoat(){
@@ -90,10 +101,10 @@ public class Player {
 	}
 	
 	/**
-	 * 
-	 * Accessor or Mutator
-	 * Pre-condition: 
-	 * Post-condition: 
+	 * Allows 5 boats to be made
+	 * Accessor
+	 * Pre-condition: nothing
+	 * Post-condition: 5 boats are made
 	 * @return
 	 */
 	public int numberOfBoats() {
@@ -106,6 +117,9 @@ public class Player {
 		return number;
 	}
 	
+	/**
+	 * Returns to a string
+	 */
 	public String toString(){
 		String msg = name + "\n\n";
 		for(int i = 0; i < 5; i++){
