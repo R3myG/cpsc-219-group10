@@ -9,13 +9,13 @@ import com.cpsc219g10.model.Point;
 
 public class AI {
 	//give AI a player
-	Player ai = new Player("comp");
+	Player ai = new Player("Computer");
 	// give AI an opponent
 	Player opponent;
 	// start point for boat search(last place searched around)
 	Point start;
 	//set up a board for ai to use for finding opponents boats
-	AIBoard opBoard = new AIBoard("comp");
+	AIBoard opBoard = new AIBoard("Computer");
 	// set up a moves repitour();
 	Point[] moves = new Point[100];
 	boolean[] hits = new boolean[100];
@@ -65,7 +65,7 @@ public class AI {
 		System.out.println("possibles:");
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
-				if(opBoard.getSquare("comp", i, j) == 'H'){
+				if(opBoard.getSquare("Computer", i, j) == 'H'){
 					System.out.println(" -"+i+" "+j);
 				}
 			}
@@ -85,7 +85,7 @@ public class AI {
 		/*
 		for(int i = 1; i < 11; i++){
 			for(char j = 'a'; j < 'k'; j++){
-				if(opBoard.getSquare("comp", i, j) == 'H'){
+				if(opBoard.getSquare("Computer", i, j) == 'H'){
 					attackaround(new Point(i, (int)j - 97));
 					possible = true;
 					return;
@@ -309,7 +309,7 @@ public class AI {
 	}
 	/**
 	 * actual AI attack comand checks if the opponent can be attacked if it can then it attacks it at the dictated point
-	 * if not it returns false(attack could not be completed generaly spot has already been attacked
+	 * if not it returns false(attack could not completed generaly spot has already been attacked
 	 * @param x - x corrdient for attack
 	 * @param y - y corrdidnent for attacking
 	 * @return whether or not the spot is legal to attack;

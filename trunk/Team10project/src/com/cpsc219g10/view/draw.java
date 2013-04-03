@@ -212,7 +212,7 @@ public class draw {
 		canvas.fillRect(0, 0, 10000, 10000);
 		canvas.setColor(red);		
 		canvas.setFont(new Font("sansserif", Font.BOLD, 32));
-		canvas.drawString(winner.getName()+" wins!!",600,300);
+		canvas.drawString(winner.getName()+" wins!!",540,300);
 		
 	}
 	/**

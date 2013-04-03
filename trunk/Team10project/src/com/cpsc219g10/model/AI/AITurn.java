@@ -5,13 +5,13 @@ import javax.swing.JOptionPane;
 import com.cpsc219g10.model.*;
 
 public class AITurn extends turn {
-	private AI comp;
+	private AI Computer;
 	private int pnum = 0;
 	private int opnum = 1;
 	public AITurn(Player player){
 		super(player,null);
-		comp = new AI(player);
-		p[1]=comp.getPlayer();
+		Computer = new AI(player);
+		p[1]=Computer.getPlayer();
 	}
 	public Player getAI(){
 		return p[1];
@@ -38,7 +38,7 @@ public class AITurn extends turn {
 					    	winner=p[pnum];
 							return true;
 						}
-						comp.attack();
+						Computer.attack();
 						if(!p[pnum].hasBoat()) {
 					    	idraw.won(p[opnum]);
 					    	winner=p[opnum];
