@@ -3,7 +3,6 @@ package com.cpsc219g10.model.AI;
 import javax.swing.JOptionPane;
 
 import com.cpsc219g10.model.*;
-import com.cpsc219g10.view.draw;
 
 public class AITurn extends turn {
 	private AI comp;
