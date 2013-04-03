@@ -109,4 +109,30 @@ public class Boat {
 	public String toString(){
 		return owner + " " + type + " " + length + " " + x + " " + y + " " + vertical +" "+health;
 	}
+
+	public void isMe(int x2, char y2, String string) {
+		x--;
+		y = y - 97;
+		
+		int vertical = 0, horizontal = 0;
+		//Set the orientation of the boat
+		if(this.vertical) {
+			vertical = 1;
+		} else {
+			horizontal = 1;
+		}
+		//System.out.println("call"+this);
+		//Check if the boat will fit
+		for(int i = 0; i < length; i++) {
+			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
+				health--;
+				if(isSunk()){
+					JOptionPane.showMessageDialog(null,string+" sunk your "+type+"!");
+				}
+				else
+					JOptionPane.showMessageDialog(null,string+" hit you!");
+
+			}
+		}
+	}
 }

@@ -105,4 +105,14 @@ public class Player {
 		msg += gameBoard;
 		return msg;
 	}
+
+	public boolean attack(Player opponent, int x, char y, String string) {
+		if(opponent.gameBoard.targetSquare(x - 1, y)){
+			for(int i = 0; i < 5; i++){
+				opponent.getBoat(i).isMe(x, y,string);
+			}
+			return true;
+		}
+		return false;
+	}
 }
