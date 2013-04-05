@@ -17,7 +17,7 @@ public class AIBoard extends Board {
 		}
 		if(boat.isSunk()){
 		for(int i = 0; i < boat.length(); i++) {
-			gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)]=emptySpace;
+			gameBoard[boat.x + (i * horizontal)][boat.y + (i * vertical)]=missedSpace;
 
 		}
 		}
