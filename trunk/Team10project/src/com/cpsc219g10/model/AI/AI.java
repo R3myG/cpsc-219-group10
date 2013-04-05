@@ -1,5 +1,4 @@
 package com.cpsc219g10.model.AI;
-
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -27,7 +26,9 @@ public class AI {
 	//tells the AI the move its on
 	int move = -1;
 	int numberOfAttempts=0;
-	
+	Convert con = new Convert();
+	private int hitListCount = 0;
+
 	private final int ATTACKRANDOM = 0;
 	private final int ATTACKPOSSIBLES = 1;
 	private final int ATTACKAROUND = 2;
@@ -49,6 +50,26 @@ public class AI {
 	}
 	public Player getAI(){
 		return ai;
+	}
+	private boolean attackFromList(){
+		boolean can =false;
+		do{
+		if(hitListCount>=con.length())
+			return false;
+		can=attack(con.moves(hitListCount,0),con.moves(hitListCount,1),0);
+		hitListCount++;
+		}while(!can);
+		return true;
+	}
+	private boolean shoudlAttack(int i,char j){
+		if(opBoard.getSquare("Computer",i+1,j)=='E' ||
+		   opBoard.getSquare("Computer",i-1,j)=='E' ||
+		   opBoard.getSquare("Computer",i,(char)(j+1))=='E' ||
+		   opBoard.getSquare("Computer",i,(char)(j-1))=='E'){
+		return true;	
+		}
+		
+		return false;
 	}
 	private void setBoard() {
 		for(int i=0;i<5;i++){
@@ -125,24 +146,26 @@ public class AI {
 	 */
 	private void attackRandom(){
 		numberOfAttempts=0;
-		int x;
-		char y;
-		do{
-		x = gen.nextInt(10) + 1;
-		y = (char)(gen.nextInt(10) + 97);
-		}while(!ai.canAttack(opponent, x, y));
-		JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
-		move++;	
-	
-		hits[move] = ai.attack(opponent, x, y,"");
-		moves[move] = new Point(x, (int)y - 97);
-		moveTypes[move] = 0;
-		if(hits[move]){
-			opBoard.addSpace(x,(int)y - 96,'H');
-			foundBoat = true;
-		}
-		else{
-			opBoard.addSpace(x,(int)y - 96,'M');
+		if(!attackFromList()){
+			int x;
+			char y;
+			do{
+			x = gen.nextInt(10) + 1;
+			y = (char)(gen.nextInt(10) + 97);
+			}while(!ai.canAttack(opponent, x, y)&&!shoudlAttack(x, y));
+			//JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
+			move++;	
+		
+			hits[move] = ai.attack(opponent, x, y,"");
+			moves[move] = new Point(x, (int)y - 97);
+			moveTypes[move] = 0;
+			if(hits[move]){
+				opBoard.addSpace(x,(int)y - 96,'H');
+				foundBoat = true;
+			}
+			else{
+				opBoard.addSpace(x,(int)y - 96,'M');
+			}
 		}
 	}
 	/**
@@ -310,7 +333,7 @@ public class AI {
 		}
 		if(x > 0 && y >= 0 && x<11 && y<10){
 			if(ai.canAttack(opponent, x, (char)(y + 'a'))){
-				JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
+				//JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 				numberOfAttempts=0;
 				move++;	
 				hits[move] = ai.attack(opponent, x, (char)(y + 97),"");

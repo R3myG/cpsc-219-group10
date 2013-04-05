@@ -87,14 +87,14 @@ public class Boat {
 			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
 				health--;
 				if(isSunk()){
-					if(AI)
-						JOptionPane.showMessageDialog(null,"the computer sunk your "+type+"!");
+					if(AI){}
+						//JOptionPane.showMessageDialog(null,"the computer sunk your "+type+"!");
 					else
 						JOptionPane.showMessageDialog(null,"you sunk my "+type+"!");
 				}
 				else{
-					if(AI)
-						JOptionPane.showMessageDialog(null,"the Computer hit you!");
+					if(AI){}
+						//JOptionPane.showMessageDialog(null,"the Computer hit you!");
 					else
 						JOptionPane.showMessageDialog(null,"you hit!");
 				}

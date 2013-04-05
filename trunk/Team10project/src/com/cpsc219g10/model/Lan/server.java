@@ -63,6 +63,7 @@ public class server {
 				line = is.readLine();
 				if(line.indexOf("END")!=-1){
 					recived=true;
+					System.out.println("try");
 					System.out.println(line);
 					if(server.canAttack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[1])){
 						if(server.attack(local,Integer.parseInt(line.substring(0,1)),line.toCharArray()[1])){
