@@ -1,8 +1,10 @@
 package com.cpsc219g10.model.AI;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 
 public class Convert {
@@ -10,6 +12,7 @@ public class Convert {
 	private String[] lines= new String[100];
 	private int[][] moves;
 	private int length = 0;
+	private Random gen = new Random();
 	public static void main(String[] args){
 		Convert con = new Convert();
 		for(int i=0;i<con.length();i++){
@@ -22,9 +25,22 @@ public class Convert {
 	public int moves(int i, int c){
 		return moves[i][c];
 	}
+	public void rotate(int numberOfRoatations){
+		int[][] hold = new int[length][2];
+		for(int i=0;i<length;i++){
+			hold[i][0]=moves[i][1];
+			hold[i][1]=9-moves[i][0];
+		}
+		moves=hold;
+		if(numberOfRoatations!=0){
+			rotate(numberOfRoatations-1);
+		}
+	} 
 	public Convert(){
 	    try {
-		    in = new BufferedReader(new FileReader("in.txt"));
+			File folder = new File("AIPatterns");
+			File[] listOfFiles = folder.listFiles(); 
+		    in = new BufferedReader(new FileReader(listOfFiles[gen.nextInt(listOfFiles.length)]));
 	        String line;
 	        do {
 	            line = in.readLine();
@@ -46,5 +62,26 @@ public class Convert {
 	    	moves[i][1]=Integer.parseInt(lines[i].substring(2));
 
 	    }
+	}
+	public String toString(){
+		String pattern="";
+		boolean found = false;
+		for(int i=0;i<10;i++){
+			for(int j=0;j<10;j++){
+				found = false;
+				for(int k=0;k<length;k++){
+					if(moves[k][0]==i && moves[k][1]==j){
+						pattern+=k+"\t";
+						found=true;
+						break;
+					}
+					
+				}
+				if(!found)
+					pattern+="B\t";
+			}
+			pattern+="\n";
+		}
+		return pattern;
 	}
 }
