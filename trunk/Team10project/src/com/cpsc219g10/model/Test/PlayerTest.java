@@ -1,7 +1,10 @@
-package com.cpsc219g10.model;
-
+package com.cpsc219g10.model.Test;
+import com.cpsc219g10.model.*;
 public class PlayerTest {
 	public static void main(String[] args){
+		main();
+	}
+	public static boolean main(){
 		Player pt1 = new Player("test1");
 		Player pt2 = new Player("test2");
 		pt2.getBoat(0).setPosition(4,4,true);
@@ -56,10 +59,8 @@ public class PlayerTest {
 			pass=false;
 			System.out.println("fail 10");
 		}
-		System.out.println(pt1+"\n\n"+pt2);
 		
-		if(pass)
-			System.out.println("All Tests Passed");
+		return pass;
 
 
 	}

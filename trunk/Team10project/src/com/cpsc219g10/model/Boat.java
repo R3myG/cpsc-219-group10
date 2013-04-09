@@ -70,9 +70,9 @@ public class Boat {
 	 * @param x
 	 * @param y
 	 */
-	public void isMe(int x,int y,boolean AI) {
+	public boolean isMe(int x,char cy,boolean AI) {
 		x--;
-		y = y - 97;
+		int y = cy - 97;
 		
 		int vertical = 0, horizontal = 0;
 		//Set the orientation of the boat
@@ -98,8 +98,10 @@ public class Boat {
 					else
 						JOptionPane.showMessageDialog(null,"you hit!");
 				}
+				return true;
 			}
 		}
+		return false;
 	}
 	/**
 	 * If the health of the boat reaches zero, 

@@ -6,8 +6,6 @@ import com.cpsc219g10.model.*;
 
 public class AITurn extends turn {
 	private AI Computer;
-	private int pnum = 0;
-	private int opnum = 1;
 	public AITurn(Player player){
 		super(player,null);
 		Computer = new AI(player);

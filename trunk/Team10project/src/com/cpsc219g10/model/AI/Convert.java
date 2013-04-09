@@ -12,7 +12,10 @@ public class Convert {
 	private String[] lines= new String[100];
 	private int[][] moves;
 	private int length = 0;
-	private Random gen = new Random();
+	static File folder = new File("AIPatterns");
+	static File[] listOfFiles = folder.listFiles(); 
+	private static Random gen = new Random();
+
 	public static void main(String[] args){
 		Convert con = new Convert();
 		for(int i=0;i<con.length();i++){
@@ -37,10 +40,11 @@ public class Convert {
 		}
 	} 
 	public Convert(){
+		this(listOfFiles[gen.nextInt(listOfFiles.length)].getName());
+	}
+	public Convert(String file) {
 	    try {
-			File folder = new File("AIPatterns");
-			File[] listOfFiles = folder.listFiles(); 
-		    in = new BufferedReader(new FileReader(listOfFiles[gen.nextInt(listOfFiles.length)]));
+		    in = new BufferedReader(new FileReader(file));
 	        String line;
 	        do {
 	            line = in.readLine();
@@ -61,8 +65,8 @@ public class Convert {
 	    	moves[i][0]=Integer.parseInt(lines[i].substring(0,1));
 	    	moves[i][1]=Integer.parseInt(lines[i].substring(2));
 
-	    }
-	}
+	    }	}
+
 	public String toString(){
 		String pattern="";
 		boolean found = false;

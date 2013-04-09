@@ -13,8 +13,8 @@ public class turn {
 	protected Player winner;
 	//current value's of player turns
 	
-	private int pnum = 0;
-	private int opnum = 1;
+	protected int pnum = 0;
+	protected int opnum = 1;
 	protected int bnum = 0;
 	protected draw idraw;
 	public turn(Player player, Player opponent) {
