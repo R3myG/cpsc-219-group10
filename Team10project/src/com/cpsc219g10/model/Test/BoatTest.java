@@ -1,4 +1,6 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.Test;
+
+import com.cpsc219g10.model.*;
 
 public class BoatTest {
 	public static void main(String[] args){

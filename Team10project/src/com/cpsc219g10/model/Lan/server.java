@@ -6,8 +6,8 @@ import com.cpsc219g10.model.Player;
 public class server {
     private ServerSocket echoServer = null;
     private String line;
-    private DataInputStream is;
-    private PrintStream os;
+    private BufferedReader is;
+    private PrintWriter os;
     private Socket clientSocket = null;
     private boolean recived = false;
     private final String HIT = "Hit";
@@ -43,8 +43,8 @@ public class server {
 // Open input and output streams
     try {
            clientSocket = echoServer.accept();
-           is = new DataInputStream(clientSocket.getInputStream());
-           os = new PrintStream(clientSocket.getOutputStream());
+           is =new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+           os = new PrintWriter(clientSocket.getOutputStream());
 // As long as we receive data, echo that data back to the client.
         }   
     catch (IOException e) {
@@ -53,7 +53,6 @@ public class server {
     System.out.println("Server initilized");
     }
 
-	@SuppressWarnings("deprecation")
 	public void waitForAttack(Player server,Player local) {
 		recived=false;
 	    System.out.println("Server waiting for attack");
@@ -61,6 +60,8 @@ public class server {
 			try {
 				System.out.println("try");
 				line = is.readLine();
+				System.out.println("try");
+				System.out.println("\""+line+"\"");
 				if(line.indexOf("END")!=-1){
 					recived=true;
 					System.out.println("try");

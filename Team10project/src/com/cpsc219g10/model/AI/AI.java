@@ -26,7 +26,7 @@ public class AI {
 	//tells the AI the move its on
 	int move = -1;
 	int numberOfAttempts=0;
-	private Convert con = new Convert();
+	private Convert con;
 	private int hitListCount = 0;
 
 	private final int ATTACKRANDOM = 0;
@@ -46,8 +46,14 @@ public class AI {
 	public AI(Player p){
 		opponent = p;
 		setBoard();
+		con = new Convert();
 		con.rotate(gen.nextInt(3));
-		System.out.println(con);
+	}
+	public AI(Player p,String File){
+		opponent = p;
+		setBoard();
+		con = new Convert(File);
+		con.rotate(gen.nextInt(3));
 	}
 	public Player getAI(){
 		return ai;

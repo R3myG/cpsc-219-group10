@@ -1,5 +1,7 @@
-package com.cpsc219g10.model;
+package com.cpsc219g10.model.Test;
 import java.util.Random;
+
+import com.cpsc219g10.model.*;
 
 public class BoardTest {
 	public static void main(String[] args){
