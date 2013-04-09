@@ -7,7 +7,8 @@ import com.cpsc219g10.model.Player;
 public class AITest {
 	public static void main(String[] args){
 		int count=0;
-		for(int rec=0;rec<1000;rec++){
+		int[] counts=new int[200];
+		for(int rec=0;rec<5;rec++){
 			Player p= new Player("Gavin");
 			AI comp = new AI(p);
 			Random gen = new Random();
@@ -19,12 +20,22 @@ public class AITest {
 					p.getBoat(i).setPosition(x,y,ori);
 				}while(!p.getBoard().addBoat(p.getBoat(i)));
 			}
+			int each=0;
 			do{
 			comp.attack();
 				count++;
+				each++;
 			}while(p.hasBoat());
+			counts[each]++;
 		}
-		System.out.println(count/1000.0+"/"+100);
+		System.out.println(count/10000.0+"/"+100);
+		for(int i=0;i<100;i++){
+			System.out.print(counts[i]+"\n");
+		}
+
+
+
+
 
 	}
 }
