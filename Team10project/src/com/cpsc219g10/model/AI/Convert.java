@@ -44,7 +44,7 @@ public class Convert {
 	}
 	public Convert(String file) {
 	    try {
-		    in = new BufferedReader(new FileReader(file));
+		    in = new BufferedReader(new FileReader("AIPatterns/"+file));
 	        String line;
 	        do {
 	            line = in.readLine();

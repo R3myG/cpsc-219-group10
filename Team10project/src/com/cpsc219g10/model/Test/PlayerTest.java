@@ -16,7 +16,7 @@ public class PlayerTest {
 			pass=false;
 			System.out.println("fail 1");
 		}
-		if(!pt1.attack(pt2,4,'d')){
+		if(!pt1.attack(pt2,4,'d',false)){
 			pass=false;
 			System.out.println("fail 2");
 		}
@@ -39,15 +39,13 @@ public class PlayerTest {
 				System.out.println("fail 6 @"+i);
 			}
 		}
-		System.out.print("miss @");
 		for(int i=1;i<6;i++){
 			for(char j='a';j<'f';j++){
 				if(!pt2.canAttack(pt1,i,j)){
 					pass=false;
 					System.out.println("fail 7 @("+i+","+j+")");
 				}
-				if(!pt2.attack(pt1,i,j)){
-					System.out.print("("+i+","+j+")");
+				if(!pt2.attack(pt1,i,j,false)){
 				}
 			}
 		}

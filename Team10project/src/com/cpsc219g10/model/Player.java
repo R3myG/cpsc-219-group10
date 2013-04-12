@@ -53,10 +53,10 @@ public class Player {
 	 * @param y
 	 * @return
 	 */
-	public boolean attack(Player opponent, int x, char y){
+	public boolean attack(Player opponent, int x, char y,boolean print){
 		if(opponent.gameBoard.targetSquare(x - 1, y)){
 			for(int i = 0; i < 5; i++){
-				opponent.getBoat(i).isMe(x, y,false);
+				opponent.getBoat(i).isMe(x, y,false,print);
 			}
 			return true;
 		}
@@ -74,10 +74,10 @@ public class Player {
 	 * @param string
 	 * @return
 	 */
-	public boolean attack(Player opponent, int x, char y, String s){
+	public boolean attack(Player opponent, int x, char y, String s,boolean print){
 		if(opponent.gameBoard.targetSquare(x - 1, y)){
 			for(int i = 0; i < 5; i++){
-				opponent.getBoat(i).isMe(x, y,true);
+				opponent.getBoat(i).isMe(x, y,true,print);
 			}
 			return true;
 		}

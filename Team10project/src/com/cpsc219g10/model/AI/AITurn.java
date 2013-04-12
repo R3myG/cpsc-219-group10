@@ -27,7 +27,7 @@ public class AITurn extends turn {
 				//check if square is targetable
 					if(p[pnum].canAttack(p[opnum], x, y)) {
 						//attack square
-						if(p[pnum].attack(p[opnum], x, y)) {
+						if(p[pnum].attack(p[opnum], x, y,true)) {
 						}
 						
 						//check for  victory

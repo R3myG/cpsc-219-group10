@@ -28,7 +28,7 @@ public class TestAll {
 			System.out.println("\nBoats index out of bounds");
 		}catch(ArrayIndexOutOfBoundsException aob){
 		}
-		if(!boats[0].isMe(0,'a',true) || boats[0].isMe(0,'b',true)){
+		if(!boats[0].isMe(1,'a',true,false) || boats[0].isMe(2,'a',true,false)){
 			passed=false;
 			System.out.println("\nBoats isMe Failed.");
 		}
@@ -46,22 +46,22 @@ public class TestAll {
 			passed=false;
 			System.out.println("\nFailed to place Boats");
 		}
-		if(gb.getSquare("owner",0,'a')!='B' ||
-		   gb.getSquare("owner",1,'a')!='E' ||
+		if(gb.getSquare("owner",0,'a')!='O' ||
+		   gb.getSquare("owner",1,'a')!='B' ||
 		   gb.getSquare("owner",1,'b')!='B' ||
 		   gb.getSquare("owner",3,'e')!='B' ||
-		   gb.getSquare("owner",9,'a')!='E'){
+		   gb.getSquare("owner",9,'a')!='O'){
 			passed=false;
 			System.out.println("\nboat Placements do not match");
 		}
 		for(int i=0;i<9;i++){
 			gb.targetSquare(i,(char)(i+'a'));
 		}
-		if(gb.getSquare("owner",0,'a')!='H' ||
-		   gb.getSquare("owner",1,'b')!='H' ||
-		   gb.getSquare("owner",2,'c')!='H' ||
-		   gb.getSquare("owner",5,'g')!='M' ||
-		   gb.getSquare("owner",6,'h')!='M'){
+		if(gb.getSquare("owner",1,'a')!='X' ||
+		   gb.getSquare("owner",2,'b')!='X' ||
+		   gb.getSquare("owner",3,'c')!='X' ||
+		   gb.getSquare("owner",6,'f')!='M' ||
+		   gb.getSquare("owner",7,'g')!='M'){
 				passed=false;
 				System.out.println("\nboard targeting do not match");
 		}
@@ -69,11 +69,6 @@ public class TestAll {
 		if(!PlayerTest.main()){
 			passed=false;
 			System.out.println("\nPlayer Failed");	
-		}
-		if (passed = false) {
-			System.out.println("\nTests Failed");
-		} else {
-			System.out.println("\nTests Done");
 		}
 		//turn draw
 		Player p1,p2, winner=null;
@@ -85,6 +80,7 @@ public class TestAll {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(pan);
 		frame.setVisible(true);
+		try{
 		draw draw = new draw(pan.getGraphics());
 		turn turn = new turn(p1,p2);
 		turn.set(draw,winner);
@@ -99,8 +95,17 @@ public class TestAll {
 		turn.place(5,5,6,5);
 		turn.place(5,5,6,5);
 		turn.play(1,1);
-
-
+		turn.refresh(true);
+		frame.dispose();
+		}catch(Exception e){
+			passed=false;
+			System.out.println("turn and draw error");	
+		}
+		if (passed = false) {
+			System.out.println("\nTests Failed");
+		} else {
+			System.out.println("\nTests passed");
+		}
 		
 	}
 }
