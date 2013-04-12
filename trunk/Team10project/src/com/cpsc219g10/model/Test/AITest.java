@@ -6,12 +6,13 @@ import com.cpsc219g10.model.Player;
 import com.cpsc219g10.model.AI.AI;
 
 public class AITest {
+	static String fileName = "Patern3.txt";
 	public static void main(String[] args){
 		int count=0;
 		int[] counts=new int[200];
 		for(int rec=0;rec<10000;rec++){
 			Player p= new Player("Gavin");
-			AI comp = new AI(p,"Patern1.txt",false);
+			AI comp = new AI(p,fileName,false);
 			Random gen = new Random();
 			for(int i=0;i<5;i++){
 				do{
