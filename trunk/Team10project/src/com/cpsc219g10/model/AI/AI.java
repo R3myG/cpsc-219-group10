@@ -28,7 +28,7 @@ public class AI {
 	int numberOfAttempts=0;
 	private Convert con;
 	private int hitListCount = 0;
-
+	private boolean print = true;
 	private final int ATTACKRANDOM = 0;
 	private final int ATTACKPOSSIBLES = 1;
 	private final int ATTACKAROUND = 2;
@@ -48,6 +48,9 @@ public class AI {
 		setBoard();
 		con = new Convert();
 		con.rotate(gen.nextInt(3));
+	}
+	public AI(boolean print){
+		print=false;
 	}
 	public AI(Player p,String File){
 		opponent = p;
@@ -163,7 +166,7 @@ public class AI {
 			//JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 			move++;	
 		
-			hits[move] = ai.attack(opponent, x, y,"");
+			hits[move] = ai.attack(opponent, x, y,"",print);
 			moves[move] = new Point(x, (int)y - 97);
 			moveTypes[move] = 0;
 			if(hits[move]){
@@ -342,7 +345,7 @@ public class AI {
 				//JOptionPane.showMessageDialog(null, "the computer attacks square "+x+" , "+y, "AI move",JOptionPane.INFORMATION_MESSAGE);
 				numberOfAttempts=0;
 				move++;	
-				hits[move] = ai.attack(opponent, x, (char)(y + 97),"");
+				hits[move] = ai.attack(opponent, x, (char)(y + 97),"",print);
 				moves[move] = new Point(x, y);
 				moveTypes[move] = type;
 				if(hits[move]){
