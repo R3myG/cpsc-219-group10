@@ -54,11 +54,6 @@ public class Board {
 		int yint = (int)y - (int)'a';
 		return yint;
 	}
-	/*private char yConv(int y){
-		char ychar = (char)(y + 97);
-		return ychar;
-	}
-	*/
 	
 	/**
 	 * This method will check a block on either a player's own board or the opponent's board.
