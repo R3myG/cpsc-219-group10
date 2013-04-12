@@ -26,7 +26,10 @@ public class Convert {
 		return length;
 	}
 	public int moves(int i, int c){
-		return moves[i][c];
+		if(i<length)
+			return moves[i][c];
+		else 
+			return 0;
 	}
 	public void rotate(int numberOfRoatations){
 		int[][] hold = new int[length][2];

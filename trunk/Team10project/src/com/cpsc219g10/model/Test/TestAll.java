@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.cpsc219g10.model.*;
+import com.cpsc219g10.model.AI.Convert;
 import com.cpsc219g10.view.*;
 
 public class TestAll {
@@ -101,11 +102,21 @@ public class TestAll {
 			passed=false;
 			System.out.println("turn and draw error");	
 		}
+		//Convert
+		Convert file = new Convert("Test.txt");
+		if(file.moves(0,0)!=0 || file.moves(1,1)!=1){
+			passed=false;
+			System.out.println("convert Test Failed");	
+		}
+		file.rotate(0);
+		if(file.moves(0,0)!=0 || file.moves(1,1)!=8){
+			passed=false;
+			System.out.println("convert rotation Test Failed");	
+		}
 		if (passed = false) {
 			System.out.println("\nTests Failed");
 		} else {
 			System.out.println("\nTests passed");
 		}
-		
 	}
 }
