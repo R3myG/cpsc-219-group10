@@ -106,4 +106,4 @@ Logic:
 
 == AI Testing==
 AI testing is separated in to 2 main branches. The one branch is simply, does it work and can it run with out getting an error. The second is, can it be effective. We focused primarily on this aspect of the AI testing and generated an AI test file that runs ten thousand simulated matches where the AI attacks a player who has randomly placed Boats. it then counts the number of turns it takes to beat the player and outputs the average number of turns as well as a list of the number of games it won in x number of turns (x being a number from 1- 100) we then can take this data and graph it to determine the efficiency of each AI pattern. 
-http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/AIPatterns.jpg 
+http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/AIEfficiancies.JPG
