@@ -26,7 +26,7 @@ public class HomePanel extends ZContainer {
 		
 		this.panel.add(new JLabel(new ImageIcon("pictures/home.jpg")), BorderLayout.CENTER);
 		
-		JTextArea texte = new JTextArea("Welcome message\n");
+		JTextArea texte = new JTextArea("The most advanced BattleShip Game ever !\n");
 		texte.setFont(arial);
 		texte.setEditable(false);
 		texte.setBackground(Color.blue);

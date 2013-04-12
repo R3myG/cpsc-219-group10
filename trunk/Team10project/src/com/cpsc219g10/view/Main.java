@@ -1,7 +1,7 @@
 package com.cpsc219g10.view;
 /**
  * main function of the program 
- * @author Remy G
+ * @author G10
  *
  */
 
