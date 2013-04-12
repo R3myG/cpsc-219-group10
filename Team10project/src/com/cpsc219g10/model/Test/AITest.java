@@ -1,8 +1,9 @@
-package com.cpsc219g10.model.AI;
+package com.cpsc219g10.model.Test;
 
 import java.util.Random;
 
 import com.cpsc219g10.model.Player;
+import com.cpsc219g10.model.AI.AI;
 
 public class AITest {
 	public static void main(String[] args){
