@@ -21,6 +21,7 @@ public class turn {
 		p[0] = player;
 		p[1] = opponent;	
 		}
+	
 	/**
 	 * Sets up all of the variables for the game
 	 * @param adraw

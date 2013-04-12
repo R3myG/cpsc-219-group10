@@ -21,15 +21,5 @@ public class GameLauncher{
 			Player player = new Player(someName);
 			//player.setName(someName + i);
 		}
-		/*while (Winner.getName() == null) {
-			
-			// Play the game!
-			System.out.println("There is no winner!");
-		}
-		System.out.println("The winner is: " + Winner.getName());
-		*/
-		
-		
-		
 	}
 }

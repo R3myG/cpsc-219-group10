@@ -10,14 +10,14 @@ public class Point {
 	private int y;
 	
 	/**
-	 * Constructor takes the x and y cordenents of a location and turns them in to a point object
-	 * @param ax  x-corrdinent
-	 * @param ay  y-corrdinant
+	 * Constructor takes the x and y coordinate of a location and turns them in to a point object
+	 * @param ax  x-coordinate
+	 * @param ay  y-coordinate
 	 */
 	public Point(int ax, int ay) {
 		x = ax;
 		y = ay;
-		}
+	}
 	
 	public int x() {
 		return x;
@@ -73,4 +73,3 @@ public class Point {
 			return false;
 	}
 }
-
