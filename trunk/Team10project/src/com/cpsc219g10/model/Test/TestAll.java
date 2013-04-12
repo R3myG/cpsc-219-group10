@@ -20,21 +20,21 @@ public class TestAll {
 			}
 		}catch(ArrayIndexOutOfBoundsException aob){
 			passed=false;
-			System.out.println("Boats index out of bounds");
+			System.out.println("\nBoats index out of bounds");
 		}
 		try{
 			new Boat(5,"owner");
 			passed=false;
-			System.out.println("Boats index out of bounds");
+			System.out.println("\nBoats index out of bounds");
 		}catch(ArrayIndexOutOfBoundsException aob){
 		}
 		if(!boats[0].isMe(0,'a',true) || boats[0].isMe(0,'b',true)){
 			passed=false;
-			System.out.println("Boats isMe Failed.");
+			System.out.println("\nBoats isMe Failed.");
 		}
 		if(boats[0].isSunk()){
 			passed=false;
-			System.out.println("Boats isSunk Failed.");
+			System.out.println("\nBoats isSunk Failed.");
 		}
 		//Board
 		Board gb = new Board("owner");
@@ -44,7 +44,7 @@ public class TestAll {
 		}
 		}catch(ArrayIndexOutOfBoundsException aob){
 			passed=false;
-			System.out.println("Failed to place Boats");
+			System.out.println("\nFailed to place Boats");
 		}
 		if(gb.getSquare("owner",0,'a')!='B' ||
 		   gb.getSquare("owner",1,'a')!='E' ||
@@ -52,7 +52,7 @@ public class TestAll {
 		   gb.getSquare("owner",3,'e')!='B' ||
 		   gb.getSquare("owner",9,'a')!='E'){
 			passed=false;
-			System.out.println("boat Placements do not match");
+			System.out.println("\nboat Placements do not match");
 		}
 		for(int i=0;i<9;i++){
 			gb.targetSquare(i,(char)(i+'a'));
@@ -63,12 +63,17 @@ public class TestAll {
 		   gb.getSquare("owner",5,'g')!='M' ||
 		   gb.getSquare("owner",6,'h')!='M'){
 				passed=false;
-				System.out.println("board targeting do not match");
+				System.out.println("\nboard targeting do not match");
 		}
 		//player
 		if(!PlayerTest.main()){
 			passed=false;
-			System.out.println("Player Failed");	
+			System.out.println("\nPlayer Failed");	
+		}
+		if (passed = false) {
+			System.out.println("\nTests Failed");
+		} else {
+			System.out.println("\nTests Done");
 		}
 		//turn draw
 		Player p1,p2, winner=null;
