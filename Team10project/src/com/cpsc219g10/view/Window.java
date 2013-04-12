@@ -71,7 +71,7 @@ public class Window extends JFrame{
 				//initModel();
 			}	    	
 	    });
-	    //set score in file
+	    /*set score in file
 	    score = new JMenuItem("Score");
 	    score.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
 	                                                KeyEvent.CTRL_MASK));
@@ -80,7 +80,7 @@ public class Window extends JFrame{
 			conteneur.removeAll();
 			
 		}
-    });
+    }); */
     	//set quit in file
 	    quit = new JMenuItem("Quit");
 	    quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
@@ -93,7 +93,7 @@ public class Window extends JFrame{
 	    //add all the previous to file
 	    file.add(home);
 	    file.add(newgame);
-	    file.add(score);
+	    //file.add(score);
 	    file.addSeparator();
 	    file.add(quit);
 	    
