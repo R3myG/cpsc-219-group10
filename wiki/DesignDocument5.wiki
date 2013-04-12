@@ -20,6 +20,10 @@ In deliverable three we described a possibility of adding an AI to the game. Thi
 
 There has now been a set of rules added to the interface that you can view before the game starts. These rules briefly explain how to play the game. They include: how do place your boats, how to attack, how to switch turns and most importantly, how to win!
 
+The AI that was mentioned previously has now been completed. It follows an algorithm that will be randomized, to prevent the players from memorizing the pattern of the AI and placing their boats strategically to counter it. There are also graphs that can be produced to see how many turns the AI takes to win on average at different difficulty levels.
+
+The AI was the last section of the project to be complete, thus finishing the project.
+
 == UML Diagram for the Final Product ==
 http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png 
 
