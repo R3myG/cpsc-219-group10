@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.cpsc219g10.model.*;
+import com.cpsc219g10.model.AI.AI;
 import com.cpsc219g10.model.AI.Convert;
 import com.cpsc219g10.view.*;
 
@@ -112,6 +113,14 @@ public class TestAll {
 		if(file.moves(0,0)!=0 || file.moves(1,1)!=8){
 			passed=false;
 			System.out.println("convert rotation Test Failed");	
+		}
+		//AI
+		try{
+		Player jim =  new Player("harry");
+		AI bob = new AI(jim);
+		}catch(Exception e){
+			passed=false;
+			System.out.println("AI Failed to construct");	
 		}
 		if (passed = false) {
 			System.out.println("\nTests Failed");
