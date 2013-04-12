@@ -302,7 +302,6 @@ public class AI {
 	 * attacks in-line with the last 2 attacks
 	 */
 	private void attackInLine() {
-		System.out.println("attackInLine");
 		if(moves[move - 1].x() < moves[move].x()){
 			if(attack(moves[move].x() + 1, moves[move].y(),ATTACKINLINE))
 				{return;}
