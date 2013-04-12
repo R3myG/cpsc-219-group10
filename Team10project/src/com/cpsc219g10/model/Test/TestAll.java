@@ -82,6 +82,7 @@ public class TestAll {
 		JFrame frame= new JFrame();
 		JPanel pan = new JPanel();
 		frame.setSize(new Dimension(1400,800));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(pan);
 		frame.setVisible(true);
 		draw draw = new draw(pan.getGraphics());
