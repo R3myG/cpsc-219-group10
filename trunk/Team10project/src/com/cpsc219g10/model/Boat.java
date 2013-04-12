@@ -70,7 +70,7 @@ public class Boat {
 	 * @param x
 	 * @param y
 	 */
-	public boolean isMe(int x,char cy,boolean AI) {
+	public boolean isMe(int x,char cy,boolean AI,boolean print) {
 		x--;
 		int y = cy - 97;
 		
@@ -86,15 +86,17 @@ public class Boat {
 		for(int i = 0; i < length; i++) {
 			if(this.x + (i * horizontal) == x && this.y + (i * vertical) == y){
 				health--;
-				if(isSunk()){
-					if(AI){}
-						//JOptionPane.showMessageDialog(null,"the computer sunk your "+type+"!");
+				if(isSunk()&&print){
+					if(AI){
+						JOptionPane.showMessageDialog(null,"the computer sunk your "+type+"!");
+					}
 					else
 						JOptionPane.showMessageDialog(null,"you sunk my "+type+"!");
 				}
-				else{
-					if(AI){}
-						//JOptionPane.showMessageDialog(null,"the Computer hit you!");
+				else if(print){
+					if(AI){
+						JOptionPane.showMessageDialog(null,"the Computer hit you!");
+					}
 					else
 						JOptionPane.showMessageDialog(null,"you hit!");
 				}
