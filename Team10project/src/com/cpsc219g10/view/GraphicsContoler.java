@@ -21,8 +21,6 @@ public class GraphicsContoler extends MouseAdapter{
 	}
 	public void mouseClicked(MouseEvent e) {
 		if(playing){
-	    	//output attack coordednets for debug
-	    	System.out.println("click!@" + e.getX() + " " + e.getY());
 	    	
 	    	//play a round of the game
 	    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
@@ -50,7 +48,7 @@ public class GraphicsContoler extends MouseAdapter{
     		if(oneclick) {
 	    		game.refresh(placing);
 	    		if(game.place(lastclickX, lastclickY, e.getX(), e.getY())) {
-	    			blank = true; System.out.println("blank is true");
+	    			blank = true;
 	    			}
 	    		oneclick = false;
 	    		if(!game.allready()) {

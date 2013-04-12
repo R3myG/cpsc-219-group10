@@ -44,14 +44,13 @@ public class GraphicGenerator {
 		}
 		game.set(idraw,winner);
 
-		//set game to have the aproptiate players and canvas
+		//set game to have the appropriate players and canvas
 
 		//initiate the board
 		idraw.drawplyaterBoard(p[0],false);
 		idraw.drawBoats(p[0], 0);
-		//add mouse listener. to get x and y coordenants of mosue position.
+		//add mouse listener. to get x and y coordinates of mouse position.
 		if(gameType==0){
-			System.out.println("AIGraphicsControler try");
 			pan.addMouseListener(new AIGraphicsControler(idraw,game));
 		}
 		else

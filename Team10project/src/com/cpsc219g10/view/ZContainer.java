@@ -1,6 +1,6 @@
 package com.cpsc219g10.view;
 /**
- * This class is used to set the characters used in the differents pages
+ * This class is used to set the characters used in the different pages
  */
 import java.awt.Color;
 import java.awt.Dimension;

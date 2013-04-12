@@ -12,7 +12,7 @@ public class AIGraphicsControler extends GraphicsContoler {
 	}
 	public void mouseClicked(MouseEvent e) {
 		if(playing){
-	    	//output attack coordednets for debug	    	
+	    	//output attack coordinates for debug	    	
 	    	//play a round of the game
 	    	if(e.getX() > 500 && e.getX() < 750 && e.getY() > 300 && e.getY() < 420) {
 	    		game.refresh(placing);
