@@ -89,9 +89,14 @@ public class TestAll {
 		turn turn = new turn(p1,p2);
 		turn.set(draw,winner);
 		turn.place(1,1,2,1);
+		turn.place(1,1,2,1);
+		turn.place(2,2,3,2);
 		turn.place(2,2,3,2);
 		turn.place(3,3,4,3);
+		turn.place(3,3,4,3);
 		turn.place(4,4,5,4);
+		turn.place(4,4,5,4);
+		turn.place(5,5,6,5);
 		turn.place(5,5,6,5);
 		turn.play(1,1);
 
