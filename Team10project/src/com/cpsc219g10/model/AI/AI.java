@@ -49,14 +49,19 @@ public class AI {
 		con = new Convert();
 		con.rotate(gen.nextInt(3));
 	}
-	public AI(boolean print){
-		print=false;
+	public AI(Player p, boolean print){
+		this(p);
+		this.print=print;
 	}
 	public AI(Player p,String File){
 		opponent = p;
 		setBoard();
 		con = new Convert(File);
 		con.rotate(gen.nextInt(3));
+	}
+	public AI(Player p,String File, boolean print){
+		this(p,File);
+		this.print=print;
 	}
 	public Player getAI(){
 		return ai;

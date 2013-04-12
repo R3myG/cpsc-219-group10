@@ -8,9 +8,9 @@ public class AITest {
 	public static void main(String[] args){
 		int count=0;
 		int[] counts=new int[200];
-		for(int rec=0;rec<5;rec++){
+		for(int rec=0;rec<10000;rec++){
 			Player p= new Player("Gavin");
-			AI comp = new AI(p);
+			AI comp = new AI(p,"Patern1.txt",false);
 			Random gen = new Random();
 			for(int i=0;i<5;i++){
 				do{
