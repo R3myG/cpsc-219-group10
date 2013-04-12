@@ -83,7 +83,7 @@ public class Window extends JFrame{
     }); */
     	//set quit in file
 	    quit = new JMenuItem("Quit");
-	    quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
+	    quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
 	                                                  KeyEvent.CTRL_MASK));
 	    quit.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
