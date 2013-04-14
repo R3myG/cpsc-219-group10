@@ -132,6 +132,7 @@ http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png
 
 The AI was designed so that it could be implemented through the simple command attack(), that would travers the entire aspect of attacking a player. the basic break down of the AI logic is as follows,
 _BoatNotFound_
+
 when the AI has not found a Boat(it either has yet to find a ship or has not found another ship since the last one was sank) the AI has 3 possibilites
 
   * Attack Possibles - the AI has its own version of a board where it keeps data on the player its mostly a copy of the AI's game board though when ever it sinks a ship it removes it from the board. the first thing the AI will do is look threw this board for any "Hit Space" and attacks around the space. this is because any space that is a Hit space contained a boat though that boat has yet to be sank so at least one adjacent square will also be a hit"
@@ -139,6 +140,7 @@ when the AI has not found a Boat(it either has yet to find a ship or has not fou
   * Random Attack - random attack the the most default of attacks the AI simply generates 2 random numbers and attacks that square. if the square is not attackable it regenerates numbers and tries again.
 
 _BoatFound_
+
 once the AI has hit an enemy boat it flips a boolean to true telling itself that there is a boat there. from this point it follows a simple progression of patterns till the boat is sunk.
 
   * Attack Around - the AI begins by attacking squares adjacent to the Hit Space. picking a random direction each turn to attack
