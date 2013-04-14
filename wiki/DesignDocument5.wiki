@@ -130,7 +130,8 @@ http://cpsc-219-group10.googlecode.com/svn/trunk/Team10project/ClassDiagram.png
 
 == AI Strategy algorithm ==
 
-The AI was designed so that it could be implemented through the simple command attack(), that would travers the entire aspect of attacking a player. the basic break down of the AI logic is as follows,
+The AI was designed so that it could be implemented through the simple command attack(), that would travers the entire aspect of attacking a player. the basic break down of the AI logic is as follows.
+
 _BoatNotFound_
 
 when the AI has not found a Boat(it either has yet to find a ship or has not found another ship since the last one was sank) the AI has 3 possibilites
